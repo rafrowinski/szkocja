@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Szkocja – lista miejsc z Instagrama</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root { --bg:#101418; --card:#1a2027; --txt:#e8e6e3; --muted:#9aa4af; --accent:#7fb4e6; --gold:#e6c97f; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--txt); line-height:1.5; }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px 16px 60px; }
+  h1 { font-size:1.9em; margin:.2em 0 .1em; }
+  h2 { color:var(--gold); border-bottom:1px solid #333; padding-bottom:6px; margin-top:2em; }
+  h3 { color:var(--accent); margin:1.4em 0 .5em; }
+  .sub { color:var(--muted); margin-bottom:1.5em; }
+  table { width:100%; border-collapse:collapse; font-size:.93em; }
+  th { text-align:left; color:var(--muted); font-weight:600; padding:8px 10px; border-bottom:2px solid #333; }
+  td { padding:8px 10px; border-bottom:1px solid #262d35; vertical-align:top; }
+  tr:hover { background:#1d242c; }
+  .r { white-space:nowrap; color:var(--gold); font-weight:600; }
+  .n { color:var(--muted); font-size:.9em; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .map { height:520px; border-radius:12px; margin:14px 0 6px; border:1px solid #333; }
+  .legend { color:var(--muted); font-size:.85em; margin-bottom:20px; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; }
+  .badge { display:inline-block; background:#2a3440; color:var(--gold); border-radius:5px; padding:1px 7px; font-size:.8em; margin-left:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Szkocja — miejsca z Twojej kolekcji „Scotland”</h1>
+<p class="sub">Z 67 zapisanych postów wyciągnąłem wszystkie konkretne miejsca. Oceny: Google / TripAdvisor / inne portale (stan: lipiec 2026). IG = link do posta źródłowego.</p>
+
+<h2>🏙️ Edynburg</h2>
+
+<h3>🍽️ Jedzenie i picie</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Panda &amp; Sons</b> — 79 Queen St</td><td class="r">🏆 #1 świata</td><td class="n">Speakeasy za zakładem fryzjerskim. Najlepszy bar świata wg Top 500 Bars 2025, #34 World's 50 Best Bars.</td><td><a href="https://www.instagram.com/p/DWT_79VjEkW/">IG</a></td></tr>
+<tr><td><b>Makars Mash Bar</b> — 9 North Bank St</td><td class="r">4.8 G</td><td class="n">Szkocki comfort food: jagnięcina, haggis, puree w wielu wariantach. Jedna z najlepiej ocenianych restauracji w mieście.</td><td><a href="https://www.instagram.com/p/DVD39oxiD2_/">IG</a></td></tr>
+<tr><td><b>Dumpling Queen x Dai Jou Bu</b> — 52 Blackfriars St</td><td class="r">4.8 G / 4.7 RG</td><td class="n">Najlepsze pierogi w Edynburgu, autorski haggis dumpling. Pt/Sob od 12:00.</td><td><a href="https://www.instagram.com/p/DVb72J1jUc8/">IG</a></td></tr>
+<tr><td><b>Colonnades at the Signet Library</b></td><td class="r">4.8 TA / 9.8 TheFork</td><td class="n">Afternoon tea w zabytkowej bibliotece przy Parliament Square.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Kay's Bar</b> — 39 Jamaica St</td><td class="r">4.6 G/TA</td><td class="n">Maleńki wiktoriański pub w dawnym składzie win. Instytucja New Town.</td><td><a href="https://www.instagram.com/p/DaVstdasME5/">IG</a></td></tr>
+<tr><td><b>Kezban Mediterranean</b> — Commercial St, Leith</td><td class="r">4.4 G / 4.6 RG</td><td class="n">Autentyczna kuchnia turecka, ręcznie robione meze — ulubieniec mieszkańców Leith. TA #85 w mieście.</td><td><a href="https://www.instagram.com/p/DY7hvISs_e9/">IG</a></td></tr>
+<tr><td><b>The Milkman</b> — 7 Cockburn St</td><td class="r">4.6 (1,4 tys.) / 4.5 TA</td><td class="n">Kultowa mała kawiarnia w kamiennym budynku jak z Harry'ego Pottera.</td><td><a href="https://www.instagram.com/p/DVD39oxiD2_/">IG</a></td></tr>
+<tr><td><b>Croccante &amp; Co</b> — 2 Lynedoch Pl (West End)</td><td class="r">TA: entuzjastyczne</td><td class="n">Sycylijskie schiacciaty; wg edinburgh_local najlepsza kanapka w mieście. Mały lokal, bywa tłok.</td><td><a href="https://www.instagram.com/p/DavuY0FMT94/">IG</a></td></tr>
+<tr><td><b>Lannan Bakery</b> — Hamilton Pl, Stockbridge</td><td class="r">4.1 TA</td><td class="n">Najbardziej viralowa cukiernia w mieście — kolejki do 2 h, otwarte czw–nd do wyprzedania.</td><td><a href="https://www.instagram.com/p/DWPVnhrDF_G/">IG (Lennan post)</a></td></tr>
+<tr><td><b>Arcade Haggis &amp; Whisky House</b> — 48 Cockburn St</td><td class="r">4.3 TA / 4.8 RG</td><td class="n">Klasyczne miejsce na haggis (spróbuj wersji „Diana”).</td><td><a href="https://www.instagram.com/p/DVD39oxiD2_/">IG</a></td></tr>
+<tr><td><b>Queen Charlotte Rooms</b> — 56a Queen Charlotte St, Leith</td><td class="r">TA: „najlepsza herbatka w życiu”</td><td class="n">Afternoon tea w replice wagonu Orient Expressu — ekrany-okna z widokami z trasy. Rezerwuj z dużym wyprzedzeniem.</td><td><a href="https://www.instagram.com/p/DZVJg7FsC_1/">IG</a></td></tr>
+<tr><td><b>The Dome</b> — 14 George St</td><td class="r">4.4 TA (9 tys. opinii)</td><td class="n">Dawny bank z przepiękną kopułą; afternoon tea w Georgian Tea Room.</td><td><a href="https://www.instagram.com/p/DBO8eF6q9x1/">IG</a></td></tr>
+<tr><td><b>Guildford Arms</b> — 1-5 W Register St</td><td class="r">4.5 G / 4.2 TA</td><td class="n">Wiktoriański pub z 1896 r. ze „złotej ery” budowy pubów; real ale.</td><td><a href="https://www.instagram.com/p/DSxIbPRgIuc/">IG</a></td></tr>
+<tr><td><b>St Bernard's Bar</b> — Raeburn Pl, Stockbridge</td><td class="r">opinie skrajne</td><td class="n">Ekscentryczny pub z winylami i speakeasy na górze — jedni go kochają, inni narzekają na obsługę.</td><td><a href="https://www.instagram.com/p/DWbzPpYjPKG/">IG</a></td></tr>
+<tr><td><b>Seoul Nibbles</b> — Grassmarket (police box)</td><td class="r">5.0</td><td class="n">Koreański street food z bułeczkami „highland cow”. Sezonowo: paź–mar, czw–pn 11–17.</td><td><a href="https://www.instagram.com/p/DWHBavwjUZ7/">IG</a></td></tr>
+<tr><td><b>The Witchery by the Castle</b> — Castlehill</td><td class="r">4.2 TA + nagrody AA 5★</td><td class="n">Gotycka, świecowa restauracja przy zamku. Drogo, ale klimat unikatowy.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>Black Medicine Coffee Co</b> — 2 Nicolson St</td><td class="r">4.3 RG / 4.1 TA</td><td class="n">Kamienne mury, klimat „witchy”, ulubione miejsce studentów.</td><td><a href="https://www.instagram.com/p/DV9JHbIDPD0/">IG</a></td></tr>
+<tr><td><b>Books N' Cup</b> — 23 Home St</td><td class="r">4.6 TA</td><td class="n">Kawa wśród regałów z książkami; świetna gorąca czekolada, opcje bezglutenowe.</td><td><a href="https://www.instagram.com/p/DV9JHbIDPD0/">IG</a></td></tr>
+<tr><td><b>The Elephant House</b> — 30 Victoria St</td><td class="r">3.7 TA / 3.9 G</td><td class="n">„Miejsce narodzin” Harry'ego Pottera — dziś głównie atrakcja turystyczna, oceny przeciętne.</td><td><a href="https://www.instagram.com/p/DV9JHbIDPD0/">IG</a></td></tr>
+<tr><td><b>The Marshmallow Lady</b> — Rodney St</td><td class="r">4.6 RG</td><td class="n">Gorąca czekolada z górą opiekanych domowych pianek.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>The Cocktail Geeks</b> — 32 Market St</td><td class="r">tematyczne popupy</td><td class="n">Bar koktajlowy zmieniający wystrój (w poście: motyw Fallout).</td><td><a href="https://www.instagram.com/p/DGNOlpwKvfz/">IG</a></td></tr>
+<tr><td><b>Frankenstein Pub</b> — 26 George IV Bridge</td><td class="r">klimat &gt; kuchnia</td><td class="n">Pub w dawnym kościele; animatroniczny potwór zjeżdża z sufitu, karaoke w niedziele.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>The Banshee Labyrinth</b> — Niddry St</td><td class="r">opinie mieszane</td><td class="n">„Najbardziej nawiedzony pub Szkocji” — labirynt sal, darmowe kino, koncerty.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>NeighbourGood Market</b> — Stockbridge (sezonowo)</td><td class="r">—</td><td class="n">Letni market plenerowy z jedzeniem i drinkami (w poście: do 2 sierpnia).</td><td><a href="https://www.instagram.com/p/DYHdsqaMTe-/">IG</a></td></tr>
+<tr><td><b>Old Chain Pier</b> — Newhaven (Sea Shanty Night)</td><td class="r">—</td><td class="n">Wieczory szant z Edinburgh Shanty Night — wspólne śpiewanie nad wodą.</td><td><a href="https://www.instagram.com/p/DUiS6zdjKKp/">IG</a></td></tr>
+<tr><td><b>The St Vincent Bar</b> — 11 St Vincent St</td><td class="r">4.6 G</td><td class="n">Pub w Stockbridge — tu piłeś grzany gin (mulled gin), jak grzaniec, ale z ginem.</td><td><a href="https://www.instagram.com/p/DU0CClaDOG5/">IG</a></td></tr>
+</table>
+
+<h3>🏰 Atrakcje i miejsca</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Victoria Street</b> + Museum Context + House of MinaLima</td><td class="r">ikona miasta</td><td class="n">Kolorowa ulica-inspiracja Pokątnej; sklepy dla fanów HP.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>The Vennel Steps</b></td><td class="r">—</td><td class="n">200-letnie schody z klasycznym widokiem na zamek. #1 na liście „12 miejsc, które musisz zobaczyć”.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Dean Village</b></td><td class="r">—</td><td class="n">Dawna osada młynarzy nad Water of Leith — najbardziej malowniczy zakątek miasta.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>Scott Monument</b></td><td class="r">—</td><td class="n">61 m, 287 schodów na szczyt — największy pomnik pisarza na świecie.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>Greyfriars Kirkyard</b> + zamknięty grobowiec</td><td class="r">—</td><td class="n">Nawiedzony cmentarz; grobowiec „Bloody" Mackenziego zamknięty na kłódkę — „żeby coś nie wyszło”.</td><td><a href="https://www.instagram.com/p/DMuRK6YMQ-6/">IG</a></td></tr>
+<tr><td><b>National Museum of Scotland</b></td><td class="r">top muzeum, darmowe</td><td class="n">M.in. historia szkockich procesów czarownic.</td><td><a href="https://www.instagram.com/p/DFvZnSuqDZr/">IG</a></td></tr>
+<tr><td><b>Surgeons' Hall Museums</b></td><td class="r">#21 atrakcji TA</td><td class="n">Kolekcja patologii, historia Burke'a i Hare'a. Nie dla wrażliwych.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>Museum of Magic, Fortune-telling &amp; Witchcraft</b></td><td class="r">~4.0</td><td class="n">Małe muzeum okultyzmu przy Royal Mile; £7.50.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>Witches' Well</b> — esplanada zamku</td><td class="r">—</td><td class="n">Pomnik straconych za czary.</td><td><a href="https://www.instagram.com/p/DFvZnSuqDZr/">IG</a></td></tr>
+<tr><td><b>St Cuthbert's Kirkyard</b> i <b>Princes Street Gardens</b></td><td class="r">—</td><td class="n">Cmentarz z widokiem na zamek; ogrody na miejscu dawnego Nor' Loch, gdzie topiono „czarownice”.</td><td><a href="https://www.instagram.com/p/DBEpKpDK_qf/">IG</a></td></tr>
+<tr><td><b>New College</b> (uniwersytet)</td><td class="r">—</td><td class="n">Neogotycki dziedziniec — „ukryte podwórko” jak z Hogwartu.</td><td><a href="https://www.instagram.com/p/C63E98TorOm/">IG</a></td></tr>
+<tr><td><b>Cockburn Street / Royal Mile</b></td><td class="r">—</td><td class="n">Kręta wiktoriańska uliczka + historyczna oś Starego Miasta.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>„Dziki Zachód"</b> — Springvalley Gardens, Morningside</td><td class="r">ciekawostka</td><td class="n">Ukryta uliczka stylizowana na western.</td><td><a href="https://www.instagram.com/p/DXKRI3TDHLs/">IG</a></td></tr>
+<tr><td><b>Craigmillar Castle</b></td><td class="r">b. pozytywne</td><td class="n">Klimatyczne ruiny z historią Marii Stuart, mało turystów. Bus 33/49.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Scotsman Picturehouse</b></td><td class="r">4.6 (222 opinie)</td><td class="n">Butikowe kino w stylu art deco w hotelu Scotsman — fotele uszaki, stoliczki.</td><td><a href="https://www.instagram.com/p/DVWRpx3jOCZ/">IG</a></td></tr>
+<tr><td><b>Ghost Bus Tours</b></td><td class="r">8.8/10 Booking</td><td class="n">Komediowo-straszna wycieczka zabytkowym autobusem po mrocznym Edynburgu.</td><td><a href="https://www.instagram.com/p/DFYfZT4MLjF/">IG</a></td></tr>
+<tr><td><b>Royal Botanic Garden (Botanics)</b></td><td class="r">—</td><td class="n">Szklarnie i spokój od zgiełku miasta.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Scottish National Portrait Gallery</b></td><td class="r">darmowa</td><td class="n">Neogotycki gmach, świetna kolekcja.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Writers' Museum</b></td><td class="r">darmowe</td><td class="n">Burns, Scott, Stevenson — w zaułku Lady Stair's Close.</td><td><a href="https://www.instagram.com/p/DGbN05kqFuW/">IG</a></td></tr>
+<tr><td><b>Tron Kirk Market</b></td><td class="r">—</td><td class="n">Dawny kościół zamieniony w market z rękodziełem.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>The Meadows</b></td><td class="r">—</td><td class="n">Park — przytulne zakątki na piknik.</td><td><a href="https://www.instagram.com/p/DE0N-IbKX6m/">IG</a></td></tr>
+<tr><td><b>Beltane Fire Festival</b> — Calton Hill (30 IV) i <b>Samhuinn</b> — Royal Mile (31 X)</td><td class="r">wydarzenia</td><td class="n">Celtyckie festiwale ognia.</td><td><a href="https://www.instagram.com/p/DXdHmPADX3Y/">IG</a></td></tr>
+<tr><td><b>Alpine Coaster — Midlothian Snowsports (Hillend)</b></td><td class="r">nowość</td><td class="n">Górska kolejka na obrzeżach miasta (#10 na liście „unikatów Szkocji”).</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+</table>
+
+<h3>🛍️ Sklepy niezależne i „witchy”</h3>
+<table>
+<tr><th>Miejsce</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Wheel of Fate</b></td><td class="n">Tarot, warsztaty robienia mioteł i grimoire'ów.</td><td><a href="https://www.instagram.com/p/DBEpKpDK_qf/">IG</a></td></tr>
+<tr><td><b>Portal Leith</b></td><td class="n">Ezoteryczno-„witchy” sklep w Leith.</td><td><a href="https://www.instagram.com/p/DWWScfIDJhx/">IG</a></td></tr>
+<tr><td><b>Blackmoon Botanica</b></td><td class="n">Świece, zioła, magiczne akcesoria.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Wizardrops Aromatherapy</b></td><td class="n">Zielarski sklep z naturalnymi remediami.</td><td><a href="https://www.instagram.com/p/DX9wyOgivQf/">IG</a></td></tr>
+<tr><td><b>Topping &amp; Company</b></td><td class="n">Labiryntowa księgarnia z drabinami.</td><td><a href="https://www.instagram.com/p/DBEpKpDK_qf/">IG</a></td></tr>
+<tr><td><b>Armchair Books</b> / <b>McNaughtan's</b> / <b>The Gently Mad</b></td><td class="n">Antykwariaty — od „zorganizowanego chaosu” po białe kruki.</td><td><a href="https://www.instagram.com/p/DGbN05kqFuW/">IG</a></td></tr>
+<tr><td><b>Armstrong &amp; Son</b> (Grassmarket)</td><td class="n">Legendarny vintage.</td><td><a href="https://www.instagram.com/p/DGbN05kqFuW/">IG</a></td></tr>
+<tr><td><b>Curiouser</b> / <b>Time &amp; Tide</b></td><td class="n">Kurioza i minimalistyczne homeware.</td><td><a href="https://www.instagram.com/p/DX9wyOgivQf/">IG</a></td></tr>
+<tr><td><b>Scottish Design Exchange</b> — 117-119 George St</td><td class="n">Ponad 300 szkockich artystów i projektantów w jednym miejscu; 100% ceny trafia do twórców.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
+<tr><td><b>Two Skies</b> — 5 High St (Royal Mile)</td><td class="n">Biżuteria ze szkockich kamieni i srebra.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
+<tr><td><b>Celtic Craft Centre</b> — Paisley Close, 101 High St</td><td class="n">Kiltmaker z Royal Mile — jedni z najlepszych w mieście.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
+</table>
+
+<div id="map-edi" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy</p>
+
+<h2>🌄 Reszta Szkocji</h2>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Glencruitten House</b> — k. Oban</td><td class="r">TA: wybitne</td><td class="n">Kolacja-opowieść inspirowana mitologią szkocką (legenda Beiry) — „najlepszy posiłek w życiu” wg gości.</td><td><a href="https://www.instagram.com/p/DaQfjmjCj0H/">IG</a></td></tr>
+<tr><td><b>St Conan's Kirk</b> — Loch Awe</td><td class="r">100% polecane</td><td class="n">Najbardziej „magiczny” kościół Szkocji, eklektyczna perła nad jeziorem.</td><td><a href="https://www.instagram.com/p/DWg_Yo5iM6l/">IG</a></td></tr>
+<tr><td><b>Puck's Glen</b> — k. Dunoon</td><td class="r">4.8 AllTrails</td><td class="n">Omszały wąwóz z wodospadami jak z baśni.</td><td><a href="https://www.instagram.com/p/DGJMLr_KjGh/">IG</a></td></tr>
+<tr><td><b>Dunrobin Castle</b> — Golspie</td><td class="r">b. wysokie</td><td class="n">Bajkowy zamek nad morzem, pokazy sokolnictwa.</td><td><a href="https://www.instagram.com/p/DNJMbpdMZxV/">IG</a></td></tr>
+<tr><td><b>Culross</b> — Fife (+ Bessie's Café)</td><td class="r">—</td><td class="n">Miasteczko zatrzymane w czasie (plenery Outlandera).</td><td><a href="https://www.instagram.com/p/DNJMbpdMZxV/">IG</a></td></tr>
+<tr><td><b>Calanais Standing Stones</b> — Lewis</td><td class="r">—</td><td class="n">Megality starsze od Stonehenge.</td><td><a href="https://www.instagram.com/p/DNJMbpdMZxV/">IG</a></td></tr>
+<tr><td><b>Stirling Castle</b></td><td class="r">b. pozytywne</td><td class="n">Pociąg z Waverley ~50 min.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>National Wallace Monument</b> — Stirling</td><td class="r">pozytywne</td><td class="n">246 schodów do miecza Wallace'a (1,68 m, ~3 kg) i panoramy.</td><td><a href="https://www.instagram.com/p/DWPVnhrDF_G/">IG</a></td></tr>
+<tr><td><b>Linlithgow Palace</b></td><td class="r">b. pozytywne</td><td class="n">Pociąg 20 min z Waverley. Miejsce urodzenia Marii Stuart.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Blackness Castle</b></td><td class="r">b. pozytywne</td><td class="n">Surowa twierdza nad wodą („Fort William” w Outlanderze). Pociąg do Linlithgow + bus F49.</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Rosslyn Chapel</b> — Roslin</td><td class="r">b. wysokie</td><td class="n">Kaplica z Kodu Da Vinci; bus 37 (~40 min).</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Dunfermline Abbey</b> (+ Prost Coffee)</td><td class="r">—</td><td class="n">Grób Roberta Bruce'a; pociąg 30 min. Kawa z widokiem na opactwo w Prost.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Aberdour Castle</b></td><td class="r">—</td><td class="n">Jeden z najstarszych zamków Szkocji; pociąg ~30 min.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Dirleton Castle</b></td><td class="r">—</td><td class="n">Bus X5 z Edynburga.</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Abbotsford House</b> — Melrose</td><td class="r">—</td><td class="n">Dom Waltera Scotta; pociąg do Tweedbank.</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Preston Mill</b> — East Linton</td><td class="r">—</td><td class="n">Malowniczy młyn (znany z Outlandera).</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Glen Coe</b> + Clachaig Gully</td><td class="r">—</td><td class="n">Najsłynniejsza dolina Szkocji; okolice chaty Hagrida z filmów HP.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Steall Falls</b> — Glen Nevis</td><td class="r">—</td><td class="n">Drugi najwyższy wodospad Szkocji, dojście z mostkiem linowym.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Glenfinnan Viaduct</b> + <b>Jacobite Steam Train</b></td><td class="r">ikona</td><td class="n">Most Hogwart Expressu; parowóz z Fort William do Mallaig.</td><td><a href="https://www.instagram.com/p/DOyb2mqjE66/">IG</a></td></tr>
+<tr><td><b>Loch Shiel</b> i <b>Eilean na Mòine</b> (Loch Eilt)</td><td class="r">—</td><td class="n">„Czarne Jezioro” i wysepka-grób Dumbledore'a.</td><td><a href="https://www.instagram.com/p/DOyb2mqjE66/">IG</a></td></tr>
+<tr><td><b>Camusdarach Beach</b> — k. Mallaig</td><td class="r">—</td><td class="n">Biały piasek, widok na Rum i Eigg.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Skye: Quiraing, Old Man of Storr, Fairy Pools</b> + <b>Creel Seafood Bar</b> (Elgol) + <b>Highland Cow Shop</b> (Portree)</td><td class="r">—</td><td class="n">Klasyka wyspy Skye + seafood z widokiem na Cuillin.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Eilean Donan Castle</b></td><td class="r">—</td><td class="n">Najbardziej fotografowany zamek Szkocji.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>The Hermitage</b> — Dunkeld</td><td class="r">—</td><td class="n">Las z wodospadem Black Linn i Ossian's Hall.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Fingal's Cave</b> — Staffa</td><td class="r">rejsy: pozytywne</td><td class="n">Bazaltowa jaskinia-katedra; rejsy Staffa Tours z Mull/Iony.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>The Open Book</b> — Wigtown</td><td class="r">4.9 Airbnb</td><td class="n">Nocleg, w którym prowadzisz własną księgarnię — rezerwacje na 2 lata naprzód.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Sauna Cruise</b> — Loch Tay (Kenmore)</td><td class="r">unikat</td><td class="n">Pływająca sauna na jeziorze.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>The Kelpies</b> i <b>Falkirk Wheel</b></td><td class="r">ikony inżynierii</td><td class="n">30-metrowe końskie głowy + jedyna na świecie obrotowa winda dla łodzi.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Glenelg Turntable Ferry</b></td><td class="r">unikat</td><td class="n">Ostatni ręcznie obracany prom (na Skye).</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Discovery Mast Climb</b> — Dundee</td><td class="r">nowość</td><td class="n">Wspinaczka na maszt statku RRS Discovery.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Gearrannan Blackhouse Village</b> — Lewis</td><td class="r">4.0 TA</td><td class="n">Wioska tradycyjnych „blackhouses” — można nocować.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Bridge Castle</b> — (West Lothian/Perthshire)</td><td class="r">—</td><td class="n">Zamek do wynajęcia na noc (z listy „unikatów”).</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Up Helly Aa</b> — Lerwick, Szetlandy</td><td class="r">wydarzenie (I–III)</td><td class="n">Wikiński festiwal ognia z paleniem galery.</td><td><a href="https://www.instagram.com/p/DFYVAHisqSg/">IG</a></td></tr>
+<tr><td><b>Kawiarnie z widokiem:</b> Boat Shed (Lochgoilhead), Drift (North Berwick), Harbourmaster's Café (Dysart), Crail Harbour Gallery &amp; Café</td><td class="r">—</td><td class="n">Kawa z widokiem na loch, Bass Rock i porty Fife.</td><td><a href="https://www.instagram.com/p/DV4D7tQjLOl/">IG</a></td></tr>
+<tr><td><b>Przystanki „hidden gems":</b> Chocolate Barn (Dalkeith), Kerrera Tea Garden, Smithy at Sandyford (Prestwick), Secret Garden Café (Pentlands), Errington's Barn (Biggar)</td><td class="r">—</td><td class="n">Małe kawiarnie/sklepiki na trasie.</td><td><a href="https://www.instagram.com/p/DXM5EmBjEk_/">IG</a></td></tr>
+<tr><td><b>Elie Chainwalk</b> — Fife</td><td class="r">—</td><td class="n">Nadmorska „via ferrata” z łańcuchami na klifach Kincraig Point. Tylko przy odpływie!</td><td><a href="https://www.instagram.com/p/DadojocDpwK/">IG</a></td></tr>
+<tr><td><b>Loch Goil Cruisers</b> — Lochgoilhead</td><td class="r">—</td><td class="n">Wynajem motorówek na Loch Goil (bez patentu).</td><td><a href="https://www.instagram.com/p/DadojocDpwK/">IG</a></td></tr>
+<tr><td><b>Cairngorm Mountain Karting</b> — Aviemore</td><td class="r">—</td><td class="n">Zjazd gokartami górskimi po stokach Cairngorm.</td><td><a href="https://www.instagram.com/p/DZHzomKtRJS/">IG</a></td></tr>
+<tr><td><b>Pygmy Goat Pilates</b> — Bellcraig Farm k. Glenrothes (Fife)</td><td class="r">TA: entuzjastyczne</td><td class="n">Pilates z karłowatymi kozami — pierwsze takie zajęcia w Szkocji (Pilates Attic).</td><td><a href="https://www.instagram.com/p/DadojocDpwK/">IG</a></td></tr>
+</table>
+
+<div id="map-scot" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/nocleg &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/natura &nbsp; <span class="dot" style="background:#7fe6a5"></span>zamki/historia</p>
+
+<h2>❓ Z postów-wideo (miejsce nienazwane w opisie)</h2>
+<table>
+<tr><th>Post</th><th>IG</th></tr>
+<tr><td>„Sleep in a bus in Scotland"</td><td><a href="https://www.instagram.com/p/DXXG8hlDHET/">IG</a></td></tr>
+<tr><td>„Lighthouse hotel in Scotland"</td><td><a href="https://www.instagram.com/p/DUyqijgjlGZ/">IG</a></td></tr>
+<tr><td>„Sleep in a tower in Scotland"</td><td><a href="https://www.instagram.com/p/DU3oBE2F1V6/">IG</a></td></tr>
+<tr><td>„A unique bookshop in Scotland"</td><td><a href="https://www.instagram.com/p/DT_DOdIjKO4/">IG</a></td></tr>
+<tr><td>Zamek-hotel ze spa pod Edynburgiem od $60/noc (travelpirates)</td><td><a href="https://www.instagram.com/p/DFOYkm3IO4H/">IG</a></td></tr>
+<tr><td>Zamek z przebierankami dla fanów Outlandera (@historicscotland)</td><td><a href="https://www.instagram.com/p/DCM55RPqDqH/">IG</a></td></tr>
+<tr><td>Poza Szkocją: Davy's Fish &amp; Chips (Beamish, Anglia), Cotswold Way (Anglia), Christmas in Glasgow</td><td><a href="https://www.instagram.com/p/DQXIVHIjBkF/">IG</a></td></tr>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const C = { food:'#e67f7f', attr:'#7fb4e6', shop:'#a67fe6', hist:'#7fe6a5' };
+function mk(map, lat, lng, name, info, cat) {
+  L.circleMarker([lat,lng], {radius:7, color:C[cat], fillColor:C[cat], fillOpacity:.85, weight:2})
+   .addTo(map).bindPopup('<b>'+name+'</b><br>'+info);
+}
+// ===== MAPA EDYNBURG =====
+const m1 = L.map('map-edi').setView([55.9515,-3.196], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m1);
+[
+ ['Panda & Sons',55.9530,-3.2062,'Najlepszy bar świata (Top 500, 2025)','food'],
+ ['Makars Mash Bar',55.9495,-3.1953,'4.8 ★ szkocki comfort food','food'],
+ ['Dumpling Queen',55.9490,-3.1846,'4.8 ★ pierogi + haggis dumpling','food'],
+ ['Colonnades (Signet Library)',55.9494,-3.1907,'4.8 ★ afternoon tea','food'],
+ ["Kay's Bar",55.9557,-3.2062,'4.6 ★ wiktoriański mini-pub','food'],
+ ['Kezban (Leith)',55.9770,-3.1704,'4.4 ★ kuchnia turecka','food'],
+ ['The Milkman',55.9500,-3.1898,'4.6 ★ kultowa kawiarnia','food'],
+ ['Croccante & Co',55.9503,-3.2137,'sycylijskie schiacciaty','food'],
+ ['Lannan Bakery',55.9585,-3.2101,'viralowa cukiernia (kolejki!)','food'],
+ ['Arcade Haggis & Whisky House',55.9502,-3.1887,'4.3 ★ haggis','food'],
+ ['Queen Charlotte Rooms (Leith)',55.9743,-3.1667,'afternoon tea à la Orient Express','food'],
+ ['The Dome',55.9538,-3.1947,'4.4 ★ dawny bank z kopułą','food'],
+ ['Guildford Arms',55.9539,-3.1907,'4.5 ★ wiktoriański pub','food'],
+ ["St Bernard's Bar",55.9594,-3.2189,'ekscentryczny pub z winylami','food'],
+ ['Seoul Nibbles',55.9473,-3.1965,'5.0 ★ koreański street food (X–III)','food'],
+ ['The Witchery',55.9489,-3.1953,'gotycka restauracja przy zamku','food'],
+ ['Black Medicine Coffee',55.9470,-3.1857,'4.3 ★ witchy klimat','food'],
+ ["Books N' Cup",55.9430,-3.2033,'4.6 ★ kawa wśród książek','food'],
+ ['The Elephant House',55.9489,-3.1930,'3.7–3.9 ★ „kolebka” HP','food'],
+ ['The Marshmallow Lady',55.9633,-3.1953,'4.6 ★ czekolada z piankami','food'],
+ ['The Cocktail Geeks',55.9508,-3.1911,'tematyczny bar koktajlowy','food'],
+ ['Frankenstein Pub',55.9477,-3.1917,'pub w dawnym kościele','food'],
+ ['Banshee Labyrinth',55.9490,-3.1866,'najbardziej nawiedzony pub','food'],
+ ['NeighbourGood Market',55.9600,-3.2200,'letni market (Stockbridge)','food'],
+ ['Old Chain Pier (szanty)',55.9800,-3.2070,'Sea Shanty Night, Newhaven','food'],
+ ['Victoria Street + MinaLima + Museum Context',55.9486,-3.1922,'inspiracja Pokątnej','attr'],
+ ['The Vennel Steps',55.9469,-3.1953,'widok na zamek','attr'],
+ ['Dean Village',55.9520,-3.2192,'osada młynarzy','attr'],
+ ['Scott Monument',55.9524,-3.1932,'287 schodów','attr'],
+ ['Greyfriars Kirkyard',55.9469,-3.1922,'nawiedzony cmentarz + grobowiec Mackenziego','attr'],
+ ['National Museum of Scotland',55.9470,-3.1907,'darmowe; procesy czarownic','attr'],
+ ["Surgeons' Hall Museums",55.9459,-3.1846,'#21 atrakcji TA','attr'],
+ ['Museum of Magic & Witchcraft',55.9483,-3.1936,'~4.0 ★','attr'],
+ ["Witches' Well",55.9489,-3.1963,'pomnik ofiar procesów','attr'],
+ ["St Cuthbert's Kirkyard",55.9497,-3.2043,'cmentarz z widokiem','attr'],
+ ['Princes Street Gardens',55.9509,-3.2005,'dawny Nor Loch','attr'],
+ ['New College',55.9506,-3.1958,'neogotycki dziedziniec','attr'],
+ ['Cockburn Street',55.9501,-3.1892,'wiktoriańska uliczka','attr'],
+ ['Royal Mile',55.9496,-3.1870,'oś Starego Miasta','attr'],
+ ['„Dziki Zachód” Morningside',55.9295,-3.2115,'Springvalley Gardens','attr'],
+ ['Craigmillar Castle',55.9256,-3.1420,'ruiny bez tłumów','attr'],
+ ['Scotsman Picturehouse',55.9508,-3.1877,'4.6 ★ butikowe kino','attr'],
+ ['Royal Botanic Garden',55.9650,-3.2090,'szklarnie','attr'],
+ ['Portrait Gallery',55.9550,-3.1930,'darmowa','attr'],
+ ["Writers' Museum",55.9497,-3.1936,'darmowe','attr'],
+ ['Tron Kirk Market',55.9497,-3.1874,'market w kościele','attr'],
+ ['The Meadows',55.9410,-3.1935,'park','attr'],
+ ['Calton Hill (Beltane 30 IV)',55.9552,-3.1827,'festiwal ognia','attr'],
+ ['Alpine Coaster Hillend',55.8830,-3.2070,'górska kolejka','attr'],
+ ['Wheel of Fate',55.9465,-3.1912,'tarot, warsztaty mioteł','shop'],
+ ['Portal Leith',55.9736,-3.1730,'witchy sklep','shop'],
+ ['Blackmoon Botanica',55.9410,-3.1830,'świece i zioła','shop'],
+ ['Topping & Company',55.9575,-3.1837,'księgarnia-labirynt','shop'],
+ ['Armchair Books',55.9463,-3.1990,'antykwariat','shop'],
+ ["McNaughtan's",55.9600,-3.1815,'antykwariat','shop'],
+ ['Armstrong & Son',55.9473,-3.1975,'vintage','shop'],
+ ['Curiouser',55.9591,-3.1885,'kurioza','shop'],
+ ['Scottish Design Exchange',55.9526,-3.2035,'117-119 George St — 300+ szkockich twórców','shop'],
+ ['Two Skies',55.9505,-3.1848,'5 High St — biżuteria ze szkockich kamieni','shop'],
+ ['Celtic Craft Centre',55.9501,-3.1857,'101 High St — kiltmaker','shop'],
+ ['The St Vincent Bar',55.9575,-3.2075,'grzany gin (mulled gin)','food']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4]));
+
+// ===== MAPA SZKOCJA =====
+const m2 = L.map('map-scot').setView([56.9,-4.6], 6);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m2);
+[
+ ['Glencruitten House (Oban)',56.4130,-5.4430,'kolacja-opowieść, wybitne opinie','food'],
+ ["St Conan's Kirk",56.4035,-5.0445,'magiczny kościół nad Loch Awe','attr'],
+ ["Puck's Glen",56.0107,-4.9917,'4.8 ★ baśniowy wąwóz','attr'],
+ ['Dunrobin Castle',57.9820,-3.9450,'bajkowy zamek + sokolnictwo','hist'],
+ ["Culross + Bessie's Café",56.0553,-3.6290,'miasteczko Outlandera','hist'],
+ ['Calanais Standing Stones',58.1975,-6.7450,'megality, Lewis','hist'],
+ ['Stirling Castle',56.1240,-3.9470,'pociąg ~50 min','hist'],
+ ['Wallace Monument',56.1389,-3.9192,'miecz Wallace’a','hist'],
+ ['Linlithgow Palace',55.9781,-3.6010,'pociąg 20 min','hist'],
+ ['Blackness Castle',56.0057,-3.5163,'twierdza nad wodą','hist'],
+ ['Rosslyn Chapel',55.8554,-3.1600,'bus 37','hist'],
+ ['Dunfermline Abbey + Prost Coffee',56.0700,-3.4640,'grób Roberta Bruce’a','hist'],
+ ['Aberdour Castle',56.0546,-3.3000,'pociąg ~30 min','hist'],
+ ['Dirleton Castle',56.0510,-2.7800,'bus X5','hist'],
+ ['Abbotsford House',55.5990,-2.7810,'dom Waltera Scotta','hist'],
+ ['Preston Mill',55.9905,-2.6540,'młyn z Outlandera','hist'],
+ ['Glen Coe + Clachaig Gully',56.6660,-5.0700,'dolina + chata Hagrida','attr'],
+ ['Steall Falls',56.7671,-4.9980,'wodospad, Glen Nevis','attr'],
+ ['Glenfinnan Viaduct',56.8763,-5.4310,'most Hogwart Expressu','attr'],
+ ['Jacobite Steam Train (Fort William)',56.8198,-5.1052,'parowóz do Mallaig','attr'],
+ ['Loch Shiel',56.8700,-5.4400,'„Czarne Jezioro”','attr'],
+ ['Eilean na Mòine (Loch Eilt)',56.8880,-5.6300,'grób Dumbledore’a','attr'],
+ ['Camusdarach Beach',56.9450,-5.8590,'biała plaża','attr'],
+ ['Quiraing',57.6430,-6.2650,'Skye','attr'],
+ ['Old Man of Storr',57.5070,-6.1830,'Skye','attr'],
+ ['Fairy Pools',57.2500,-6.2550,'Skye','attr'],
+ ['Creel Seafood Bar (Elgol)',57.1460,-6.1060,'seafood z widokiem na Cuillin','food'],
+ ['Highland Cow Shop (Portree)',57.4130,-6.1940,'pamiątki','food'],
+ ['Eilean Donan Castle',57.2739,-5.5164,'ikona fotografii','hist'],
+ ['Glenelg Turntable Ferry',57.2360,-5.6600,'ręcznie obracany prom','attr'],
+ ['The Hermitage (Dunkeld)',56.5620,-3.6180,'wodospad Black Linn','attr'],
+ ["Fingal's Cave (Staffa)",56.4317,-6.3410,'bazaltowa jaskinia','attr'],
+ ['The Open Book (Wigtown)',54.8690,-4.4420,'4.9 ★ prowadź własną księgarnię','food'],
+ ['Sauna Cruise (Loch Tay)',56.5870,-4.0080,'pływająca sauna','attr'],
+ ['The Kelpies',56.0119,-3.7550,'rzeźby-ikony','attr'],
+ ['Falkirk Wheel',56.0000,-3.8420,'obrotowa winda łodzi','attr'],
+ ['Discovery Mast Climb (Dundee)',56.4565,-2.9670,'wspinaczka na maszt','attr'],
+ ['Gearrannan Blackhouse Village',58.2960,-6.7930,'4.0 ★ nocleg w blackhouse','food'],
+ ['Bridge Castle (West Lothian)',55.9230,-3.6540,'zamek na wynajem','hist'],
+ ['Up Helly Aa (Lerwick)',60.1530,-1.1490,'wikiński festiwal ognia','attr'],
+ ['Boat Shed (Lochgoilhead)',56.1670,-4.9030,'kawa nad Loch Goil','food'],
+ ['Drift (North Berwick)',56.0560,-2.6440,'widok na Bass Rock','food'],
+ ["Harbourmaster's Café (Dysart)",56.1330,-3.1210,'port Fife','food'],
+ ['Crail Harbour Gallery & Café',56.2590,-2.6290,'klify Fife','food'],
+ ['Chocolate Barn (Dalkeith)',55.8890,-3.0660,'czekolada z farmy','food'],
+ ['Kerrera Tea Garden',56.3730,-5.5220,'wyspa Kerrera k. Oban','food'],
+ ['Smithy at Sandyford (Prestwick)',55.4930,-4.6060,'kuźnia-kawiarnia','food'],
+ ['Secret Garden Café (Pentlands)',55.8770,-3.1800,'Damhead','food'],
+ ["Errington's Barn (Biggar)",55.6660,-3.4640,'farma Elsrickle','food'],
+ ['Elie Chainwalk (Fife)',56.1855,-2.8560,'klifowa trasa z łańcuchami — tylko przy odpływie','attr'],
+ ['Loch Goil Cruisers',56.1690,-4.9060,'wynajem motorówek','attr'],
+ ['Cairngorm Mountain Karting',57.1338,-3.6706,'gokarty górskie, Aviemore','attr'],
+ ['Pygmy Goat Pilates (Bellcraig Farm)',56.2080,-3.2850,'pilates z kozami, k. Glenrothes','attr']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4]));
+</script>
+</div>
+</body>
+</html>
