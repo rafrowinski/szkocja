@@ -25,6 +25,11 @@
   .map { height:520px; border-radius:12px; margin:14px 0 6px; border:1px solid #333; }
   .legend { color:var(--muted); font-size:.85em; margin-bottom:20px; }
   .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; }
+  .rnum { color:#101418; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; border:2px solid #101418; box-shadow:0 1px 4px rgba(0,0,0,.5); }
+  .rnum.d1 { background:#ffb400; }
+  .rnum.d2 { background:#00c46a; }
+  .rnum.d3a { background:#4da6ff; }
+  .rnum.d3b { background:#c98fff; }
   .badge { display:inline-block; background:#2a3440; color:var(--gold); border-radius:5px; padding:1px 7px; font-size:.8em; margin-left:6px; }
 </style>
 </head>
@@ -123,8 +128,38 @@
 <tr><td><b>Celtic Craft Centre</b> — Paisley Close, 101 High St</td><td class="n">Kiltmaker z Royal Mile — jedni z najlepszych w mieście.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
 </table>
 
+<h3>🚶 Trasa 26.07: spacer pod zamkiem (pomarańczowe numerki)</h3>
+<p class="n" style="max-width:900px">Esplanada z Witches' Well → Castlehill (Witchery, Camera Obscura) → schody Castle Wynd South w dół → <b>Grassmarket</b> (Seoul Nibbles — sezonowo X–III, plan B: Mary's Milk Bar; nawiedzone puby The Last Drop i White Hart Inn) → odbicie na schody <b>Vennel</b> (klasyczny widok na zamek) → <b>Victoria Street</b> ze sklepami HP (MinaLima, Museum Context) i zakręt West Bow → Candlemaker Row z pomnikiem Bobby'ego → cmentarz <b>Greyfriars</b> (grób Thomasa Riddella, widok na „Hogwart" George Heriot's) → <b>National Museum</b> (darmowe, taras na dachu) → pub <b>Frankenstein</b> → finał: escape room <b>Department of Magic</b> (rezerwacja!) albo folk w Sandy Bell's. Pętla ~2,5 km.</p>
+
+<h3>🚶 Trasa 27.07: Royal Mile — zamek → Holyrood (zielone numerki)</h3>
+<p class="n" style="max-width:900px">Zamek → Castlehill (Camera Obscura, Witchery) → Lawnmarket (Gladstone's Land, Milne's Court, Writers' Museum; 40 m w bok <b>Makars</b> — bez rezerwacji, przyjdźcie przed 12:00 albo ok. 16:30) → St Giles' + Heart of Midlothian (splunąć na szczęście!) i Mercat Cross (start tur po podziemiach) → odbicie na Cockburn St (<b>Arcade Haggis &amp; Whisky House</b> — haggis „Diana") → Tron → Museum of Childhood → John Knox House i <b>The Haggis Box</b> na dziedzińcu Storytelling Centre (najprostszy dobry haggis na trasie — plan B, gdyby w Makars była kolejka) → World's End → Cadenhead's (whisky) → Museum of Edinburgh + Bakehouse Close → Canongate Kirk → sekretny <b>Dunbar's Close Garden</b> → White Horse Close → Parlament → <b>Holyrood Palace</b>. Całość 1,6 km bez odbić; opcja na koniec: Dynamic Earth albo podejście na Arthur's Seat (śpicie u jego stóp).</p>
+
+<h3>📌 Z Twojej listy TripAdvisor (42 pozycje)</h3>
+<p class="n" style="max-width:900px">Większość już była na mapie (zamek, Royal Mile, St Giles, Holyrood, Arthur's Seat, National Museum, Camera Obscura, galerie, Botanics, Surgeons' Hall, Chocolatarium, Craigmillar, Department of Magic, Witchery, Makars…). Dodałem brakujące — wszystkie z dopiskiem „(TA)” w dymku: Underground Vaults Tour <b>4.7★</b> (start: Mercat Cross), Johnnie Walker Princes Street, Edinburgh Gin, Royal Yacht Britannia, Edinburgh Zoo, BobCat Alpacas (spacery z alpakami!), Game of Throwing (siekiery), Escape Edinburgh, Monkey Barrel Comedy, Observatory House, Well Court, Newhailes, Custom House, West Bow Well, Scottish Poetry Library, Parlament, Milne's Court, Moubray House, Tempting Tattie, Quinn's Cafe, The Knights Vault i The Haggis Box.</p>
+
+<h3>🚌 Dzień 28.07 — dojazd komunikacją (wariant A)</h3>
+<p class="n" style="max-width:900px">Wszystko na jednym bilecie <b>Lothian Buses</b> (DAYticket w aplikacji albo płatność zbliżeniowa z dziennym capem):
+① bus <b>4</b> do przystanku <i>Swanston Drive</i> (Fairmilehead) → 15 min pieszo do Swanston Farm ·
+② busem 4 jeden przystanek do <b>pętli Hillend</b> — przy samej bramie Snowsports Centre ·
+③ Hillend → Secret Herb Garden: ~25 min pieszo Old Pentland Rd (miejscami bez chodnika) ·
+④ → Straiton ~20 min pieszo ·
+⑤ bus <b>37</b> do Roslin (Rosslyn Chapel — ostatnie wejście zwykle ok. godziny przed zamknięciem, bądźcie do ~15:30) ·
+⑥ powrót busem 37 prosto do centrum (~45 min).<br>
+📱 Aplikacja, z której korzystają mieszkańcy: <a href="https://www.lothianbuses.com/app/">Lothian Buses</a> (żywe odjazdy + bilety m-tickets); do szybkiego sprawdzania rozkładów dowolnego przewoźnika lokalni polecają też <a href="https://bustimes.org/localities/fairmilehead">bustimes.org</a>.</p>
+
+<div id="filtry" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#1a2027;border:1px solid #333;border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:.9em">
+  <b style="color:var(--gold)">Filtry mapy:</b>
+  <label><input type="checkbox" id="f_food" checked onchange="applyFilter()"> 🍽 jedzenie</label>
+  <label><input type="checkbox" id="f_attr" checked onchange="applyFilter()"> 🏰 atrakcje</label>
+  <label><input type="checkbox" id="f_shop" checked onchange="applyFilter()"> 🛍 sklepy</label>
+  <span style="color:#444">|</span>
+  <button class="fbtn" data-mode="all" onclick="setMode('all')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">wszystko</button>
+  <button class="fbtn" data-mode="rated" onclick="setMode('rated')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">⭐ tylko z oceną</button>
+  <button class="fbtn" data-mode="haggis" onclick="setMode('haggis')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">🥘 tylko haggis</button>
+  <input type="search" id="f_q" placeholder="szukaj (np. whisky, kawa)…" oninput="applyFilter()" style="background:#101418;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;min-width:180px">
+</div>
 <div id="map-edi" class="map"></div>
-<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy</p>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy &nbsp; | &nbsp; numerki: <span style="color:#ffb400">⬤</span> 26.07 spacer &nbsp; <span style="color:#00c46a">⬤</span> 27.07 Royal Mile &nbsp; <span style="color:#4da6ff">⬤</span> 28.07 A &nbsp; <span style="color:#c98fff">⬤</span> 28.07 B &nbsp; <span class="n">(włącz/wyłącz w rogu mapy; wariant B domyślnie wyłączony)</span></p>
 
 <h2>🌄 Reszta Szkocji</h2>
 <table>
@@ -256,48 +291,69 @@ function showIG(url) {
   }
   document.getElementById('igFrame').src = url + 'embed/';
 }
-function mk(map, lat, lng, name, info, cat, img) {
+let uid = 0;
+const REG = [];
+function mk(map, lat, lng, name, info, cat, img, wiki) {
+  const id = 'wk' + (++uid);
   let html = '<b>'+name+'</b><br>'+info;
   if (img) html += '<br><img src="'+IMGB+img+'?w=400" style="width:220px;border-radius:8px;margin-top:6px" loading="lazy"><br><span style="font-size:.75em;color:#888">fot. Hand Luggage Only</span>';
+  else if (wiki) html += '<div id="'+id+'" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px;overflow:hidden"></div>';
+  const q = encodeURIComponent(name.split('—')[0].split('(')[0].split('+')[0].trim() + (typeof m1 !== 'undefined' && map === m1 ? ' Edinburgh' : '') + ' Scotland');
+  let links = ['<a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" style="color:#7fe6a5">Mapy &#8599;</a>'];
+  if (wiki) links.push('<a href="https://en.wikipedia.org/wiki/'+wiki+'" target="_blank" style="color:#7fb4e6">Wiki &#8599;</a>');
   const code = IG[name];
   if (code) {
     const url = 'https://www.instagram.com/p/'+code+'/';
-    html += '<br><a href="'+url+'" target="_blank" style="color:#7fb4e6">Instagram &#8599;</a> &nbsp;'
-      + '<a href="#" style="color:#e6c97f" onclick="showIG(\''+url+'\');return false">&#9654; podgląd posta</a>';
+    links.push('<a href="'+url+'" target="_blank" style="color:#7fb4e6">Instagram &#8599;</a>');
+    links.push('<a href="#" style="color:#e6c97f" onclick="showIG(\''+url+'\');return false">&#9654; podgląd</a>');
   }
+  html += '<br>' + links.join(' &nbsp;');
   const m = L.circleMarker([lat,lng], {radius:7, color:C[cat], fillColor:C[cat], fillOpacity:.85, weight:2})
    .addTo(map).bindPopup(html, {maxWidth: 300});
+  REG.push({map: map, m: m, cat: cat, txt: (name + ' ' + info).toLowerCase(), rated: /\d[\.,]\d\s*(★|g\b|ta\b|rg\b)|★/i.test(info)});
   m.on('mouseover', function(){ this.openPopup(); });
+  if (wiki && !img) m.on('popupopen', function() {
+    const box = document.getElementById(id);
+    if (!box || box.dataset.done) return;
+    box.dataset.done = 1;
+    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + wiki)
+      .then(r => r.json())
+      .then(d => {
+        const t = d.thumbnail && d.thumbnail.source;
+        if (t) box.innerHTML = '<img src="'+t+'" style="width:100%;height:100%;object-fit:cover">';
+        else box.style.display = 'none';
+      }).catch(() => { box.style.display = 'none'; });
+  });
 }
 // ===== MAPA EDYNBURG =====
 const m1 = L.map('map-edi').setView([55.9515,-3.196], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m1);
 [
- ['Panda & Sons',55.9530,-3.2062,'Najlepszy bar świata (Top 500, 2025)','food'],
+ ['Panda & Sons',55.95321,-3.20697,'Najlepszy bar świata (Top 500, 2025)','food'],
  ['Makars Mash Bar',55.9495,-3.1953,'4.8 ★ szkocki comfort food','food'],
- ['Dumpling Queen',55.9490,-3.1846,'4.8 ★ pierogi + haggis dumpling','food'],
- ['Colonnades (Signet Library)',55.9494,-3.1907,'4.8 ★ afternoon tea','food'],
+ ['Dumpling Queen',55.94913,-3.18572,'4.8 ★ pierogi + haggis dumpling','food'],
+ ['Colonnades (Signet Library)',55.94911,-3.19161,'4.8 ★ afternoon tea','food'],
  ["Kay's Bar",55.9557,-3.2062,'4.6 ★ wiktoriański mini-pub','food'],
- ['Kezban (Leith)',55.9770,-3.1704,'4.4 ★ kuchnia turecka','food'],
- ['The Milkman',55.9500,-3.1898,'4.6 ★ kultowa kawiarnia','food'],
- ['Croccante & Co',55.9503,-3.2137,'sycylijskie schiacciaty','food'],
- ['Lannan Bakery',55.9585,-3.2101,'viralowa cukiernia (kolejki!)','food'],
+ ['Kezban (Leith)',55.97644,-3.17123,'4.4 ★ kuchnia turecka','food'],
+ ['The Milkman',55.95070,-3.19089,'4.6 ★ kultowa kawiarnia','food'],
+ ['Croccante & Co',55.95174,-3.21258,'sycylijskie schiacciaty','food'],
+ ['Lannan Bakery',55.95980,-3.20669,'viralowa cukiernia (kolejki!)','food'],
  ['Arcade Haggis & Whisky House',55.9502,-3.1887,'4.3 ★ haggis','food'],
- ['Queen Charlotte Rooms (Leith)',55.9743,-3.1667,'afternoon tea à la Orient Express','food'],
- ['The Dome',55.9538,-3.1947,'4.4 ★ dawny bank z kopułą','food'],
- ['Guildford Arms',55.9539,-3.1907,'4.5 ★ wiktoriański pub','food'],
+ ['Queen Charlotte Rooms (Leith)',55.97340,-3.16732,'afternoon tea à la Orient Express','food'],
+ ['The Dome',55.95344,-3.19552,'4.4 ★ dawny bank z kopułą','food'],
+ ['Guildford Arms',55.95367,-3.19019,'4.5 ★ wiktoriański pub','food'],
  ["St Bernard's Bar",55.9594,-3.2189,'ekscentryczny pub z winylami','food'],
  ['Seoul Nibbles',55.9473,-3.1965,'5.0 ★ koreański street food (X–III)','food'],
  ['The Witchery',55.9489,-3.1953,'gotycka restauracja przy zamku','food'],
  ['Black Medicine Coffee',55.9470,-3.1857,'4.3 ★ witchy klimat','food'],
  ["Books N' Cup",55.9430,-3.2033,'4.6 ★ kawa wśród książek','food'],
- ['The Elephant House',55.9489,-3.1930,'3.7–3.9 ★ „kolebka” HP','food'],
- ['The Marshmallow Lady',55.9633,-3.1953,'4.6 ★ czekolada z piankami','food'],
+ ['The Elephant House',55.94757,-3.19179,'3.7–3.9 ★ „kolebka” HP (21 George IV Bridge)','food'],
+ ['The Marshmallow Lady',55.96236,-3.19615,'4.6 ★ czekolada z piankami','food'],
  ['The Cocktail Geeks',55.9508,-3.1911,'tematyczny bar koktajlowy','food'],
  ['Frankenstein Pub',55.9477,-3.1917,'pub w dawnym kościele','food'],
- ['Banshee Labyrinth',55.9490,-3.1866,'najbardziej nawiedzony pub','food'],
+ ['Banshee Labyrinth',55.94938,-3.18692,'najbardziej nawiedzony pub','food'],
  ['NeighbourGood Market',55.9600,-3.2200,'letni market (Stockbridge)','food'],
- ['Old Chain Pier (szanty)',55.9800,-3.2070,'Sea Shanty Night, Newhaven','food'],
+ ['Old Chain Pier (szanty)',55.98005,-3.20419,'Sea Shanty Night, Newhaven','food'],
  ['Victoria Street + MinaLima + Museum Context',55.9486,-3.1922,'inspiracja Pokątnej','attr'],
  ['The Vennel Steps',55.9469,-3.1953,'widok na zamek','attr'],
  ['Dean Village',55.9520,-3.2192,'osada młynarzy','attr'],
@@ -305,7 +361,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ['Greyfriars Kirkyard',55.9469,-3.1922,'nawiedzony cmentarz + grobowiec Mackenziego','attr'],
  ['National Museum of Scotland',55.9470,-3.1907,'darmowe; procesy czarownic','attr','2018/05/Hand-Luggage-Only-20-3.jpg'],
  ["Surgeons' Hall Museums",55.9459,-3.1846,'#21 atrakcji TA','attr'],
- ['Museum of Magic & Witchcraft',55.9483,-3.1936,'~4.0 ★','attr'],
+ ['Museum of Magic & Witchcraft',55.95067,-3.18583,'~4.0 ★ — uwaga: przy Royal Mile (obok John Knox House), nie na West Bow','attr'],
  ["Witches' Well",55.9489,-3.1963,'pomnik ofiar procesów','attr'],
  ["St Cuthbert's Kirkyard",55.9497,-3.2043,'cmentarz z widokiem','attr'],
  ['Princes Street Gardens',55.9509,-3.2005,'dawny Nor Loch','attr'],
@@ -322,19 +378,19 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ['The Meadows',55.9410,-3.1935,'park','attr','2018/05/Hand-Luggage-Only-12-4.jpg'],
  ['Calton Hill (Beltane 30 IV)',55.9552,-3.1827,'festiwal ognia','attr'],
  ['Alpine Coaster Hillend',55.8830,-3.2070,'górska kolejka','attr'],
- ['Wheel of Fate',55.9465,-3.1912,'tarot, warsztaty mioteł','shop'],
+ ['Wheel of Fate',55.96025,-3.18262,'tarot, warsztaty mioteł — Broughton St (nie Candlemaker Row!)','shop'],
  ['Portal Leith',55.9736,-3.1730,'witchy sklep','shop'],
  ['Blackmoon Botanica',55.9410,-3.1830,'świece i zioła','shop'],
- ['Topping & Company',55.9575,-3.1837,'księgarnia-labirynt','shop'],
- ['Armchair Books',55.9463,-3.1990,'antykwariat','shop'],
- ["McNaughtan's",55.9600,-3.1815,'antykwariat','shop'],
- ['Armstrong & Son',55.9473,-3.1975,'vintage','shop'],
- ['Curiouser',55.9591,-3.1885,'kurioza','shop'],
- ['Scottish Design Exchange',55.9526,-3.2035,'117-119 George St — 300+ szkockich twórców','shop'],
- ['Two Skies',55.9505,-3.1848,'5 High St — biżuteria ze szkockich kamieni','shop'],
- ['Celtic Craft Centre',55.9501,-3.1857,'101 High St — kiltmaker','shop'],
- ['The St Vincent Bar',55.9575,-3.2075,'grzany gin (mulled gin)','food']
-].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5]));
+ ['Topping & Company',55.95765,-3.18428,'księgarnia-labirynt','shop'],
+ ['Armchair Books',55.94628,-3.20007,'antykwariat','shop'],
+ ["McNaughtan's",55.95934,-3.18389,'antykwariat','shop'],
+ ['Armstrong & Son',55.94748,-3.19625,'vintage','shop'],
+ ['Curiouser',55.93718,-3.20726,'kurioza — Bruntsfield','shop'],
+ ['Scottish Design Exchange',55.95250,-3.20460,'117-119 George St — 300+ szkockich twórców','shop'],
+ ['Two Skies',55.95069,-3.18451,'5 High St — biżuteria ze szkockich kamieni','shop'],
+ ['Celtic Craft Centre',55.95062,-3.18609,'101 High St — kiltmaker','shop'],
+ ['The St Vincent Bar',55.95802,-3.20353,'grzany gin (mulled gin)','food']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6]));
 // — z artykułu Hand Luggage Only —
 [
  ["Arthur's Seat",55.9441,-3.1618,'wygasły wulkan, ~30 min podejścia, panorama miasta','attr','2018/05/Hand-Luggage-Only-6-7.jpg'],
@@ -342,17 +398,144 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ['Holyrood Palace',55.9527,-3.1720,'rezydencja królewska, komnaty Marii Stuart','attr','2018/05/Hand-Luggage-Only-7-8.jpg'],
  ["The Real Mary King's Close",55.9500,-3.1905,'podziemne uliczki XVII-wiecznego miasta pod Royal Mile','attr','2018/05/Hand-Luggage-Only-4-7.jpg'],
  ['Camera Obscura & World of Illusions',55.9490,-3.1950,'6 pięter iluzji + wiktoriańska camera obscura','attr','2018/05/Hand-Luggage-Only-14-2.jpg'],
- ['The Chocolatarium',55.9508,-3.1830,'warsztaty czekolady przy Royal Mile (Cranston St)','attr','2025/09/Best-Things-To-Do-In-Edinburgh-Chocolatarium.jpg'],
+ ['The Chocolatarium',55.95089,-3.18401,'warsztaty czekolady przy Royal Mile','attr','2025/09/Best-Things-To-Do-In-Edinburgh-Chocolatarium.jpg'],
  ['Georgian House Museum',55.9522,-3.2072,'gruzińska kamienica z epoki, Charlotte Square','attr','2018/05/Hand-Luggage-Only-8-7.jpg'],
  ['Scottish National Gallery',55.9511,-3.1958,'darmowa galeria na The Mound','attr','2018/05/Hand-Luggage-Only-19-3.jpg'],
  ["St Giles' Cathedral",55.9495,-3.1907,'katedra na Royal Mile','attr'],
  ['Pomnik Greyfriars Bobby',55.9469,-3.1902,'terier, który 14 lat pilnował grobu pana','attr'],
  ['Calton Hill (punkt widokowy)',55.9553,-3.1838,'najlepszy zachód słońca w mieście','attr','2018/05/Hand-Luggage-Only-25-2.jpg'],
- ['Timberyard',55.9459,-3.1990,'sezonowe menu degustacyjne, Lady Lawson St','food','2023/11/Best-Things-To-Do-In-11.jpg'],
- ['White Horse Oyster & Seafood',55.9509,-3.1795,'ostrygi i owoce morza, Canongate/Royal Mile','food'],
+ ['Timberyard',55.94635,-3.20173,'sezonowe menu degustacyjne, Lady Lawson St','food','2023/11/Best-Things-To-Do-In-11.jpg'],
+ ['White Horse Oyster & Seafood',55.95062,-3.18357,'ostrygi i owoce morza, Canongate/Royal Mile','food'],
  ['Leith + Royal Yacht Britannia',55.9825,-3.1770,'nabrzeże, dawny jacht królewski (Ocean Terminal)','attr','2018/05/Hand-Luggage-Only-1-7.jpg'],
  ['Festival Theatre',55.9464,-3.1848,'Scottish Ballet i opera','attr','2018/05/Hand-Luggage-Only-11-7.jpg']
-].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5]));
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6]));
+// — trasa 27.07: Royal Mile (zamek → pałac) + lista TripAdvisor —
+[
+ ["Gladstone's Land + Milne's Court",55.9493,-3.1942,'kamienica z 1620 (NT) i zaułek Lawnmarket','attr',null,"Gladstone's_Land"],
+ ["Deacon Brodie's Tavern",55.9494,-3.1930,'pub im. pierwowzoru dr. Jekylla','food',null,'Deacon_Brodie'],
+ ['Mercat Cross — Underground Vaults Tour',55.9496,-3.1902,'4.7 ★ (6,5 tys.) tury po podziemiach South Bridge — stąd startują','attr',null,'Edinburgh_Vaults'],
+ ['Museum of Childhood',55.95033,-3.18551,'darmowe, zabawki od XVIII w.','attr',null,'Museum_of_Childhood,_Edinburgh'],
+ ['John Knox House + Moubray House',55.95065,-3.18510,'najstarsze domy Royal Mile (XV/XVI w.)','attr',null,'John_Knox_House'],
+ ['The Haggis Box 🥇',55.95064,-3.18487,'HAGGIS! — dziedziniec Storytelling Centre; haggis/neeps/tatties w misce, tanio i konkretnie','food'],
+ ["World's End",55.95051,-3.18433,'pub na dawnej granicy miasta — „koniec świata”','food'],
+ ["Cadenhead's Whisky Shop",55.95118,-3.18036,'najstarszy niezależny bottler whisky (1842)','shop'],
+ ['Museum of Edinburgh + Bakehouse Close',55.95121,-3.17950,'darmowe muzeum + dziedziniec z Outlandera','attr',null,'Museum_of_Edinburgh'],
+ ['Canongate Kirk',55.95182,-3.17964,'kirk z grobem Adama Smitha','attr',null,'Canongate_Kirk'],
+ ["Dunbar's Close Garden",55.95180,-3.17886,'ukryty ogród w stylu XVII w. — sekret Canongate','attr',null,"Dunbar's_Close_Garden"],
+ ['Scottish Poetry Library',55.95146,-3.17811,'biblioteka poezji w zaułku (z Twojej listy TA)','attr',null,'Scottish_Poetry_Library'],
+ ['White Horse Close',55.95250,-3.17537,'najbardziej bajkowy dziedziniec miasta','attr',null,'White_Horse_Close'],
+ ['Scottish Parliament',55.9520,-3.1750,'kontrowersyjna architektura, wstęp darmowy','attr',null,'Scottish_Parliament_Building'],
+ ['Tempting Tattie',55.95109,-3.18430,'pieczone ziemniaki z haggisem — szybki lunch (TA)','food'],
+ ["Quinn's Cafe",55.94634,-3.19977,'kawiarnia przy West Port (TA)','food'],
+ ['The Knights Vault',55.94817,-3.19430,'sklep z mieczami i zbrojami — przy Victoria St (TA)','shop'],
+ ['Monkey Barrel Comedy',55.94939,-3.18788,'stand-up co wieczór, Blair St (TA)','attr'],
+ ['Johnnie Walker Princes Street',55.95046,-3.20758,'multimedialne doświadczenie whisky + bar na dachu (TA)','attr',null,'Johnnie_Walker'],
+ ['Edinburgh Gin Distillery',55.9512,-3.1858,'destylarnia ginu w Arches przy E Market St (TA)','attr'],
+ ['Royal Yacht Britannia',55.9820,-3.1770,'jacht królowej w Ocean Terminal (TA)','attr',null,'HMY_Britannia'],
+ ['Edinburgh Zoo',55.9420,-3.2680,'pandy już nie, ale pingwiny maszerują (TA)','attr',null,'Edinburgh_Zoo'],
+ ['BobCat Alpacas (Bonaly)',55.89614,-3.26271,'spacery z alpakami u stóp Pentlandów (TA; rezerwacja)','attr'],
+ ['Game of Throwing',55.94592,-3.20669,'rzucanie siekierami — Fountainbridge (TA)','attr'],
+ ['Escape Edinburgh (Morrison St)',55.94591,-3.20668,'escape roomy (TA)','attr'],
+ ['Observatory House (Calton Hill)',55.9550,-3.1830,'obserwatorium z 1776 (TA)','attr',null,'City_Observatory'],
+ ['Well Court (Dean Village)',55.9520,-3.2200,'ikoniczny ceglany dziedziniec (TA)','attr',null,'Well_Court'],
+ ['Newhailes House (Musselburgh)',55.9440,-3.0730,'palladiańska rezydencja NT (TA)','attr',null,'Newhailes'],
+ ['Custom House (Leith)',55.9760,-3.1700,'gmach celny nad Water of Leith (TA)','attr'],
+ ['West Bow Well',55.9478,-3.1930,'XVII-w. studnia u stóp Victoria St (TA)','attr'],
+ ['Swanston Farm 🐮',55.9060,-3.2120,'szkockie krowy! rodzinna farma pod Pentlandami; otwarte 9:30–16:00, wstęp wolny; Brasserie z widokiem; obok wioska Swanston z krytymi strzechą domkami','attr',null,'Swanston,_Edinburgh']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6]));
+
+// trasy spacerowe — numerowane przystanki (ze zdjęciami i linkami)
+const CMB = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+function stops(list, cls) {
+  return L.layerGroup(list.map((p, i) => {
+    const [lat, lng, name, info, wiki, ig, cimg] = p;
+    const icon = L.divIcon({className:'', html:'<div class="rnum '+cls+'">'+(i+1)+'</div>', iconSize:[22,22], iconAnchor:[11,11]});
+    const id = 'rs' + cls + i;
+    let html = '<b>'+(i+1)+'. '+name+'</b>' + (info ? '<br>'+info : '');
+    if (cimg) html += '<div style="width:220px;height:150px;border-radius:8px;margin-top:6px;overflow:hidden"><img src="'+CMB+cimg+'" style="width:100%;height:100%;object-fit:cover"></div><span style="font-size:.72em;color:#888">fot. Wikimedia Commons</span>';
+    else if (wiki) html += '<div id="'+id+'" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px;overflow:hidden"></div>';
+    const q = encodeURIComponent(name.split('—')[0].split('(')[0].split('+')[0].trim() + ' Edinburgh');
+    let links = ['<a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" style="color:#7fe6a5">Mapy &#8599;</a>'];
+    if (wiki) links.push('<a href="https://en.wikipedia.org/wiki/'+wiki+'" target="_blank" style="color:#7fb4e6">Wiki &#8599;</a>');
+    if (ig) {
+      const iu = 'https://www.instagram.com/p/'+ig+'/';
+      links.push('<a href="'+iu+'" target="_blank" style="color:#7fb4e6">Instagram &#8599;</a>');
+      links.push('<a href="#" style="color:#e6c97f" onclick="showIG(\''+iu+'\');return false">&#9654; podgląd</a>');
+    }
+    html += '<br>' + links.join(' &nbsp;');
+    const m = L.marker([lat, lng], {icon, zIndexOffset:1000}).bindPopup(html, {maxWidth:280});
+    m.on('mouseover', function(){ this.openPopup(); });
+    if (wiki && !cimg) m.on('popupopen', function() {
+      const box = document.getElementById(id);
+      if (!box || box.dataset.done) return;
+      box.dataset.done = 1;
+      fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + wiki)
+        .then(r => r.json())
+        .then(d => {
+          const t = d.thumbnail && d.thumbnail.source;
+          if (t) box.innerHTML = '<img src="'+t+'" style="width:100%;height:100%;object-fit:cover">';
+          else box.style.display = 'none';
+        }).catch(() => { box.style.display = 'none'; });
+    });
+    return m;
+  }));
+}
+const day1Stops = stops([
+ [55.94890,-3.19620,"Esplanada + Witches' Well",'start pod zamkiem; fontanna-pomnik ofiar procesów o czary',"Witches'_Well,_Edinburgh",'DFvZnSuqDZr'],
+ [55.94900,-3.19480,'Castlehill','po drodze The Witchery (zajrzyj do przedsionka) i Camera Obscura','Camera_Obscura,_Edinburgh','DU3t81PEuc2'],
+ [55.94810,-3.19570,'Schody Castle Wynd South','zejście z podzamcza prosto na Grassmarket'],
+ [55.94740,-3.19620,'Grassmarket','plac egzekucji; budka Seoul Nibbles (sezonowo X–III!) — plan B: Mary’s Milk Bar','Grassmarket','DWHBavwjUZ7'],
+ [55.94690,-3.19530,'The Vennel','30 m w bok: kultowe schody z najlepszym widokiem na zamek',null,'DMDlWdfK9eo','9/95/Edinburgh_Castle_from_the_Vennel_-_geograph.org.uk_-_2367375.jpg/330px-Edinburgh_Castle_from_the_Vennel_-_geograph.org.uk_-_2367375.jpg'],
+ [55.94860,-3.19220,'Victoria Street','kręta „Pokątna”: Museum Context (40), MinaLima (21), Elephant House (30)','Victoria_Street,_Edinburgh','DZHyS4Do7gL'],
+ [55.94830,-3.19360,'West Bow + studnia','najbardziej fotogeniczny zakręt; Museum of Magic przeniosło się na Royal Mile (27.07)',null,'DU3t81PEuc2','4/4e/Shops_on_West_Bow%2CVictoria_Street_-_geograph.org.uk_-_545569.jpg/330px-Shops_on_West_Bow%2CVictoria_Street_-_geograph.org.uk_-_545569.jpg'],
+ [55.94680,-3.19070,'Candlemaker Row + Bobby','klimatyczna uliczka; pomnik wiernego teriera na rogu','Greyfriars_Bobby','DBEpKpDK_qf'],
+ [55.94690,-3.19220,'Greyfriars Kirkyard','grób Thomasa Riddella, grobowiec Mackenziego, widok na George Heriot’s = „Hogwart”','Greyfriars_Kirkyard','DMuRK6YMQ-6'],
+ [55.94700,-3.19070,'National Museum of Scotland','darmowe; procesy czarownic, Dolly the Sheep, taras na dachu z widokiem','National_Museum_of_Scotland','DFvZnSuqDZr'],
+ [55.94770,-3.19170,'Frankenstein','pub w dawnym kościele — potwór zjeżdża z sufitu',null,'DU3t81PEuc2','1/14/Edinburgh_-_Edinburgh%2C_26_George_Iv_Bridge%2C_Frankenstein_Pub_-_20140421184115.jpg/330px-Edinburgh_-_Edinburgh%2C_26_George_Iv_Bridge%2C_Frankenstein_Pub_-_20140421184115.jpg'],
+ [55.94870,-3.18660,'Department of Magic / Sandy Bell’s','escape room HP + tawerna eliksirów (rezerwuj!) albo folk na żywo w Sandy Bell’s']
+], 'd1').addTo(m1);
+const mileStops = stops([
+ [55.9486,-3.1999,'Edinburgh Castle','start trasy; wystrzał armatni o 13:00 (poza nd)','Edinburgh_Castle'],
+ [55.9490,-3.1950,'Castlehill','The Hub, Camera Obscura, The Witchery','Camera_Obscura,_Edinburgh','DU3t81PEuc2'],
+ [55.9493,-3.1942,'Lawnmarket',"Gladstone's Land (kamienica 1620), Milne's Court, Writers' Museum w zaułku","Gladstone's_Land",'DGbN05kqFuW'],
+ [55.9495,-3.1953,'Makars Mash Bar','HAGGIS #1 — bez rezerwacji: przyjdźcie przed 12:00 albo ok. 16:30',null,'DVD39oxiD2_'],
+ [55.9495,-3.1907,"St Giles' Cathedral",'katedra + Heart of Midlothian (splunąć na szczęście) + Mercat Cross — stąd startują tury po podziemiach (4.7★)',"St_Giles'_Cathedral"],
+ [55.9502,-3.1887,'Arcade Haggis & Whisky House','HAGGIS #2 — wersja „Diana”; 1 min w bok na Cockburn St',null,'DVD39oxiD2_'],
+ [55.9497,-3.1874,'Tron Kirk Market','dawny kościół z rękodziełem','Tron_Kirk','DMDlWdfK9eo'],
+ [55.95033,-3.18551,'Museum of Childhood','darmowe; zabawki od XVIII w.','Museum_of_Childhood,_Edinburgh'],
+ [55.95065,-3.18510,'John Knox House + Haggis Box + Museum of Magic','najstarsze domy Royal Mile; na dziedzińcu HAGGIS #3 (tani plan B); obok muzeum okultyzmu','John_Knox_House','DU3t81PEuc2'],
+ [55.95051,-3.18433,"World's End",'pub na dawnej granicy miasta — dalej zaczyna się Canongate'],
+ [55.95118,-3.18036,"Cadenhead's Whisky Shop",'najstarszy niezależny bottler whisky (1842)'],
+ [55.95121,-3.17950,'Museum of Edinburgh + Bakehouse Close','darmowe muzeum + dziedziniec z Outlandera','Museum_of_Edinburgh'],
+ [55.95182,-3.17964,"Canongate Kirk + Dunbar's Close",'kirk z grobem Adama Smitha; obok ukryty ogród XVII w.','Canongate_Kirk'],
+ [55.95146,-3.17811,'Scottish Poetry Library','biblioteka poezji w zaułku (z Twojej listy TA)','Scottish_Poetry_Library'],
+ [55.95250,-3.17537,'White Horse Close','najbardziej bajkowy dziedziniec miasta','White_Horse_Close'],
+ [55.9520,-3.1750,'Scottish Parliament','kontrowersyjna architektura; wstęp darmowy','Scottish_Parliament_Building'],
+ [55.9527,-3.1720,'Holyrood Palace','meta trasy — komnaty Marii Stuart; dalej ew. Dynamic Earth / Arthur’s Seat','Palace_of_Holyroodhouse']
+], 'd2').addTo(m1);
+const day3a = stops([
+ [55.9060,-3.2120,'Swanston Farm','szkockie krowy! bus 4/27 do Fairmilehead + 15 min pieszo; otwarte 9:30–16:00','Swanston,_Edinburgh'],
+ [55.9020,-3.2140,'Wioska Swanston','kryte strzechą domki z XVII w.; związana z R.L. Stevensonem','Swanston,_Edinburgh'],
+ [55.8830,-3.2070,'Hillend — Alpine Coaster','zjazd z góry! + wyciąg krzesełkowy; rezerwuj sloty online','Midlothian_Snowsports_Centre','DWWTEUzDLMK'],
+ [55.8790,-3.2210,'Caerketton — punkt widokowy','30–40 min podejścia: panorama Edynburga, zatoki i Fife','Caerketton_Hill'],
+ [55.8790,-3.1780,'Secret Herb Garden (Damhead)','szklarniowa kawiarnia wśród ziół — z Twojej listy IG; 25 min pieszo od Hillend',null,'DXM5EmBjEk_'],
+ [55.8800,-3.1600,'Straiton — przesiadka','stąd bus 37 do Roslin'],
+ [55.8554,-3.1600,'Rosslyn Chapel','kaplica z Kodu Da Vinci (IG + TA); ostatnie wejście przed 17:00 — sprawdź godziny; bus 37 wraca do centrum','Rosslyn_Chapel','DHOtoHCqFSy']
+], 'd3a').addTo(m1);
+const day3b = stops([
+ [55.9060,-3.2120,'Swanston Farm','szkockie krowy! bus 4/27 do Fairmilehead + 15 min pieszo','Swanston,_Edinburgh'],
+ [55.9020,-3.2140,'Wioska Swanston','kryte strzechą domki, 10 min od farmy','Swanston,_Edinburgh'],
+ [55.8830,-3.2070,'Hillend — Alpine Coaster','zjazd z góry + ew. Caerketton; potem bus 4 z pętli','Midlothian_Snowsports_Centre','DWWTEUzDLMK'],
+ [55.9295,-3.2115,'„Dziki Zachód” Morningside','ukryta uliczka-western przy Springvalley Gardens (bus 4 przejeżdża obok)',null,'DXKRI3TDHLs'],
+ [55.93718,-3.20726,'Curiouser (Bruntsfield)','kurioza i prezenty — z Twojej listy sklepów',null,'DX9wyOgivQf'],
+ [55.9300,-3.2100,"Canny Man's",'legendarny ekscentryczny pub Morningside — kolacja/piwo na koniec']
+], 'd3b');
+L.control.layers(null, {
+  '<span style="color:#ffb400">&#11044;</span> 26.07 — spacer pod zamkiem': day1Stops,
+  '<span style="color:#00c46a">&#11044;</span> 27.07 — Royal Mile': mileStops,
+  '<span style="color:#4da6ff">&#11044;</span> 28.07 A — krowy + Rosslyn': day3a,
+  '<span style="color:#c98fff">&#11044;</span> 28.07 B — krowy + Morningside': day3b
+}, {collapsed:false, position:'topright'}).addTo(m1);
 
 // ===== MAPA SZKOCJA =====
 const m2 = L.map('map-scot').setView([56.9,-4.6], 6);
@@ -440,6 +623,31 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ['Commando Memorial (Spean Bridge)',56.9040,-4.9560,'pomnik z widokiem na Ben Nevis','attr'],
  ['Dolphin Spirit RIB (Inverness)',57.4930,-4.2400,'rejs RIB — delfiny butlonose w Moray Firth','attr']
 ].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5]));
+
+// ===== FILTRY =====
+window.__mode = 'all';
+function setMode(mode) {
+  window.__mode = mode;
+  document.querySelectorAll('.fbtn').forEach(b => {
+    b.style.background = (b.dataset.mode === mode) ? '#e6c97f' : '#2a3440';
+    b.style.color = (b.dataset.mode === mode) ? '#101418' : '#e8e6e3';
+  });
+  applyFilter();
+}
+function applyFilter() {
+  const q = (document.getElementById('f_q').value || '').toLowerCase().trim();
+  REG.forEach(r => {
+    let show = true;
+    const cb = document.getElementById('f_' + r.cat);
+    if (cb && !cb.checked) show = false;
+    if (window.__mode === 'rated' && !r.rated) show = false;
+    if (window.__mode === 'haggis' && !r.txt.includes('haggis')) show = false;
+    if (q && !r.txt.includes(q)) show = false;
+    if (show) { if (!r.map.hasLayer(r.m)) r.m.addTo(r.map); }
+    else { if (r.map.hasLayer(r.m)) r.map.removeLayer(r.m); }
+  });
+}
+setMode('all');
 </script>
 </div>
 </body>
