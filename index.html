@@ -293,37 +293,49 @@ function showIG(url) {
 }
 let uid = 0;
 const REG = [];
-function mk(map, lat, lng, name, info, cat, img, wiki) {
-  const id = 'wk' + (++uid);
-  let html = '<b>'+name+'</b><br>'+info;
-  if (img) html += '<br><img src="'+IMGB+img+'?w=400" style="width:220px;border-radius:8px;margin-top:6px" loading="lazy"><br><span style="font-size:.75em;color:#888">fot. Hand Luggage Only</span>';
-  else if (wiki) html += '<div id="'+id+'" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px;overflow:hidden"></div>';
-  const q = encodeURIComponent(name.split('—')[0].split('(')[0].split('+')[0].trim() + (typeof m1 !== 'undefined' && map === m1 ? ' Edinburgh' : '') + ' Scotland');
-  let links = ['<a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" style="color:#7fe6a5">Mapy &#8599;</a>'];
-  if (wiki) links.push('<a href="https://en.wikipedia.org/wiki/'+wiki+'" target="_blank" style="color:#7fb4e6">Wiki &#8599;</a>');
-  const code = IG[name];
-  if (code) {
-    const url = 'https://www.instagram.com/p/'+code+'/';
-    links.push('<a href="'+url+'" target="_blank" style="color:#7fb4e6">Instagram &#8599;</a>');
-    links.push('<a href="#" style="color:#e6c97f" onclick="showIG(\''+url+'\');return false">&#9654; podgląd</a>');
-  }
-  html += '<br>' + links.join(' &nbsp;');
-  const m = L.circleMarker([lat,lng], {radius:7, color:C[cat], fillColor:C[cat], fillOpacity:.85, weight:2})
-   .addTo(map).bindPopup(html, {maxWidth: 300});
-  REG.push({map: map, m: m, cat: cat, txt: (name + ' ' + info).toLowerCase(), rated: /\d[\.,]\d\s*(★|g\b|ta\b|rg\b)|★/i.test(info)});
-  m.on('mouseover', function(){ this.openPopup(); });
-  if (wiki && !img) m.on('popupopen', function() {
-    const box = document.getElementById(id);
-    if (!box || box.dataset.done) return;
-    box.dataset.done = 1;
+const PH = '<div class="ph" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px"></div>';
+function wikiThumb(marker, html, wiki) {
+  marker.on('popupopen', function() {
+    const self = this;
+    if (self._thumbDone) return;
+    self._thumbDone = true;
     fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + wiki)
       .then(r => r.json())
       .then(d => {
         const t = d.thumbnail && d.thumbnail.source;
-        if (t) box.innerHTML = '<img src="'+t+'" style="width:100%;height:100%;object-fit:cover">';
-        else box.style.display = 'none';
-      }).catch(() => { box.style.display = 'none'; });
+        const rep = t ? '<div style="width:220px;height:150px;border-radius:8px;margin-top:6px;overflow:hidden"><img src="'+t+'" style="width:100%;height:100%;object-fit:cover"></div>' : '';
+        self.setPopupContent(html.replace(PH, rep));
+      }).catch(() => { self.setPopupContent(html.replace(PH, '')); });
   });
+}
+function linkRow(name, region, wiki, igCode) {
+  const short = name.split('—')[0].split('(')[0].split('+')[0].trim();
+  const q = encodeURIComponent(short + ' ' + region);
+  let links = [
+    '<a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" style="color:#7fe6a5">Mapy &#8599;</a>',
+    '<a href="https://duckduckgo.com/?q=%21ducky+'+q+'" target="_blank" style="color:#e8b07f">WWW &#8599;</a>'
+  ];
+  if (wiki) links.push('<a href="https://en.wikipedia.org/wiki/'+wiki+'" target="_blank" style="color:#7fb4e6">Wiki &#8599;</a>');
+  if (igCode) {
+    const url = 'https://www.instagram.com/p/'+igCode+'/';
+    links.push('<a href="'+url+'" target="_blank" style="color:#7fb4e6">Instagram &#8599;</a>');
+    links.push('<a href="#" style="color:#e6c97f" onclick="showIG(\''+url+'\');return false">&#9654; podgląd</a>');
+  } else {
+    links.push('<a href="https://www.instagram.com/explore/search/keyword/?q='+encodeURIComponent(short)+'" target="_blank" style="color:#7fb4e6">IG szukaj &#8599;</a>');
+  }
+  return '<br>' + links.join(' &nbsp;');
+}
+function mk(map, lat, lng, name, info, cat, img, wiki) {
+  let html = '<b>'+name+'</b><br>'+info;
+  if (img) html += '<br><img src="'+IMGB+img+'?w=400" style="width:220px;border-radius:8px;margin-top:6px" loading="lazy"><br><span style="font-size:.75em;color:#888">fot. Hand Luggage Only</span>';
+  else if (wiki) html += PH;
+  const region = (typeof m1 !== 'undefined' && map === m1 ? 'Edinburgh ' : '') + 'Scotland';
+  html += linkRow(name, region, wiki, IG[name]);
+  const m = L.circleMarker([lat,lng], {radius:7, color:C[cat], fillColor:C[cat], fillOpacity:.85, weight:2})
+   .addTo(map).bindPopup(html, {maxWidth: 300});
+  REG.push({map: map, m: m, cat: cat, txt: (name + ' ' + info).toLowerCase(), rated: /\d[\.,]\d\s*(★|g\b|ta\b|rg\b)|★/i.test(info)});
+  m.on('mouseover', function(){ this.openPopup(); });
+  if (wiki && !img) wikiThumb(m, html, wiki);
 }
 // ===== MAPA EDYNBURG =====
 const m1 = L.map('map-edi').setView([55.9515,-3.196], 13);
@@ -450,33 +462,13 @@ function stops(list, cls) {
   return L.layerGroup(list.map((p, i) => {
     const [lat, lng, name, info, wiki, ig, cimg] = p;
     const icon = L.divIcon({className:'', html:'<div class="rnum '+cls+'">'+(i+1)+'</div>', iconSize:[22,22], iconAnchor:[11,11]});
-    const id = 'rs' + cls + i;
     let html = '<b>'+(i+1)+'. '+name+'</b>' + (info ? '<br>'+info : '');
     if (cimg) html += '<div style="width:220px;height:150px;border-radius:8px;margin-top:6px;overflow:hidden"><img src="'+CMB+cimg+'" style="width:100%;height:100%;object-fit:cover"></div><span style="font-size:.72em;color:#888">fot. Wikimedia Commons</span>';
-    else if (wiki) html += '<div id="'+id+'" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px;overflow:hidden"></div>';
-    const q = encodeURIComponent(name.split('—')[0].split('(')[0].split('+')[0].trim() + ' Edinburgh');
-    let links = ['<a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" style="color:#7fe6a5">Mapy &#8599;</a>'];
-    if (wiki) links.push('<a href="https://en.wikipedia.org/wiki/'+wiki+'" target="_blank" style="color:#7fb4e6">Wiki &#8599;</a>');
-    if (ig) {
-      const iu = 'https://www.instagram.com/p/'+ig+'/';
-      links.push('<a href="'+iu+'" target="_blank" style="color:#7fb4e6">Instagram &#8599;</a>');
-      links.push('<a href="#" style="color:#e6c97f" onclick="showIG(\''+iu+'\');return false">&#9654; podgląd</a>');
-    }
-    html += '<br>' + links.join(' &nbsp;');
+    else if (wiki) html += PH;
+    html += linkRow(name, 'Edinburgh', wiki, ig);
     const m = L.marker([lat, lng], {icon, zIndexOffset:1000}).bindPopup(html, {maxWidth:280});
     m.on('mouseover', function(){ this.openPopup(); });
-    if (wiki && !cimg) m.on('popupopen', function() {
-      const box = document.getElementById(id);
-      if (!box || box.dataset.done) return;
-      box.dataset.done = 1;
-      fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + wiki)
-        .then(r => r.json())
-        .then(d => {
-          const t = d.thumbnail && d.thumbnail.source;
-          if (t) box.innerHTML = '<img src="'+t+'" style="width:100%;height:100%;object-fit:cover">';
-          else box.style.display = 'none';
-        }).catch(() => { box.style.display = 'none'; });
-    });
+    if (wiki && !cimg) wikiThumb(m, html, wiki);
     return m;
   }));
 }
