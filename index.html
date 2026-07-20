@@ -30,6 +30,8 @@
   .rnum.d2 { background:#00c46a; }
   .rnum.d3a { background:#4da6ff; }
   .rnum.d3b { background:#c98fff; }
+  .tabbtn { background:#1a2027; color:#9aa4af; border:1px solid #333; border-radius:10px 10px 0 0; padding:10px 22px; font-size:1.05em; cursor:pointer; }
+  .tabbtn.on { background:#2a3440; color:#e6c97f; border-bottom:2px solid #e6c97f; font-weight:600; }
   .badge { display:inline-block; background:#2a3440; color:var(--gold); border-radius:5px; padding:1px 7px; font-size:.8em; margin-left:6px; }
 </style>
 </head>
@@ -38,6 +40,15 @@
 <h1>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Szkocja — miejsca z Twojej kolekcji „Scotland”</h1>
 <p class="sub">Z 67 zapisanych postów wyciągnąłem wszystkie konkretne miejsca + dodatki z bloga Hand Luggage Only. Oceny: Google / TripAdvisor / inne portale (stan: lipiec 2026). IG = link do posta źródłowego, HLO = artykuł Hand Luggage Only. Najedź/kliknij punkt na mapie — część ma zdjęcia.</p>
 
+
+<div style="display:flex;gap:8px;margin:14px 0 18px">
+  <button id="tb1" class="tabbtn on" onclick="showTab(1)">🏙️ Edynburg</button>
+  <button id="tb2" class="tabbtn" onclick="showTab(2)">🌄 Highlands i reszta Szkocji</button>
+</div>
+<div id="tab1">
+<div class="fbar" id="fbar1"></div>
+<div id="map-edi" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy &nbsp; | &nbsp; numerki: <span style="color:#ffb400">⬤</span> 26.07 spacer &nbsp; <span style="color:#00c46a">⬤</span> 27.07 Royal Mile &nbsp; <span style="color:#4da6ff">⬤</span> 28.07 A &nbsp; <span style="color:#c98fff">⬤</span> 28.07 B &nbsp; <span class="n">(włącz/wyłącz w rogu mapy; wariant B domyślnie wyłączony)</span></p>
 <h2>🏙️ Edynburg</h2>
 
 <h3>🍽️ Jedzenie i picie</h3>
@@ -147,21 +158,14 @@
 ⑥ powrót busem 37 prosto do centrum (~45 min).<br>
 📱 Aplikacja, z której korzystają mieszkańcy: <a href="https://www.lothianbuses.com/app/">Lothian Buses</a> (żywe odjazdy + bilety m-tickets); do szybkiego sprawdzania rozkładów dowolnego przewoźnika lokalni polecają też <a href="https://bustimes.org/localities/fairmilehead">bustimes.org</a>.</p>
 
-<div id="filtry" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#1a2027;border:1px solid #333;border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:.9em">
-  <b style="color:var(--gold)">Filtry mapy:</b>
-  <label><input type="checkbox" id="f_food" checked onchange="applyFilter()"> 🍽 jedzenie</label>
-  <label><input type="checkbox" id="f_attr" checked onchange="applyFilter()"> 🏰 atrakcje</label>
-  <label><input type="checkbox" id="f_shop" checked onchange="applyFilter()"> 🛍 sklepy</label>
-  <span style="color:#444">|</span>
-  <button class="fbtn" data-mode="all" onclick="setMode('all')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">wszystko</button>
-  <button class="fbtn" data-mode="rated" onclick="setMode('rated')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">⭐ tylko z oceną</button>
-  <button class="fbtn" data-mode="haggis" onclick="setMode('haggis')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">🥘 tylko haggis</button>
-  <input type="search" id="f_q" placeholder="szukaj (np. whisky, kawa)…" oninput="applyFilter()" style="background:#101418;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;min-width:180px">
-</div>
-<div id="map-edi" class="map"></div>
-<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy &nbsp; | &nbsp; numerki: <span style="color:#ffb400">⬤</span> 26.07 spacer &nbsp; <span style="color:#00c46a">⬤</span> 27.07 Royal Mile &nbsp; <span style="color:#4da6ff">⬤</span> 28.07 A &nbsp; <span style="color:#c98fff">⬤</span> 28.07 B &nbsp; <span class="n">(włącz/wyłącz w rogu mapy; wariant B domyślnie wyłączony)</span></p>
 
+
+</div>
+<div id="tab2" style="display:none">
 <h2>🌄 Reszta Szkocji</h2>
+<div class="fbar" id="fbar2"></div>
+<div id="map-scot" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/nocleg &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/natura &nbsp; <span class="dot" style="background:#7fe6a5"></span>zamki/historia</p>
 <table>
 <tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
 <tr><td><b>Glencruitten House</b> — k. Oban</td><td class="r">TA: wybitne</td><td class="n">Kolacja-opowieść inspirowana mitologią szkocką (legenda Beiry) — „najlepszy posiłek w życiu” wg gości.</td><td><a href="https://www.instagram.com/p/DaQfjmjCj0H/">IG</a></td></tr>
@@ -216,8 +220,7 @@
 <tr><td><b>Inverness</b> — Dolphin Spirit RIB</td><td class="r">—</td><td class="n">Rejs RIB po Moray Firth — delfiny butlonose; powrót Caledonian Sleeperem.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
 </table>
 
-<div id="map-scot" class="map"></div>
-<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/nocleg &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/natura &nbsp; <span class="dot" style="background:#7fe6a5"></span>zamki/historia</p>
+
 
 <h2>❓ Z postów-wideo (miejsce nienazwane w opisie)</h2>
 <table>
@@ -231,6 +234,7 @@
 <tr><td>Poza Szkocją: Davy's Fish &amp; Chips (Beamish, Anglia), Cotswold Way (Anglia), Christmas in Glasgow</td><td><a href="https://www.instagram.com/p/DQXIVHIjBkF/">IG</a></td></tr>
 </table>
 
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 const C = { food:'#e67f7f', attr:'#7fb4e6', shop:'#a67fe6', hist:'#7fe6a5' };
@@ -293,19 +297,45 @@ function showIG(url) {
 }
 let uid = 0;
 const REG = [];
-const PH = '<div class="ph" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px"></div>';
-function wikiThumb(marker, html, wiki) {
+const PH = '<div class="ph" style="width:220px;height:150px;background:#222;border-radius:8px;margin-top:6px;color:#666;font-size:.8em;display:flex;align-items:center;justify-content:center">ładowanie zdjęcia…</div>';
+const THUMB_CACHE = {};
+async function resolveThumb(wiki, qname, lat, lng) {
+  const key = (wiki || '') + '|' + qname;
+  if (key in THUMB_CACHE) return THUMB_CACHE[key];
+  let url = null;
+  try {
+    if (wiki) {
+      const d = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + wiki).then(r => r.json());
+      url = d.thumbnail ? d.thumbnail.source : null;
+    }
+    if (!url) {
+      const u = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrsearch=' + encodeURIComponent('filetype:bitmap ' + qname) + '&gsrlimit=1&gsrnamespace=6&prop=imageinfo&iiprop=url&iiurlwidth=400';
+      const d = await fetch(u).then(r => r.json());
+      const p = d.query && Object.values(d.query.pages)[0];
+      url = (p && p.imageinfo && p.imageinfo[0].thumburl) || null;
+    }
+    if (!url && lat && lng) {
+      for (const rad of [500, 2000]) {
+        const u = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=geosearch&ggscoord=' + lat + '%7C' + lng + '&ggsradius=' + rad + '&ggslimit=1&ggsnamespace=6&prop=imageinfo&iiprop=url&iiurlwidth=400';
+        const d = await fetch(u).then(r => r.json());
+        const p = d.query && Object.values(d.query.pages)[0];
+        url = (p && p.imageinfo && p.imageinfo[0].thumburl) || null;
+        if (url) break;
+      }
+    }
+  } catch(e) {}
+  THUMB_CACHE[key] = url;
+  return url;
+}
+function wikiThumb(marker, html, wiki, qname, lat, lng) {
   marker.on('popupopen', function() {
     const self = this;
     if (self._thumbDone) return;
     self._thumbDone = true;
-    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + wiki)
-      .then(r => r.json())
-      .then(d => {
-        const t = d.thumbnail && d.thumbnail.source;
-        const rep = t ? '<div style="width:220px;height:150px;border-radius:8px;margin-top:6px;overflow:hidden"><img src="'+t+'" style="width:100%;height:100%;object-fit:cover"></div>' : '';
-        self.setPopupContent(html.replace(PH, rep));
-      }).catch(() => { self.setPopupContent(html.replace(PH, '')); });
+    resolveThumb(wiki, qname, lat, lng).then(t => {
+      const rep = t ? '<div style="width:220px;height:150px;border-radius:8px;margin-top:6px;overflow:hidden"><img src="'+t+'" style="width:100%;height:100%;object-fit:cover"></div>' : '';
+      self.setPopupContent(html.replace(PH, rep));
+    });
   });
 }
 function linkRow(name, region, wiki, igCode) {
@@ -313,7 +343,8 @@ function linkRow(name, region, wiki, igCode) {
   const q = encodeURIComponent(short + ' ' + region);
   let links = [
     '<a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" style="color:#7fe6a5">Mapy &#8599;</a>',
-    '<a href="https://duckduckgo.com/?q=%21ducky+'+q+'" target="_blank" style="color:#e8b07f">WWW &#8599;</a>'
+    '<a href="https://duckduckgo.com/?q=%21ducky+'+q+'" target="_blank" style="color:#e8b07f">WWW &#8599;</a>',
+    '<a href="https://www.google.com/search?tbm=isch&q='+q+'" target="_blank" style="color:#e8b07f">📷 Grafika &#8599;</a>'
   ];
   if (wiki) links.push('<a href="https://en.wikipedia.org/wiki/'+wiki+'" target="_blank" style="color:#7fb4e6">Wiki &#8599;</a>');
   if (igCode) {
@@ -325,17 +356,20 @@ function linkRow(name, region, wiki, igCode) {
   }
   return '<br>' + links.join(' &nbsp;');
 }
+const IMGREG = {};
+const DEFREG = 'Scotland';
 function mk(map, lat, lng, name, info, cat, img, wiki) {
+  IMGREG[name] = {img: img || null, wiki: wiki || null, lat: lat, lng: lng};
   let html = '<b>'+name+'</b><br>'+info;
   if (img) html += '<br><img src="'+IMGB+img+'?w=400" style="width:220px;border-radius:8px;margin-top:6px" loading="lazy"><br><span style="font-size:.75em;color:#888">fot. Hand Luggage Only</span>';
-  else if (wiki) html += PH;
+  else html += PH;
   const region = (typeof m1 !== 'undefined' && map === m1 ? 'Edinburgh ' : '') + 'Scotland';
   html += linkRow(name, region, wiki, IG[name]);
   const m = L.circleMarker([lat,lng], {radius:7, color:C[cat], fillColor:C[cat], fillOpacity:.85, weight:2})
    .addTo(map).bindPopup(html, {maxWidth: 300});
   REG.push({map: map, m: m, cat: cat, txt: (name + ' ' + info).toLowerCase(), rated: /\d[\.,]\d\s*(★|g\b|ta\b|rg\b)|★/i.test(info)});
   m.on('mouseover', function(){ this.openPopup(); });
-  if (wiki && !img) wikiThumb(m, html, wiki);
+  if (!img) wikiThumb(m, html, wiki, name.split('—')[0].split('(')[0].split('+')[0].trim() + ' ' + region, lat, lng);
 }
 // ===== MAPA EDYNBURG =====
 const m1 = L.map('map-edi').setView([55.9515,-3.196], 13);
@@ -426,14 +460,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ["Gladstone's Land + Milne's Court",55.9493,-3.1942,'kamienica z 1620 (NT) i zaułek Lawnmarket','attr',null,"Gladstone's_Land"],
  ["Deacon Brodie's Tavern",55.9494,-3.1930,'pub im. pierwowzoru dr. Jekylla','food',null,'Deacon_Brodie'],
  ['Mercat Cross — Underground Vaults Tour',55.9496,-3.1902,'4.7 ★ (6,5 tys.) tury po podziemiach South Bridge — stąd startują','attr',null,'Edinburgh_Vaults'],
- ['Museum of Childhood',55.95033,-3.18551,'darmowe, zabawki od XVIII w.','attr',null,'Museum_of_Childhood,_Edinburgh'],
+ ['Museum of Childhood',55.95033,-3.18551,'darmowe, zabawki od XVIII w.','attr',null,'Museum_of_Childhood_(Edinburgh)'],
  ['John Knox House + Moubray House',55.95065,-3.18510,'najstarsze domy Royal Mile (XV/XVI w.)','attr',null,'John_Knox_House'],
  ['The Haggis Box 🥇',55.95064,-3.18487,'HAGGIS! — dziedziniec Storytelling Centre; haggis/neeps/tatties w misce, tanio i konkretnie','food'],
  ["World's End",55.95051,-3.18433,'pub na dawnej granicy miasta — „koniec świata”','food'],
  ["Cadenhead's Whisky Shop",55.95118,-3.18036,'najstarszy niezależny bottler whisky (1842)','shop'],
  ['Museum of Edinburgh + Bakehouse Close',55.95121,-3.17950,'darmowe muzeum + dziedziniec z Outlandera','attr',null,'Museum_of_Edinburgh'],
  ['Canongate Kirk',55.95182,-3.17964,'kirk z grobem Adama Smitha','attr',null,'Canongate_Kirk'],
- ["Dunbar's Close Garden",55.95180,-3.17886,'ukryty ogród w stylu XVII w. — sekret Canongate','attr',null,"Dunbar's_Close_Garden"],
+ ["Dunbar's Close Garden",55.95180,-3.17886,'ukryty ogród w stylu XVII w. — sekret Canongate','attr',null,'Canongate'],
  ['Scottish Poetry Library',55.95146,-3.17811,'biblioteka poezji w zaułku (z Twojej listy TA)','attr',null,'Scottish_Poetry_Library'],
  ['White Horse Close',55.95250,-3.17537,'najbardziej bajkowy dziedziniec miasta','attr',null,'White_Horse_Close'],
  ['Scottish Parliament',55.9520,-3.1750,'kontrowersyjna architektura, wstęp darmowy','attr',null,'Scottish_Parliament_Building'],
@@ -449,7 +483,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ['Game of Throwing',55.94592,-3.20669,'rzucanie siekierami — Fountainbridge (TA)','attr'],
  ['Escape Edinburgh (Morrison St)',55.94591,-3.20668,'escape roomy (TA)','attr'],
  ['Observatory House (Calton Hill)',55.9550,-3.1830,'obserwatorium z 1776 (TA)','attr',null,'City_Observatory'],
- ['Well Court (Dean Village)',55.9520,-3.2200,'ikoniczny ceglany dziedziniec (TA)','attr',null,'Well_Court'],
+ ['Well Court (Dean Village)',55.9520,-3.2200,'ikoniczny ceglany dziedziniec (TA)','attr',null,'Dean_Village'],
  ['Newhailes House (Musselburgh)',55.9440,-3.0730,'palladiańska rezydencja NT (TA)','attr',null,'Newhailes'],
  ['Custom House (Leith)',55.9760,-3.1700,'gmach celny nad Water of Leith (TA)','attr'],
  ['West Bow Well',55.9478,-3.1930,'XVII-w. studnia u stóp Victoria St (TA)','attr'],
@@ -464,11 +498,11 @@ function stops(list, cls) {
     const icon = L.divIcon({className:'', html:'<div class="rnum '+cls+'">'+(i+1)+'</div>', iconSize:[22,22], iconAnchor:[11,11]});
     let html = '<b>'+(i+1)+'. '+name+'</b>' + (info ? '<br>'+info : '');
     if (cimg) html += '<div style="width:220px;height:150px;border-radius:8px;margin-top:6px;overflow:hidden"><img src="'+CMB+cimg+'" style="width:100%;height:100%;object-fit:cover"></div><span style="font-size:.72em;color:#888">fot. Wikimedia Commons</span>';
-    else if (wiki) html += PH;
+    else html += PH;
     html += linkRow(name, 'Edinburgh', wiki, ig);
     const m = L.marker([lat, lng], {icon, zIndexOffset:1000}).bindPopup(html, {maxWidth:280});
     m.on('mouseover', function(){ this.openPopup(); });
-    if (wiki && !cimg) wikiThumb(m, html, wiki);
+    if (!cimg) wikiThumb(m, html, wiki, name.split('—')[0].split('(')[0].split('+')[0].trim() + ' Edinburgh', lat, lng);
     return m;
   }));
 }
@@ -478,7 +512,7 @@ const day1Stops = stops([
  [55.94810,-3.19570,'Schody Castle Wynd South','zejście z podzamcza prosto na Grassmarket'],
  [55.94740,-3.19620,'Grassmarket','plac egzekucji; budka Seoul Nibbles (sezonowo X–III!) — plan B: Mary’s Milk Bar','Grassmarket','DWHBavwjUZ7'],
  [55.94690,-3.19530,'The Vennel','30 m w bok: kultowe schody z najlepszym widokiem na zamek',null,'DMDlWdfK9eo','9/95/Edinburgh_Castle_from_the_Vennel_-_geograph.org.uk_-_2367375.jpg/330px-Edinburgh_Castle_from_the_Vennel_-_geograph.org.uk_-_2367375.jpg'],
- [55.94860,-3.19220,'Victoria Street','kręta „Pokątna”: Museum Context (40), MinaLima (21), Elephant House (30)','Victoria_Street,_Edinburgh','DZHyS4Do7gL'],
+ [55.94860,-3.19220,'Victoria Street','kręta „Pokątna”: Museum Context (40), MinaLima (21), Elephant House (30)','West_Bow','DZHyS4Do7gL'],
  [55.94830,-3.19360,'West Bow + studnia','najbardziej fotogeniczny zakręt; Museum of Magic przeniosło się na Royal Mile (27.07)',null,'DU3t81PEuc2','4/4e/Shops_on_West_Bow%2CVictoria_Street_-_geograph.org.uk_-_545569.jpg/330px-Shops_on_West_Bow%2CVictoria_Street_-_geograph.org.uk_-_545569.jpg'],
  [55.94680,-3.19070,'Candlemaker Row + Bobby','klimatyczna uliczka; pomnik wiernego teriera na rogu','Greyfriars_Bobby','DBEpKpDK_qf'],
  [55.94690,-3.19220,'Greyfriars Kirkyard','grób Thomasa Riddella, grobowiec Mackenziego, widok na George Heriot’s = „Hogwart”','Greyfriars_Kirkyard','DMuRK6YMQ-6'],
@@ -494,7 +528,7 @@ const mileStops = stops([
  [55.9495,-3.1907,"St Giles' Cathedral",'katedra + Heart of Midlothian (splunąć na szczęście) + Mercat Cross — stąd startują tury po podziemiach (4.7★)',"St_Giles'_Cathedral"],
  [55.9502,-3.1887,'Arcade Haggis & Whisky House','HAGGIS #2 — wersja „Diana”; 1 min w bok na Cockburn St',null,'DVD39oxiD2_'],
  [55.9497,-3.1874,'Tron Kirk Market','dawny kościół z rękodziełem','Tron_Kirk','DMDlWdfK9eo'],
- [55.95033,-3.18551,'Museum of Childhood','darmowe; zabawki od XVIII w.','Museum_of_Childhood,_Edinburgh'],
+ [55.95033,-3.18551,'Museum of Childhood','darmowe; zabawki od XVIII w.','Museum_of_Childhood_(Edinburgh)'],
  [55.95065,-3.18510,'John Knox House + Haggis Box + Museum of Magic','najstarsze domy Royal Mile; na dziedzińcu HAGGIS #3 (tani plan B); obok muzeum okultyzmu','John_Knox_House','DU3t81PEuc2'],
  [55.95051,-3.18433,"World's End",'pub na dawnej granicy miasta — dalej zaczyna się Canongate'],
  [55.95118,-3.18036,"Cadenhead's Whisky Shop",'najstarszy niezależny bottler whisky (1842)'],
@@ -616,7 +650,34 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© Op
  ['Dolphin Spirit RIB (Inverness)',57.4930,-4.2400,'rejs RIB — delfiny butlonose w Moray Firth','attr']
 ].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5]));
 
-// ===== FILTRY =====
+// ===== ZAKŁADKI =====
+function showTab(n) {
+  document.getElementById('tab1').style.display = (n === 1) ? '' : 'none';
+  document.getElementById('tab2').style.display = (n === 2) ? '' : 'none';
+  document.getElementById('tb1').classList.toggle('on', n === 1);
+  document.getElementById('tb2').classList.toggle('on', n === 2);
+  setTimeout(() => { m1.invalidateSize(); m2.invalidateSize(); }, 60);
+}
+
+// ===== FILTRY (dwa zsynchronizowane paski) =====
+const FBAR_HTML = `
+  <b style="color:var(--gold)">Filtry:</b>
+  <label><input type="checkbox" class="fc" data-role="food" checked onchange="syncChk(this)"> 🍽 jedzenie</label>
+  <label><input type="checkbox" class="fc" data-role="attr" checked onchange="syncChk(this)"> 🏰 atrakcje</label>
+  <label><input type="checkbox" class="fc" data-role="shop" checked onchange="syncChk(this)"> 🛍 sklepy</label>
+  <label><input type="checkbox" class="fc" data-role="hist" checked onchange="syncChk(this)"> 🏯 zamki/historia</label>
+  <span style="color:#444">|</span>
+  <button class="fbtn" data-mode="all" onclick="setMode('all')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">wszystko</button>
+  <button class="fbtn" data-mode="rated" onclick="setMode('rated')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">⭐ tylko z oceną</button>
+  <button class="fbtn" data-mode="haggis" onclick="setMode('haggis')" style="background:#2a3440;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;cursor:pointer">🥘 tylko haggis</button>
+  <input type="search" class="fc" data-role="q" placeholder="szukaj (np. whisky, kawa)…" oninput="syncQ(this)" style="background:#101418;color:#e8e6e3;border:1px solid #444;border-radius:6px;padding:4px 10px;min-width:180px">`;
+document.querySelectorAll('.fbar').forEach(el => {
+  el.style.cssText = 'display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#1a2027;border:1px solid #333;border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:.9em';
+  el.innerHTML = FBAR_HTML;
+});
+function syncChk(el) { document.querySelectorAll('.fc[data-role="'+el.dataset.role+'"]').forEach(x => x.checked = el.checked); applyFilter(); }
+function syncQ(el) { document.querySelectorAll('.fc[data-role="q"]').forEach(x => { if (x !== el) x.value = el.value; }); applyFilter(); }
+function fOn(role) { const el = document.querySelector('.fc[data-role="'+role+'"]'); return el ? el.checked : true; }
 window.__mode = 'all';
 function setMode(mode) {
   window.__mode = mode;
@@ -627,11 +688,10 @@ function setMode(mode) {
   applyFilter();
 }
 function applyFilter() {
-  const q = (document.getElementById('f_q').value || '').toLowerCase().trim();
+  const qe = document.querySelector('.fc[data-role="q"]');
+  const q = (qe && qe.value || '').toLowerCase().trim();
   REG.forEach(r => {
-    let show = true;
-    const cb = document.getElementById('f_' + r.cat);
-    if (cb && !cb.checked) show = false;
+    let show = fOn(r.cat);
     if (window.__mode === 'rated' && !r.rated) show = false;
     if (window.__mode === 'haggis' && !r.txt.includes('haggis')) show = false;
     if (q && !r.txt.includes(q)) show = false;
@@ -640,6 +700,77 @@ function applyFilter() {
   });
 }
 setMode('all');
+
+// ===== MINIATURKI W TABELACH =====
+(function decorateTables() {
+  const keys = Object.keys(IMGREG);
+  const queue = [];
+  document.querySelectorAll('td b').forEach(b => {
+    const t = b.textContent.trim();
+    if (t.length < 3) return;
+    let k = IMGREG[t] ? t : keys.find(k2 => {
+      const a = k2.toLowerCase(), c = t.toLowerCase();
+      return a.startsWith(c.slice(0, 14)) || c.startsWith(a.slice(0, 14));
+    });
+    if (!k) return;
+    const e = IMGREG[k];
+    const td = b.closest('td');
+    if (!td || td.querySelector('img') || td.querySelector('.thumbox')) return;
+    if (e.img) {
+      const im = document.createElement('img');
+      im.style.cssText = 'width:96px;height:64px;object-fit:cover;border-radius:6px;float:left;margin:2px 10px 4px 0';
+      im.loading = 'lazy';
+      im.src = IMGB + e.img + '?w=200';
+      td.prepend(im);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'thumbox';
+      ph.style.cssText = 'width:96px;height:64px;border-radius:6px;float:left;margin:2px 10px 4px 0;background:#222;color:#666;font-size:.7em;display:flex;align-items:center;justify-content:center';
+      ph.textContent = 'ładowanie…';
+      td.prepend(ph);
+      queue.push([ph, e, k.split('—')[0].split('(')[0].split('+')[0].trim()]);
+    }
+  });
+  (async () => {
+    for (const [ph, e, nm] of queue) {
+      const t = await resolveThumb(e.wiki, nm + ' ' + DEFREG, e.lat, e.lng);
+      if (t) ph.innerHTML = '<img src="'+t+'" style="width:100%;height:100%;object-fit:cover;border-radius:6px">';
+      else ph.textContent = 'brak zdjęcia';
+      await new Promise(r => setTimeout(r, 60));
+    }
+  })();
+})();
+
+// ===== DUŻY PODGLĄD ZDJĘCIA (tooltip) =====
+function bigThumb(u) { return u.replace(/\/(\d+)px-/, '/960px-').replace('?w=200','?w=900').replace('?w=400','?w=900'); }
+const tip = document.createElement('div');
+tip.style.cssText = 'position:fixed;display:none;z-index:10000;pointer-events:none;border:2px solid #444;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.7);background:#111';
+const tipImg = document.createElement('img');
+tipImg.style.cssText = 'display:block;max-width:480px;max-height:380px';
+tip.appendChild(tipImg);
+document.body.appendChild(tip);
+function placeTip(e) {
+  const pad = 18;
+  let x = e.clientX + pad, y = e.clientY + pad;
+  const w = tip.offsetWidth || 480, h = tip.offsetHeight || 380;
+  if (x + w > innerWidth - 8) x = e.clientX - w - pad;
+  if (y + h > innerHeight - 8) y = Math.max(8, innerHeight - h - 8);
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+document.addEventListener('mouseover', e => {
+  const im = e.target;
+  if (im.tagName !== 'IMG' || im === tipImg) return;
+  if (!im.closest('td') && !im.closest('.leaflet-popup-content')) return;
+  const big = im.dataset.big || bigThumb(im.src);
+  tipImg.onerror = () => { tipImg.onerror = null; tipImg.src = im.src; };
+  tipImg.src = big;
+  tip.style.display = 'block';
+  placeTip(e);
+});
+document.addEventListener('mousemove', e => { if (tip.style.display === 'block') placeTip(e); });
+document.addEventListener('mouseout', e => {
+  if (e.target.tagName === 'IMG' && e.target !== tipImg) tip.style.display = 'none';
+});
 </script>
 </div>
 </body>
