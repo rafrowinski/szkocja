@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Szkocja – lista miejsc z Instagrama</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#101418">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   :root { --bg:#101418; --card:#1a2027; --txt:#e8e6e3; --muted:#9aa4af; --accent:#7fb4e6; --gold:#e6c97f; }
@@ -33,6 +39,21 @@
   .tabbtn { background:#1a2027; color:#9aa4af; border:1px solid #333; border-radius:10px 10px 0 0; padding:10px 22px; font-size:1.05em; cursor:pointer; }
   .tabbtn.on { background:#2a3440; color:#e6c97f; border-bottom:2px solid #e6c97f; font-weight:600; }
   .badge { display:inline-block; background:#2a3440; color:var(--gold); border-radius:5px; padding:1px 7px; font-size:.8em; margin-left:6px; }
+
+  @media (max-width: 640px) {
+    .wrap { padding:12px 10px 40px; }
+    h1 { font-size:1.35em; }
+    .sub { font-size:.9em; }
+    .map { height:62vh; }
+    .tabbtn { flex:1; padding:9px 8px; font-size:.95em; }
+    table, tbody { display:block; }
+    table tr { display:block; background:#161b21; border:1px solid #2a3138; border-radius:10px; margin-bottom:10px; padding:8px 10px; }
+    table tr:first-child { display:none; }
+    table td, table th { display:block; border:none; padding:3px 2px; }
+    td.r { padding-top:0; }
+    .fbar { font-size:.85em; gap:6px !important; }
+    .legend { font-size:.78em; }
+  }
 </style>
 </head>
 <body>
@@ -327,7 +348,7 @@ function showIG(url) {
     p = document.createElement('div');
     p.id = 'igPanel';
     p.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:9999;background:#1a2027;border:1px solid #444;border-radius:12px;padding:8px;box-shadow:0 8px 30px rgba(0,0,0,.6)';
-    p.innerHTML = '<div style="text-align:right;margin-bottom:4px"><a href="#" onclick="document.getElementById(\'igPanel\').remove();return false" style="color:#9aa4af;font-size:1.1em;text-decoration:none">&#10005;</a></div><iframe id="igFrame" style="width:320px;height:430px;border:0;border-radius:8px;background:#fff"></iframe>';
+    p.innerHTML = '<div style="text-align:right;margin-bottom:4px"><a href="#" onclick="document.getElementById(\'igPanel\').remove();return false" style="color:#9aa4af;font-size:1.1em;text-decoration:none">&#10005;</a></div><iframe id="igFrame" style="width:min(320px,calc(100vw - 60px));height:430px;border:0;border-radius:8px;background:#fff"></iframe>';
     document.body.appendChild(p);
   }
   document.getElementById('igFrame').src = url + 'embed/';
@@ -818,43 +839,77 @@ setMode('all');
   })();
 })();
 
-// ===== DUŻY PODGLĄD ZDJĘCIA (tooltip) =====
+// ===== DUŻY PODGLĄD ZDJĘCIA (desktop: hover, dotyk: tap) =====
 function bigThumb(u) { return u.replace(/\/(\d+)px-/, '/960px-').replace('?w=200','?w=900').replace('?w=400','?w=900'); }
-const tip = document.createElement('div');
-tip.style.cssText = 'position:fixed;display:none;z-index:10000;pointer-events:none;border:2px solid #444;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.7);background:#111';
-const tipLabel = document.createElement('div');
-tipLabel.style.cssText = 'width:260px;height:120px;display:flex;align-items:center;justify-content:center;color:#888;font-size:.9em';
-tipLabel.textContent = 'ładowanie…';
-const tipImg = document.createElement('img');
-tipImg.style.cssText = 'display:none;max-width:480px;max-height:380px';
-tip.appendChild(tipLabel); tip.appendChild(tipImg);
-document.body.appendChild(tip);
-function placeTip(e) {
-  const pad = 18;
-  let x = e.clientX + pad, y = e.clientY + pad;
-  const w = tip.offsetWidth || 480, h = tip.offsetHeight || 380;
-  if (x + w > innerWidth - 8) x = e.clientX - w - pad;
-  if (y + h > innerHeight - 8) y = Math.max(8, innerHeight - h - 8);
-  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+const COARSE = matchMedia('(pointer: coarse)').matches;
+if (!COARSE) {
+  const tip = document.createElement('div');
+  tip.style.cssText = 'position:fixed;display:none;z-index:10000;pointer-events:none;border:2px solid #444;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.7);background:#111';
+  const tipLabel = document.createElement('div');
+  tipLabel.style.cssText = 'width:260px;height:120px;display:flex;align-items:center;justify-content:center;color:#888;font-size:.9em';
+  tipLabel.textContent = 'ładowanie…';
+  const tipImg = document.createElement('img');
+  tipImg.style.cssText = 'display:none;max-width:480px;max-height:380px';
+  tip.appendChild(tipLabel); tip.appendChild(tipImg);
+  document.body.appendChild(tip);
+  function placeTip(e) {
+    const pad = 18;
+    let x = e.clientX + pad, y = e.clientY + pad;
+    const w = tip.offsetWidth || 480, h = tip.offsetHeight || 380;
+    if (x + w > innerWidth - 8) x = e.clientX - w - pad;
+    if (y + h > innerHeight - 8) y = Math.max(8, innerHeight - h - 8);
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  document.addEventListener('mouseover', e => {
+    const im = e.target;
+    if (im.tagName !== 'IMG' || im === tipImg) return;
+    if (!im.closest('td') && !im.closest('.leaflet-popup-content')) return;
+    tipImg.style.display = 'none';
+    tipImg.removeAttribute('src');
+    tipLabel.style.display = 'flex';
+    tip.style.display = 'block';
+    placeTip(e);
+    const big = im.dataset.big || bigThumb(im.src);
+    tipImg.onload = () => { tipLabel.style.display = 'none'; tipImg.style.display = 'block'; placeTip(e); };
+    tipImg.onerror = () => { tipImg.onerror = null; tipImg.src = im.src; };
+    tipImg.src = big;
+  });
+  document.addEventListener('mousemove', e => { if (tip.style.display === 'block') placeTip(e); });
+  document.addEventListener('mouseout', e => {
+    if (e.target.tagName === 'IMG' && e.target !== tipImg) tip.style.display = 'none';
+  });
+} else {
+  const ov = document.createElement('div');
+  ov.style.cssText = 'position:fixed;inset:0;display:none;z-index:10001;background:rgba(6,8,10,.94);align-items:center;justify-content:center;flex-direction:column;gap:10px';
+  const ovLabel = document.createElement('div');
+  ovLabel.style.cssText = 'color:#888;font-size:.95em';
+  ovLabel.textContent = 'ładowanie…';
+  const ovImg = document.createElement('img');
+  ovImg.style.cssText = 'display:none;max-width:94vw;max-height:80vh;border-radius:10px';
+  const ovHint = document.createElement('div');
+  ovHint.style.cssText = 'color:#9aa4af;font-size:.85em';
+  ovHint.textContent = 'dotknij, aby zamknąć';
+  ov.appendChild(ovLabel); ov.appendChild(ovImg); ov.appendChild(ovHint);
+  document.body.appendChild(ov);
+  ov.addEventListener('click', () => { ov.style.display = 'none'; ovImg.removeAttribute('src'); });
+  document.addEventListener('click', e => {
+    const im = e.target;
+    if (im.tagName !== 'IMG' || im === ovImg) return;
+    if (!im.closest('td') && !im.closest('.leaflet-popup-content')) return;
+    ovImg.style.display = 'none';
+    ovImg.removeAttribute('src');
+    ovLabel.style.display = 'block';
+    ov.style.display = 'flex';
+    ovImg.onload = () => { ovLabel.style.display = 'none'; ovImg.style.display = 'block'; };
+    ovImg.onerror = () => { ovImg.onerror = null; ovImg.src = im.src; };
+    ovImg.src = im.dataset.big || bigThumb(im.src);
+  });
 }
-document.addEventListener('mouseover', e => {
-  const im = e.target;
-  if (im.tagName !== 'IMG' || im === tipImg) return;
-  if (!im.closest('td') && !im.closest('.leaflet-popup-content')) return;
-  tipImg.style.display = 'none';
-  tipImg.removeAttribute('src');
-  tipLabel.style.display = 'flex';
-  tip.style.display = 'block';
-  placeTip(e);
-  const big = im.dataset.big || bigThumb(im.src);
-  tipImg.onload = () => { tipLabel.style.display = 'none'; tipImg.style.display = 'block'; placeTip(e); };
-  tipImg.onerror = () => { tipImg.onerror = null; tipImg.src = im.src; };
-  tipImg.src = big;
-});
-document.addEventListener('mousemove', e => { if (tip.style.display === 'block') placeTip(e); });
-document.addEventListener('mouseout', e => {
-  if (e.target.tagName === 'IMG' && e.target !== tipImg) tip.style.display = 'none';
-});
+
+// ===== PWA: rejestracja service workera =====
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+}
 </script>
 </div>
 </body>
