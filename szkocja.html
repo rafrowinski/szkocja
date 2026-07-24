@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Szkocja – lista miejsc z Instagrama</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#101418">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<h1>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Szkocja — miejsca z Twojej kolekcji „Scotland”</h1>
+<div class="nav"><a href="index.html">📅 Plan</a><a href="szkocja.html" class="here">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Szkocja</a><a href="belfast.html">🇮🇪 Belfast</a><a href="liverpool.html">🇬🇧 Liverpool</a></div>
+<p class="sub">Z 67 zapisanych postów wyciągnąłem wszystkie konkretne miejsca + dodatki z bloga Hand Luggage Only. Oceny: Google / TripAdvisor / inne portale (stan: lipiec 2026). IG = link do posta źródłowego, HLO = artykuł Hand Luggage Only. Najedź/kliknij punkt na mapie — część ma zdjęcia.</p>
+
+
+<div style="display:flex;gap:8px;margin:14px 0 18px">
+  <button id="tb1" class="tabbtn on" onclick="showTab(1)">🏙️ Edynburg</button>
+  <button id="tb2" class="tabbtn" onclick="showTab(2)">🌄 Highlands i reszta Szkocji</button>
+</div>
+<div id="tab1">
+<div class="fbar" id="fbar1"></div>
+<div id="map-edi" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy &nbsp; <span class="dot" style="background:#111;border:1px solid #777"></span>trasy piesze (AllTrails) &nbsp; | &nbsp; numerki: <span style="color:#ffb400">⬤</span> 26.07 spacer &nbsp; <span style="color:#00c46a">⬤</span> 27.07 Royal Mile &nbsp; <span style="color:#4da6ff">⬤</span> 28.07 A &nbsp; <span style="color:#c98fff">⬤</span> 28.07 B &nbsp; <span class="n">(włącz/wyłącz w rogu mapy; wariant B domyślnie wyłączony)</span></p>
+<h2>🏙️ Edynburg</h2>
+
+<h3>🍽️ Jedzenie i picie</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Panda &amp; Sons</b> — 79 Queen St</td><td class="r">🏆 #1 świata</td><td class="n">Speakeasy za zakładem fryzjerskim. Najlepszy bar świata wg Top 500 Bars 2025, #34 World's 50 Best Bars.</td><td><a href="https://www.instagram.com/p/DWT_79VjEkW/">IG</a></td></tr>
+<tr><td><b>Makars Mash Bar</b> — 9 North Bank St</td><td class="r">4.8 G</td><td class="n">Szkocki comfort food: jagnięcina, haggis, puree w wielu wariantach. Jedna z najlepiej ocenianych restauracji w mieście.</td><td><a href="https://www.instagram.com/p/DVD39oxiD2_/">IG</a></td></tr>
+<tr><td><b>Dumpling Queen x Dai Jou Bu</b> — 52 Blackfriars St</td><td class="r">4.8 G / 4.7 RG</td><td class="n">Najlepsze pierogi w Edynburgu, autorski haggis dumpling. Pt/Sob od 12:00.</td><td><a href="https://www.instagram.com/p/DVb72J1jUc8/">IG</a></td></tr>
+<tr><td><b>Colonnades at the Signet Library</b></td><td class="r">4.8 TA / 9.8 TheFork</td><td class="n">Afternoon tea w zabytkowej bibliotece przy Parliament Square.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Kay's Bar</b> — 39 Jamaica St</td><td class="r">4.6 G/TA</td><td class="n">Maleńki wiktoriański pub w dawnym składzie win. Instytucja New Town.</td><td><a href="https://www.instagram.com/p/DaVstdasME5/">IG</a></td></tr>
+<tr><td><b>Kezban Mediterranean</b> — Commercial St, Leith</td><td class="r">4.4 G / 4.6 RG</td><td class="n">Autentyczna kuchnia turecka, ręcznie robione meze — ulubieniec mieszkańców Leith. TA #85 w mieście.</td><td><a href="https://www.instagram.com/p/DY7hvISs_e9/">IG</a></td></tr>
+<tr><td><b>The Milkman</b> — 7 Cockburn St</td><td class="r">4.6 (1,4 tys.) / 4.5 TA</td><td class="n">Kultowa mała kawiarnia w kamiennym budynku jak z Harry'ego Pottera.</td><td><a href="https://www.instagram.com/p/DVD39oxiD2_/">IG</a></td></tr>
+<tr><td><b>Croccante &amp; Co</b> — 2 Lynedoch Pl (West End)</td><td class="r">TA: entuzjastyczne</td><td class="n">Sycylijskie schiacciaty; wg edinburgh_local najlepsza kanapka w mieście. Mały lokal, bywa tłok.</td><td><a href="https://www.instagram.com/p/DavuY0FMT94/">IG</a></td></tr>
+<tr><td><b>Lannan Bakery</b> — Hamilton Pl, Stockbridge</td><td class="r">4.1 TA</td><td class="n">Najbardziej viralowa cukiernia w mieście — kolejki do 2 h, otwarte czw–nd do wyprzedania.</td><td><a href="https://www.instagram.com/p/DWPVnhrDF_G/">IG (Lennan post)</a></td></tr>
+<tr><td><b>Arcade Haggis &amp; Whisky House</b> — 48 Cockburn St</td><td class="r">4.3 TA / 4.8 RG</td><td class="n">Klasyczne miejsce na haggis (spróbuj wersji „Diana”).</td><td><a href="https://www.instagram.com/p/DVD39oxiD2_/">IG</a></td></tr>
+<tr><td><b>Queen Charlotte Rooms</b> — 56a Queen Charlotte St, Leith</td><td class="r">TA: „najlepsza herbatka w życiu”</td><td class="n">Afternoon tea w replice wagonu Orient Expressu — ekrany-okna z widokami z trasy. Rezerwuj z dużym wyprzedzeniem.</td><td><a href="https://www.instagram.com/p/DZVJg7FsC_1/">IG</a></td></tr>
+<tr><td><b>The Dome</b> — 14 George St</td><td class="r">4.4 TA (9 tys. opinii)</td><td class="n">Dawny bank z przepiękną kopułą; afternoon tea w Georgian Tea Room.</td><td><a href="https://www.instagram.com/p/DBO8eF6q9x1/">IG</a></td></tr>
+<tr><td><b>Guildford Arms</b> — 1-5 W Register St</td><td class="r">4.5 G / 4.2 TA</td><td class="n">Wiktoriański pub z 1896 r. ze „złotej ery” budowy pubów; real ale.</td><td><a href="https://www.instagram.com/p/DSxIbPRgIuc/">IG</a></td></tr>
+<tr><td><b>St Bernard's Bar</b> — Raeburn Pl, Stockbridge</td><td class="r">opinie skrajne</td><td class="n">Ekscentryczny pub z winylami i speakeasy na górze — jedni go kochają, inni narzekają na obsługę.</td><td><a href="https://www.instagram.com/p/DWbzPpYjPKG/">IG</a></td></tr>
+<tr><td><b>Seoul Nibbles</b> — Grassmarket (police box)</td><td class="r">5.0</td><td class="n">Koreański street food z bułeczkami „highland cow”. Sezonowo: paź–mar, czw–pn 11–17.</td><td><a href="https://www.instagram.com/p/DWHBavwjUZ7/">IG</a></td></tr>
+<tr><td><b>The Witchery by the Castle</b> — Castlehill</td><td class="r">4.2 TA + nagrody AA 5★</td><td class="n">Gotycka, świecowa restauracja przy zamku. Drogo, ale klimat unikatowy.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>Black Medicine Coffee Co</b> — 2 Nicolson St</td><td class="r">4.3 RG / 4.1 TA</td><td class="n">Kamienne mury, klimat „witchy”, ulubione miejsce studentów.</td><td><a href="https://www.instagram.com/p/DV9JHbIDPD0/">IG</a></td></tr>
+<tr><td><b>Books N' Cup</b> — 23 Home St</td><td class="r">4.6 TA</td><td class="n">Kawa wśród regałów z książkami; świetna gorąca czekolada, opcje bezglutenowe.</td><td><a href="https://www.instagram.com/p/DV9JHbIDPD0/">IG</a></td></tr>
+<tr><td><b>The Elephant House</b> — 30 Victoria St</td><td class="r">3.7 TA / 3.9 G</td><td class="n">„Miejsce narodzin” Harry'ego Pottera — dziś głównie atrakcja turystyczna, oceny przeciętne.</td><td><a href="https://www.instagram.com/p/DV9JHbIDPD0/">IG</a></td></tr>
+<tr><td><b>The Marshmallow Lady</b> — Rodney St</td><td class="r">4.6 RG</td><td class="n">Gorąca czekolada z górą opiekanych domowych pianek.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>The Cocktail Geeks</b> — 32 Market St</td><td class="r">tematyczne popupy</td><td class="n">Bar koktajlowy zmieniający wystrój (w poście: motyw Fallout).</td><td><a href="https://www.instagram.com/p/DGNOlpwKvfz/">IG</a></td></tr>
+<tr><td><b>Frankenstein Pub</b> — 26 George IV Bridge</td><td class="r">klimat &gt; kuchnia</td><td class="n">Pub w dawnym kościele; animatroniczny potwór zjeżdża z sufitu, karaoke w niedziele.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>The Banshee Labyrinth</b> — Niddry St</td><td class="r">opinie mieszane</td><td class="n">„Najbardziej nawiedzony pub Szkocji” — labirynt sal, darmowe kino, koncerty.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>NeighbourGood Market</b> — Stockbridge (sezonowo)</td><td class="r">—</td><td class="n">Letni market plenerowy z jedzeniem i drinkami (w poście: do 2 sierpnia).</td><td><a href="https://www.instagram.com/p/DYHdsqaMTe-/">IG</a></td></tr>
+<tr><td><b>Old Chain Pier</b> — Newhaven (Sea Shanty Night)</td><td class="r">—</td><td class="n">Wieczory szant z Edinburgh Shanty Night — wspólne śpiewanie nad wodą.</td><td><a href="https://www.instagram.com/p/DUiS6zdjKKp/">IG</a></td></tr>
+<tr><td><b>The St Vincent Bar</b> — 11 St Vincent St</td><td class="r">4.6 G</td><td class="n">Pub w Stockbridge — tu piłeś grzany gin (mulled gin), jak grzaniec, ale z ginem.</td><td><a href="https://www.instagram.com/p/DU0CClaDOG5/">IG</a></td></tr>
+</table>
+
+<h3>🏰 Atrakcje i miejsca</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Victoria Street</b> + Museum Context + House of MinaLima</td><td class="r">ikona miasta</td><td class="n">Kolorowa ulica-inspiracja Pokątnej; sklepy dla fanów HP.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>The Vennel Steps</b></td><td class="r">—</td><td class="n">200-letnie schody z klasycznym widokiem na zamek. #1 na liście „12 miejsc, które musisz zobaczyć”.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Dean Village</b></td><td class="r">—</td><td class="n">Dawna osada młynarzy nad Water of Leith — najbardziej malowniczy zakątek miasta.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>Scott Monument</b></td><td class="r">—</td><td class="n">61 m, 287 schodów na szczyt — największy pomnik pisarza na świecie.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>Greyfriars Kirkyard</b> + zamknięty grobowiec</td><td class="r">—</td><td class="n">Nawiedzony cmentarz; grobowiec „Bloody" Mackenziego zamknięty na kłódkę — „żeby coś nie wyszło”.</td><td><a href="https://www.instagram.com/p/DMuRK6YMQ-6/">IG</a></td></tr>
+<tr><td><b>National Museum of Scotland</b></td><td class="r">top muzeum, darmowe</td><td class="n">M.in. historia szkockich procesów czarownic.</td><td><a href="https://www.instagram.com/p/DFvZnSuqDZr/">IG</a></td></tr>
+<tr><td><b>Surgeons' Hall Museums</b></td><td class="r">#21 atrakcji TA</td><td class="n">Kolekcja patologii, historia Burke'a i Hare'a. Nie dla wrażliwych.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>Museum of Magic, Fortune-telling &amp; Witchcraft</b></td><td class="r">~4.0</td><td class="n">Małe muzeum okultyzmu przy Royal Mile; £7.50.</td><td><a href="https://www.instagram.com/p/DU3t81PEuc2/">IG</a></td></tr>
+<tr><td><b>Witches' Well</b> — esplanada zamku</td><td class="r">—</td><td class="n">Pomnik straconych za czary.</td><td><a href="https://www.instagram.com/p/DFvZnSuqDZr/">IG</a></td></tr>
+<tr><td><b>St Cuthbert's Kirkyard</b> i <b>Princes Street Gardens</b></td><td class="r">—</td><td class="n">Cmentarz z widokiem na zamek; ogrody na miejscu dawnego Nor' Loch, gdzie topiono „czarownice”.</td><td><a href="https://www.instagram.com/p/DBEpKpDK_qf/">IG</a></td></tr>
+<tr><td><b>New College</b> (uniwersytet)</td><td class="r">—</td><td class="n">Neogotycki dziedziniec — „ukryte podwórko” jak z Hogwartu.</td><td><a href="https://www.instagram.com/p/C63E98TorOm/">IG</a></td></tr>
+<tr><td><b>Cockburn Street / Royal Mile</b></td><td class="r">—</td><td class="n">Kręta wiktoriańska uliczka + historyczna oś Starego Miasta.</td><td><a href="https://www.instagram.com/p/DZHyS4Do7gL/">IG</a></td></tr>
+<tr><td><b>„Dziki Zachód"</b> — Springvalley Gardens, Morningside</td><td class="r">ciekawostka</td><td class="n">Ukryta uliczka stylizowana na western.</td><td><a href="https://www.instagram.com/p/DXKRI3TDHLs/">IG</a></td></tr>
+<tr><td><b>Craigmillar Castle</b></td><td class="r">b. pozytywne</td><td class="n">Klimatyczne ruiny z historią Marii Stuart, mało turystów. Bus 33/49.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Scotsman Picturehouse</b></td><td class="r">4.6 (222 opinie)</td><td class="n">Butikowe kino w stylu art deco w hotelu Scotsman — fotele uszaki, stoliczki.</td><td><a href="https://www.instagram.com/p/DVWRpx3jOCZ/">IG</a></td></tr>
+<tr><td><b>Ghost Bus Tours</b></td><td class="r">8.8/10 Booking</td><td class="n">Komediowo-straszna wycieczka zabytkowym autobusem po mrocznym Edynburgu.</td><td><a href="https://www.instagram.com/p/DFYfZT4MLjF/">IG</a></td></tr>
+<tr><td><b>Royal Botanic Garden (Botanics)</b></td><td class="r">—</td><td class="n">Szklarnie i spokój od zgiełku miasta.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Scottish National Portrait Gallery</b></td><td class="r">darmowa</td><td class="n">Neogotycki gmach, świetna kolekcja.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Writers' Museum</b></td><td class="r">darmowe</td><td class="n">Burns, Scott, Stevenson — w zaułku Lady Stair's Close.</td><td><a href="https://www.instagram.com/p/DGbN05kqFuW/">IG</a></td></tr>
+<tr><td><b>Tron Kirk Market</b></td><td class="r">—</td><td class="n">Dawny kościół zamieniony w market z rękodziełem.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>The Meadows</b></td><td class="r">—</td><td class="n">Park — przytulne zakątki na piknik.</td><td><a href="https://www.instagram.com/p/DE0N-IbKX6m/">IG</a></td></tr>
+<tr><td><b>Beltane Fire Festival</b> — Calton Hill (30 IV) i <b>Samhuinn</b> — Royal Mile (31 X)</td><td class="r">wydarzenia</td><td class="n">Celtyckie festiwale ognia.</td><td><a href="https://www.instagram.com/p/DXdHmPADX3Y/">IG</a></td></tr>
+<tr><td><b>Alpine Coaster — Midlothian Snowsports (Hillend)</b></td><td class="r">nowość</td><td class="n">Górska kolejka na obrzeżach miasta (#10 na liście „unikatów Szkocji”).</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td colspan="4" style="color:var(--gold);padding-top:14px"><b>Z bloga Hand Luggage Only („18 Best Things To Do in Edinburgh”):</b></td></tr>
+<tr><td><b>Arthur's Seat</b></td><td class="r">—</td><td class="n">Wygasły wulkan w Holyrood Park, ~30 min podejścia, najlepsza panorama miasta.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Edinburgh Castle</b></td><td class="r">—</td><td class="n">Klasyk + wystrzał armatni codziennie o 13:00 (oprócz niedziel).</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Calton Hill</b></td><td class="r">—</td><td class="n">Punkt widokowy — National Monument, zachody słońca (tu też odbywa się Beltane).</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Holyrood Palace</b></td><td class="r">—</td><td class="n">Rezydencja królewska, komnaty Marii Stuart.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>The Real Mary King's Close</b></td><td class="r">—</td><td class="n">Zwiedzanie zakonserwowanych XVII-wiecznych uliczek pod Royal Mile.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Camera Obscura &amp; World of Illusions</b></td><td class="r">—</td><td class="n">6 pięter iluzji i widok na miasto przez wiktoriańską camerę obscurę.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>The Chocolatarium</b></td><td class="r">—</td><td class="n">Warsztaty robienia czekolady (Cranston St, przy Royal Mile).</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Georgian House Museum</b> i <b>Scottish National Gallery</b></td><td class="r">—</td><td class="n">Kamienica z epoki na Charlotte Sq + darmowa galeria na The Mound.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>St Giles' Cathedral</b> + pomnik <b>Greyfriars Bobby</b></td><td class="r">—</td><td class="n">Katedra na Royal Mile i terier, który 14 lat pilnował grobu właściciela.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Timberyard</b> i <b>White Horse Oyster &amp; Seafood</b></td><td class="r">—</td><td class="n">Sezonowe tasting menu (Lady Lawson St) + ostrygi na Royal Mile.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Leith + Royal Yacht Britannia</b></td><td class="r">—</td><td class="n">Spacer po nabrzeżu i dawny jacht królowej (Ocean Terminal).</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+<tr><td><b>Festival Theatre</b> (Scottish Ballet) + <b>Fringe Festival</b> (sierpień)</td><td class="r">—</td><td class="n">Balet/opera przez cały rok; w sierpniu największy festiwal sztuki na świecie.</td><td><a href="https://handluggageonly.co.uk/17-of-the-best-things-to-do-in-edinburgh-scotland/">HLO</a></td></tr>
+</table>
+
+<h3>🛍️ Sklepy niezależne i „witchy”</h3>
+<table>
+<tr><th>Miejsce</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Wheel of Fate</b></td><td class="n">Tarot, warsztaty robienia mioteł i grimoire'ów.</td><td><a href="https://www.instagram.com/p/DBEpKpDK_qf/">IG</a></td></tr>
+<tr><td><b>Portal Leith</b></td><td class="n">Ezoteryczno-„witchy” sklep w Leith.</td><td><a href="https://www.instagram.com/p/DWWScfIDJhx/">IG</a></td></tr>
+<tr><td><b>Blackmoon Botanica</b></td><td class="n">Świece, zioła, magiczne akcesoria.</td><td><a href="https://www.instagram.com/p/DMDlWdfK9eo/">IG</a></td></tr>
+<tr><td><b>Wizardrops Aromatherapy</b></td><td class="n">Zielarski sklep z naturalnymi remediami.</td><td><a href="https://www.instagram.com/p/DX9wyOgivQf/">IG</a></td></tr>
+<tr><td><b>Topping &amp; Company</b></td><td class="n">Labiryntowa księgarnia z drabinami.</td><td><a href="https://www.instagram.com/p/DBEpKpDK_qf/">IG</a></td></tr>
+<tr><td><b>Armchair Books</b> / <b>McNaughtan's</b> / <b>The Gently Mad</b></td><td class="n">Antykwariaty — od „zorganizowanego chaosu” po białe kruki.</td><td><a href="https://www.instagram.com/p/DGbN05kqFuW/">IG</a></td></tr>
+<tr><td><b>Armstrong &amp; Son</b> (Grassmarket)</td><td class="n">Legendarny vintage.</td><td><a href="https://www.instagram.com/p/DGbN05kqFuW/">IG</a></td></tr>
+<tr><td><b>Curiouser</b> / <b>Time &amp; Tide</b></td><td class="n">Kurioza i minimalistyczne homeware.</td><td><a href="https://www.instagram.com/p/DX9wyOgivQf/">IG</a></td></tr>
+<tr><td><b>Scottish Design Exchange</b> — 117-119 George St</td><td class="n">Ponad 300 szkockich artystów i projektantów w jednym miejscu; 100% ceny trafia do twórców.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
+<tr><td><b>Two Skies</b> — 5 High St (Royal Mile)</td><td class="n">Biżuteria ze szkockich kamieni i srebra.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
+<tr><td><b>Celtic Craft Centre</b> — Paisley Close, 101 High St</td><td class="n">Kiltmaker z Royal Mile — jedni z najlepszych w mieście.</td><td><a href="https://www.instagram.com/p/DYIH8EcsnDO/">IG</a></td></tr>
+</table>
+
+<h3>🚶 Trasa 26.07: spacer pod zamkiem (pomarańczowe numerki)</h3>
+<p class="n" style="max-width:900px">Esplanada z Witches' Well → Castlehill (Witchery, Camera Obscura) → schody Castle Wynd South w dół → <b>Grassmarket</b> (Seoul Nibbles — sezonowo X–III, plan B: Mary's Milk Bar; nawiedzone puby The Last Drop i White Hart Inn) → odbicie na schody <b>Vennel</b> (klasyczny widok na zamek) → <b>Victoria Street</b> ze sklepami HP (MinaLima, Museum Context) i zakręt West Bow → Candlemaker Row z pomnikiem Bobby'ego → cmentarz <b>Greyfriars</b> (grób Thomasa Riddella, widok na „Hogwart" George Heriot's) → <b>National Museum</b> (darmowe, taras na dachu) → pub <b>Frankenstein</b> → finał: escape room <b>Department of Magic</b> (rezerwacja!) albo folk w Sandy Bell's. Pętla ~2,5 km.</p>
+
+<h3>🚶 Trasa 27.07: Royal Mile — zamek → Holyrood (zielone numerki)</h3>
+<p class="n" style="max-width:900px">Zamek → Castlehill (Camera Obscura, Witchery) → Lawnmarket (Gladstone's Land, Milne's Court, Writers' Museum; 40 m w bok <b>Makars</b> — bez rezerwacji, przyjdźcie przed 12:00 albo ok. 16:30) → St Giles' + Heart of Midlothian (splunąć na szczęście!) i Mercat Cross (start tur po podziemiach) → odbicie na Cockburn St (<b>Arcade Haggis &amp; Whisky House</b> — haggis „Diana") → Tron → Museum of Childhood → John Knox House i <b>The Haggis Box</b> na dziedzińcu Storytelling Centre (najprostszy dobry haggis na trasie — plan B, gdyby w Makars była kolejka) → World's End → Cadenhead's (whisky) → Museum of Edinburgh + Bakehouse Close → Canongate Kirk → sekretny <b>Dunbar's Close Garden</b> → White Horse Close → Parlament → <b>Holyrood Palace</b>. Całość 1,6 km bez odbić; opcja na koniec: Dynamic Earth albo podejście na Arthur's Seat (śpicie u jego stóp).</p>
+
+<h3>📌 Z Twojej listy TripAdvisor (42 pozycje)</h3>
+<p class="n" style="max-width:900px">Większość już była na mapie (zamek, Royal Mile, St Giles, Holyrood, Arthur's Seat, National Museum, Camera Obscura, galerie, Botanics, Surgeons' Hall, Chocolatarium, Craigmillar, Department of Magic, Witchery, Makars…). Dodałem brakujące — wszystkie z dopiskiem „(TA)” w dymku: Underground Vaults Tour <b>4.7★</b> (start: Mercat Cross), Johnnie Walker Princes Street, Edinburgh Gin, Royal Yacht Britannia, Edinburgh Zoo, BobCat Alpacas (spacery z alpakami!), Game of Throwing (siekiery), Escape Edinburgh, Monkey Barrel Comedy, Observatory House, Well Court, Newhailes, Custom House, West Bow Well, Scottish Poetry Library, Parlament, Milne's Court, Moubray House, Tempting Tattie, Quinn's Cafe, The Knights Vault i The Haggis Box.</p>
+
+<h3>🚌 Dzień 28.07 — dojazd komunikacją (wariant A)</h3>
+<p class="n" style="max-width:900px">Wszystko na jednym bilecie <b>Lothian Buses</b> (DAYticket w aplikacji albo płatność zbliżeniowa z dziennym capem):
+① bus <b>4</b> do przystanku <i>Swanston Drive</i> (Fairmilehead) → 15 min pieszo do Swanston Farm ·
+② busem 4 jeden przystanek do <b>pętli Hillend</b> — przy samej bramie Snowsports Centre ·
+③ Hillend → Secret Herb Garden: ~25 min pieszo Old Pentland Rd (miejscami bez chodnika) ·
+④ → Straiton ~20 min pieszo ·
+⑤ bus <b>37</b> do Roslin (Rosslyn Chapel — ostatnie wejście zwykle ok. godziny przed zamknięciem, bądźcie do ~15:30) ·
+⑥ powrót busem 37 prosto do centrum (~45 min).<br>
+📱 Aplikacja, z której korzystają mieszkańcy: <a href="https://www.lothianbuses.com/app/">Lothian Buses</a> (żywe odjazdy + bilety m-tickets); do szybkiego sprawdzania rozkładów dowolnego przewoźnika lokalni polecają też <a href="https://bustimes.org/localities/fairmilehead">bustimes.org</a>.</p>
+
+
+
+</div>
+<div id="tab2" style="display:none">
+<h2>🌄 Reszta Szkocji</h2>
+<div class="fbar" id="fbar2"></div>
+<div id="map-scot" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/nocleg &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/natura &nbsp; <span class="dot" style="background:#7fe6a5"></span>zamki/historia &nbsp; <span class="dot" style="background:#111;border:1px solid #777"></span>trasy piesze (AllTrails) &nbsp; <span class="dot" style="background:#ff9440"></span>wypożyczalnie rowerów/e-bike</p>
+
+<h3>🥾 Trasy piesze z Twojej listy AllTrails</h3>
+<p class="n">Punkty startowe tras są na mapie (żółte kropki). Dwie trasy na Arthur's Seat (<a href="https://www.alltrails.com/trail/scotland/edinburgh/arthurs-seat" target="_blank">pętla</a>, <a href="https://www.alltrails.com/trail/scotland/edinburgh/the-dry-dam-path-to-saint-anthony-s-chapel-and-arthur-s-seat" target="_blank">Dry Dam</a>) znajdziesz na mapie Edynburga — uwaga, AllTrails oznacza je jako zamknięte (sprawdźcie na miejscu).</p>
+<table>
+<tr><th>Trasa</th><th>Dystans</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/highlands/lost-valley-coire-gabhail" target="_blank"><b>Coire Gabhail — Lost Valley (Glen Coe)</b></a></td><td class="r">5 km ↑275 m</td><td class="r">4.8 ★</td><td class="n">Ukryta dolina klanu MacDonald — najlepszy krótki hike w Glen Coe, idealny 29–30.07.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/stirling/ben-aan" target="_blank"><b>Ben A'an</b></a></td><td class="r">3.9 km ↑347 m</td><td class="r">4.8 ★</td><td class="n">Trossachs, przy przejeździe przez Callander; wielki widok na Loch Katrine za małą cenę.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/highlands/glenfinnan-viaduct-circular" target="_blank"><b>Glenfinnan Viaduct Loop</b></a></td><td class="r">4.3 km ↑123 m</td><td class="r">4.7 ★</td><td class="n">Pętla widokowa na wiadukt Hogwart Expressu (macie go już w planie).</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/perth-and-kinross/the-hermitage-and-pine-cone-point" target="_blank"><b>Hermitage i Pine Cone Point (Dunkeld)</b></a></td><td class="r">5.8 km ↑250 m</td><td class="r">4.7 ★</td><td class="n">Las nad rzeką Braan + wodospad Black Linn; przy trasie Pitlochry→Perth.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/fife/falkland-and-maspie-burn" target="_blank"><b>Falkland i Maspie Burn</b></a></td><td class="r">3.4 km ↑130 m</td><td class="r">4.8 ★</td><td class="n">Fife, ~20 min od M90 w drodze powrotnej do Edynburga.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/fife/maspie-den-tyndall-bruce-monument-and-temple-of-decision-circular" target="_blank"><b>Maspie Den i Temple of Decision</b></a></td><td class="r">6.3 km ↑240 m</td><td class="r">4.6 ★</td><td class="n">Dłuższy wariant z przejściem za wodospadem.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/fife/john-knox-pulpit" target="_blank"><b>John Knox's Pulpit</b></a></td><td class="r">6.4 km ↑163 m</td><td class="r">4.7 ★</td><td class="n">Skalna ambona w Lomond Hills.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/perth-and-kinross/loch-leven" target="_blank"><b>Loch Leven Heritage Trail</b></a></td><td class="r">19.6 km płasko</td><td class="r">4.5 ★</td><td class="n">Pętla wokół jeziora — lepsza rowerem niż pieszo (wypożyczalnia przy trasie).</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/west-dunbartonshire/conic-hill-from-balmaha-circular" target="_blank"><b>Conic Hill (Balmaha)</b></a></td><td class="r">5.8 km ↑352 m</td><td class="r">4.7 ★</td><td class="n">Panorama Loch Lomond; kawałek od Waszej trasy (za Callander na zachód).</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/clackmannanshire/dumyat-hill-walk" target="_blank"><b>Dumyat Hill</b></a></td><td class="r">5 km ↑221 m</td><td class="r">4.6 ★</td><td class="n">Ochil Hills nad Stirling.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/argyll-and-bute/the-cobbler-ben-arthur" target="_blank"><b>The Cobbler (Ben Arthur)</b></a></td><td class="r">11.9 km ↑900 m</td><td class="r">4.7 ★</td><td class="n">Duża wycieczka, Arrochar — raczej poza Waszą trasą.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/scotland/highlands/ben-nevis-mountain-path" target="_blank"><b>Ben Nevis Mountain Track</b></a></td><td class="r">16.4 km ↑1341 m</td><td class="r">4.8 ★</td><td class="n">Cały dzień; tylko przy dobrej pogodzie i wczesnym starcie.</td></tr>
+</table>
+
+<h3>🚲 E-bike na trasie (Edynburg → Callander → Glen Coe → Laggan → Pitlochry → Perth → Dundee)</h3>
+<p class="n">Najlepsze dopasowanie do Waszego planu: <b>Rugged Coast</b> — 5 min od noclegu w Ballachulish, oraz <b>Katrinewheelz</b> przy Ben A'an. Glencoe Mountain Resort ma wyciąg i zjazdowe MTB, ale bez e-bike'ów.</p>
+<table>
+<tr><th>Wypożyczalnia</th><th>Gdzie na trasie</th><th>Notatka</th></tr>
+<tr><td><b>Rugged Coast Glencoe (Ballachulish)</b></td><td class="r">nocleg 29–30.07!</td><td class="n">E-bike £45/3h, £65/dzień. Przy hotelu Isles of Glencoe — obok Aos Si Lodges. Pętla „Glencoe Orbital” (car-free Greenway pod Trzema Siostrami, Clachaig Inn) albo Route 78 nad morzem do Castle Stalker. <a href="https://ruggedcoast.scot/bike-hire-glencoe/" target="_blank">WWW</a></td></tr>
+<tr><td><b>Katrinewheelz (Trossachs Pier)</b></td><td class="r">k. Callander</td><td class="n">E-bike nad Loch Katrine — prywatna droga bez samochodów; opcja „cycle &amp; sail” parowcem. Można połączyć z wejściem na Ben A'an (parking 3 km dalej). <a href="https://www.katrinewheelz.co.uk/" target="_blank">WWW</a></td></tr>
+<tr><td><b>Roll Outdoors (Callander)</b></td><td class="r">Callander</td><td class="n">E-bike przy NCR7; pętle do wodospadów Bracklinn. <a href="https://rolloutdoors.co.uk/hire/bikes/" target="_blank">WWW</a></td></tr>
+<tr><td><b>Glencoe Mountain Resort</b></td><td class="r">Glen Coe</td><td class="n">Wyciąg krzesełkowy + zjazdowe MTB enduro (bez e-bike'ów) — dla chcących adrenaliny; sama kolejka też warta przejażdżki (widok na Rannoch Moor). <a href="https://www.glencoemountain.co.uk/" target="_blank">WWW</a></td></tr>
+<tr><td><b>Off Beat Bikes (Fort William)</b></td><td class="r">k. Ben Nevis / Glenfinnan</td><td class="n">E-bike na High Street; kask i zestaw w cenie. <a href="https://www.offbeatbikes.co.uk/" target="_blank">WWW</a></td></tr>
+<tr><td><b>Laggan Wolftrax (Bike Bothy)</b></td><td class="r">Laggan — na trasie 30/31.07</td><td class="n">Centrum tras MTB przy A86 (zielone/niebieskie też dla początkujących) z wypożyczalnią i kawiarnią. <a href="https://forestryandland.gov.scot/visit/laggan-wolftrax" target="_blank">WWW</a></td></tr>
+<tr><td><b>Progression Bikes (Dunkeld)</b></td><td class="r">k. Pitlochry/Hermitage</td><td class="n">Największa flota e-bike w środkowej Szkocji; 2 km od Hermitage — najlepsze combo „spacer + szkockie pagórki na e-bike'u”. <a href="https://www.progressionbikesscotland.com/hire" target="_blank">WWW</a></td></tr>
+<tr><td><b>E-Ride / Pitlochry Boating Station</b></td><td class="r">Pitlochry</td><td class="n">Elektryczne MTB nad Loch Faskally (śr–nd 9–17). <a href="https://www.fishfaskally.com/adventure-hire/eride-mountain-bikes.php" target="_blank">WWW</a></td></tr>
+<tr><td><b>Sinclair Cycles / Loch Leven's Larder</b></td><td class="r">Kinross (powrót)</td><td class="n">Rowery przy płaskiej pętli Loch Leven Heritage Trail (19,6 km). <a href="https://www.lochlevenslarder.com/visit-us/bike-friendly/" target="_blank">WWW</a></td></tr>
+</table>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Glencruitten House</b> — k. Oban</td><td class="r">TA: wybitne</td><td class="n">Kolacja-opowieść inspirowana mitologią szkocką (legenda Beiry) — „najlepszy posiłek w życiu” wg gości.</td><td><a href="https://www.instagram.com/p/DaQfjmjCj0H/">IG</a></td></tr>
+<tr><td><b>St Conan's Kirk</b> — Loch Awe</td><td class="r">100% polecane</td><td class="n">Najbardziej „magiczny” kościół Szkocji, eklektyczna perła nad jeziorem.</td><td><a href="https://www.instagram.com/p/DWg_Yo5iM6l/">IG</a></td></tr>
+<tr><td><b>Puck's Glen</b> — k. Dunoon</td><td class="r">4.8 AllTrails</td><td class="n">Omszały wąwóz z wodospadami jak z baśni.</td><td><a href="https://www.instagram.com/p/DGJMLr_KjGh/">IG</a></td></tr>
+<tr><td><b>Dunrobin Castle</b> — Golspie</td><td class="r">b. wysokie</td><td class="n">Bajkowy zamek nad morzem, pokazy sokolnictwa.</td><td><a href="https://www.instagram.com/p/DNJMbpdMZxV/">IG</a></td></tr>
+<tr><td><b>Culross</b> — Fife (+ Bessie's Café)</td><td class="r">—</td><td class="n">Miasteczko zatrzymane w czasie (plenery Outlandera).</td><td><a href="https://www.instagram.com/p/DNJMbpdMZxV/">IG</a></td></tr>
+<tr><td><b>Calanais Standing Stones</b> — Lewis</td><td class="r">—</td><td class="n">Megality starsze od Stonehenge.</td><td><a href="https://www.instagram.com/p/DNJMbpdMZxV/">IG</a></td></tr>
+<tr><td><b>Stirling Castle</b></td><td class="r">b. pozytywne</td><td class="n">Pociąg z Waverley ~50 min.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>National Wallace Monument</b> — Stirling</td><td class="r">pozytywne</td><td class="n">246 schodów do miecza Wallace'a (1,68 m, ~3 kg) i panoramy.</td><td><a href="https://www.instagram.com/p/DWPVnhrDF_G/">IG</a></td></tr>
+<tr><td><b>Linlithgow Palace</b></td><td class="r">b. pozytywne</td><td class="n">Pociąg 20 min z Waverley. Miejsce urodzenia Marii Stuart.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Blackness Castle</b></td><td class="r">b. pozytywne</td><td class="n">Surowa twierdza nad wodą („Fort William” w Outlanderze). Pociąg do Linlithgow + bus F49.</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Rosslyn Chapel</b> — Roslin</td><td class="r">b. wysokie</td><td class="n">Kaplica z Kodu Da Vinci; bus 37 (~40 min).</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Dunfermline Abbey</b> (+ Prost Coffee)</td><td class="r">—</td><td class="n">Grób Roberta Bruce'a; pociąg 30 min. Kawa z widokiem na opactwo w Prost.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Aberdour Castle</b></td><td class="r">—</td><td class="n">Jeden z najstarszych zamków Szkocji; pociąg ~30 min.</td><td><a href="https://www.instagram.com/p/DHOtoHCqFSy/">IG</a></td></tr>
+<tr><td><b>Dirleton Castle</b></td><td class="r">—</td><td class="n">Bus X5 z Edynburga.</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Abbotsford House</b> — Melrose</td><td class="r">—</td><td class="n">Dom Waltera Scotta; pociąg do Tweedbank.</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Preston Mill</b> — East Linton</td><td class="r">—</td><td class="n">Malowniczy młyn (znany z Outlandera).</td><td><a href="https://www.instagram.com/p/DFlJpHoKOjI/">IG</a></td></tr>
+<tr><td><b>Glen Coe</b> + Clachaig Gully</td><td class="r">—</td><td class="n">Najsłynniejsza dolina Szkocji; okolice chaty Hagrida z filmów HP.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Steall Falls</b> — Glen Nevis</td><td class="r">—</td><td class="n">Drugi najwyższy wodospad Szkocji, dojście z mostkiem linowym.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Glenfinnan Viaduct</b> + <b>Jacobite Steam Train</b></td><td class="r">ikona</td><td class="n">Most Hogwart Expressu; parowóz z Fort William do Mallaig.</td><td><a href="https://www.instagram.com/p/DOyb2mqjE66/">IG</a></td></tr>
+<tr><td><b>Loch Shiel</b> i <b>Eilean na Mòine</b> (Loch Eilt)</td><td class="r">—</td><td class="n">„Czarne Jezioro” i wysepka-grób Dumbledore'a.</td><td><a href="https://www.instagram.com/p/DOyb2mqjE66/">IG</a></td></tr>
+<tr><td><b>Camusdarach Beach</b> — k. Mallaig</td><td class="r">—</td><td class="n">Biały piasek, widok na Rum i Eigg.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Skye: Quiraing, Old Man of Storr, Fairy Pools</b> + <b>Creel Seafood Bar</b> (Elgol) + <b>Highland Cow Shop</b> (Portree)</td><td class="r">—</td><td class="n">Klasyka wyspy Skye + seafood z widokiem na Cuillin.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Eilean Donan Castle</b></td><td class="r">—</td><td class="n">Najbardziej fotografowany zamek Szkocji.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>The Hermitage</b> — Dunkeld</td><td class="r">—</td><td class="n">Las z wodospadem Black Linn i Ossian's Hall.</td><td><a href="https://www.instagram.com/p/DTN4P95jM8l/">IG</a></td></tr>
+<tr><td><b>Fingal's Cave</b> — Staffa</td><td class="r">rejsy: pozytywne</td><td class="n">Bazaltowa jaskinia-katedra; rejsy Staffa Tours z Mull/Iony.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>The Open Book</b> — Wigtown</td><td class="r">4.9 Airbnb</td><td class="n">Nocleg, w którym prowadzisz własną księgarnię — rezerwacje na 2 lata naprzód.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Sauna Cruise</b> — Loch Tay (Kenmore)</td><td class="r">unikat</td><td class="n">Pływająca sauna na jeziorze.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>The Kelpies</b> i <b>Falkirk Wheel</b></td><td class="r">ikony inżynierii</td><td class="n">30-metrowe końskie głowy + jedyna na świecie obrotowa winda dla łodzi.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Glenelg Turntable Ferry</b></td><td class="r">unikat</td><td class="n">Ostatni ręcznie obracany prom (na Skye).</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Discovery Mast Climb</b> — Dundee</td><td class="r">nowość</td><td class="n">Wspinaczka na maszt statku RRS Discovery.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Gearrannan Blackhouse Village</b> — Lewis</td><td class="r">4.0 TA</td><td class="n">Wioska tradycyjnych „blackhouses” — można nocować.</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Bridge Castle</b> — (West Lothian/Perthshire)</td><td class="r">—</td><td class="n">Zamek do wynajęcia na noc (z listy „unikatów”).</td><td><a href="https://www.instagram.com/p/DWWTEUzDLMK/">IG</a></td></tr>
+<tr><td><b>Up Helly Aa</b> — Lerwick, Szetlandy</td><td class="r">wydarzenie (I–III)</td><td class="n">Wikiński festiwal ognia z paleniem galery.</td><td><a href="https://www.instagram.com/p/DFYVAHisqSg/">IG</a></td></tr>
+<tr><td><b>Kawiarnie z widokiem:</b> Boat Shed (Lochgoilhead), Drift (North Berwick), Harbourmaster's Café (Dysart), Crail Harbour Gallery &amp; Café</td><td class="r">—</td><td class="n">Kawa z widokiem na loch, Bass Rock i porty Fife.</td><td><a href="https://www.instagram.com/p/DV4D7tQjLOl/">IG</a></td></tr>
+<tr><td><b>Przystanki „hidden gems":</b> Chocolate Barn (Dalkeith), Kerrera Tea Garden, Smithy at Sandyford (Prestwick), Secret Garden Café (Pentlands), Errington's Barn (Biggar)</td><td class="r">—</td><td class="n">Małe kawiarnie/sklepiki na trasie.</td><td><a href="https://www.instagram.com/p/DXM5EmBjEk_/">IG</a></td></tr>
+<tr><td><b>Elie Chainwalk</b> — Fife</td><td class="r">—</td><td class="n">Nadmorska „via ferrata” z łańcuchami na klifach Kincraig Point. Tylko przy odpływie!</td><td><a href="https://www.instagram.com/p/DadojocDpwK/">IG</a></td></tr>
+<tr><td><b>Loch Goil Cruisers</b> — Lochgoilhead</td><td class="r">—</td><td class="n">Wynajem motorówek na Loch Goil (bez patentu).</td><td><a href="https://www.instagram.com/p/DadojocDpwK/">IG</a></td></tr>
+<tr><td><b>Cairngorm Mountain Karting</b> — Aviemore</td><td class="r">—</td><td class="n">Zjazd gokartami górskimi po stokach Cairngorm.</td><td><a href="https://www.instagram.com/p/DZHzomKtRJS/">IG</a></td></tr>
+<tr><td><b>Pygmy Goat Pilates</b> — Bellcraig Farm k. Glenrothes (Fife)</td><td class="r">TA: entuzjastyczne</td><td class="n">Pilates z karłowatymi kozami — pierwsze takie zajęcia w Szkocji (Pilates Attic).</td><td><a href="https://www.instagram.com/p/DadojocDpwK/">IG</a></td></tr>
+<tr><td colspan="4" style="color:var(--gold);padding-top:14px"><b>Z 6-dniowego itinerarium Hand Luggage Only po Highlands:</b></td></tr>
+<tr><td><b>Cairngorms:</b> Rothiemurchus (Druie Café), Lochan Uaine „Green Loch", Old Bridge Inn (Aviemore)</td><td class="r">—</td><td class="n">Herbata i dziczyzna w Druie, quady/tubing z Full On Adventure, rower do szmaragdowego jeziorka, wieczorem pub z koncertami.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Rogie Falls</b> i <b>Beinn Eighe NNR</b></td><td class="r">—</td><td class="n">Skaczące łososie; najstarszy rezerwat przyrody UK z orłami przednimi.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Torridon</b>, <b>Lower Diabaig</b> (Gille Brighde), <b>Shieldaig Bar &amp; Coastal Kitchen</b></td><td class="r">—</td><td class="n">Najpiękniejsze góry zachodu (Liathach); „najładniejsza osada Szkocji" z najlepszym chowderem; świeże skorupiaki.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Applecross:</b> plaża, Walled Garden, Applecross Inn, przełęcz <b>Bealach na Bà</b></td><td class="r">—</td><td class="n">Highlandzkie krowy na drodze, fish&amp;chips w pubie i serpentyny na 626 m.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Plockton</b> + rejs na foki (Calum's Seal Trips) + <b>Strome Castle</b></td><td class="r">—</td><td class="n">Bajkowa wioska nad Loch Carron; 60-min rejs Sula Mhor; ruiny po drodze.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Skye:</b> Armadale Castle + Museum of the Isles, <b>Dunscaith Castle</b>, prom CalMac do Mallaig</td><td class="r">—</td><td class="n">Południe wyspy bez tłumów; 30-min przeprawa na stały ląd.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Arisaig</b> — foraging z Wildwood Bushcraft</td><td class="r">—</td><td class="n">Zbieranie małży i dzikich ziół na wybrzeżu + gotowanie na ognisku.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Ardnamurchan:</b> Castle Tioram, destylarnia Ardnamurchan, Resipole Studios, Kilcamb Lodge, prom Corran</td><td class="r">—</td><td class="n">Ruiny na pływowej wyspie o zachodzie, whisky z degustacją, galeria sztuki i nagradzana restauracja nad Loch Sunart.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Loch Ness od południa:</b> Fort Augustus (Lock Inn), Dores, <b>Commando Memorial</b></td><td class="r">—</td><td class="n">Śluzy Kanału Kaledońskiego, spokojny brzeg jeziora, pomnik z widokiem na Ben Nevis.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+<tr><td><b>Inverness</b> — Dolphin Spirit RIB</td><td class="r">—</td><td class="n">Rejs RIB po Moray Firth — delfiny butlonose; powrót Caledonian Sleeperem.</td><td><a href="https://handluggageonly.co.uk/perfect-itinerary-see-hidden-spots-scottish-highlands/">HLO</a></td></tr>
+</table>
+
+
+
+<h2>❓ Z postów-wideo (miejsce nienazwane w opisie)</h2>
+<table>
+<tr><th>Post</th><th>IG</th></tr>
+<tr><td>„Sleep in a bus in Scotland"</td><td><a href="https://www.instagram.com/p/DXXG8hlDHET/">IG</a></td></tr>
+<tr><td>„Lighthouse hotel in Scotland"</td><td><a href="https://www.instagram.com/p/DUyqijgjlGZ/">IG</a></td></tr>
+<tr><td>„Sleep in a tower in Scotland"</td><td><a href="https://www.instagram.com/p/DU3oBE2F1V6/">IG</a></td></tr>
+<tr><td>„A unique bookshop in Scotland"</td><td><a href="https://www.instagram.com/p/DT_DOdIjKO4/">IG</a></td></tr>
+<tr><td>Zamek-hotel ze spa pod Edynburgiem od $60/noc (travelpirates)</td><td><a href="https://www.instagram.com/p/DFOYkm3IO4H/">IG</a></td></tr>
+<tr><td>Zamek z przebierankami dla fanów Outlandera (@historicscotland)</td><td><a href="https://www.instagram.com/p/DCM55RPqDqH/">IG</a></td></tr>
+<tr><td>Poza Szkocją: Davy's Fish &amp; Chips (Beamish, Anglia), Cotswold Way (Anglia), Christmas in Glasgow</td><td><a href="https://www.instagram.com/p/DQXIVHIjBkF/">IG</a></td></tr>
+</table>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="engine.js"></script>
+<script>
+// zdjęcia AllTrails: URL = base64 z parametrami resizera (dowolna szerokość jest OK)
+function atImg(id, hash, w, h) {
+  return 'https://images.alltrails.com/' + btoa(JSON.stringify({bucket:'assets.alltrails.com', key:'uploads/photo/image/'+id+'/'+hash+'.jpg', edits:{toFormat:'jpeg', resize:{width:w||960, height:h||(Math.round((w||960)*2/3)), fit:'cover'}, rotate:null, jpeg:{trellisQuantisation:true, overshootDeringing:true, optimiseScans:true, quality:75}}}));
+}
+// źródłowe posty IG: nazwa punktu -> kod posta
+const IG = {
+"Panda & Sons":"DWT_79VjEkW","Makars Mash Bar":"DVD39oxiD2_","Dumpling Queen":"DVb72J1jUc8",
+"Colonnades (Signet Library)":"DMDlWdfK9eo","Kay's Bar":"DaVstdasME5","Kezban (Leith)":"DY7hvISs_e9",
+"The Milkman":"DVD39oxiD2_","Croccante & Co":"DavuY0FMT94","Lannan Bakery":"DVD39oxiD2_",
+"Arcade Haggis & Whisky House":"DVD39oxiD2_","Queen Charlotte Rooms (Leith)":"DZVJg7FsC_1",
+"The Dome":"DBO8eF6q9x1","Guildford Arms":"DSxIbPRgIuc","St Bernard's Bar":"DWbzPpYjPKG",
+"Seoul Nibbles":"DWHBavwjUZ7","The Witchery":"DU3t81PEuc2","Black Medicine Coffee":"DV9JHbIDPD0",
+"Books N' Cup":"DV9JHbIDPD0","The Elephant House":"DV9JHbIDPD0","The Marshmallow Lady":"DMDlWdfK9eo",
+"The Cocktail Geeks":"DGNOlpwKvfz","Frankenstein Pub":"DU3t81PEuc2","Banshee Labyrinth":"DU3t81PEuc2",
+"NeighbourGood Market":"DYHdsqaMTe-","Old Chain Pier (szanty)":"DUiS6zdjKKp","The St Vincent Bar":"DU0CClaDOG5",
+"Victoria Street + MinaLima + Museum Context":"DZHyS4Do7gL","The Vennel Steps":"DMDlWdfK9eo",
+"Dean Village":"DZHyS4Do7gL","Scott Monument":"DZHyS4Do7gL","Greyfriars Kirkyard":"DMuRK6YMQ-6",
+"National Museum of Scotland":"DFvZnSuqDZr","Surgeons' Hall Museums":"DU3t81PEuc2",
+"Museum of Magic & Witchcraft":"DU3t81PEuc2","Witches' Well":"DFvZnSuqDZr",
+"St Cuthbert's Kirkyard":"DBEpKpDK_qf","Princes Street Gardens":"DFvZnSuqDZr","New College":"C63E98TorOm",
+"Cockburn Street":"DZHyS4Do7gL","Royal Mile":"DZHyS4Do7gL","„Dziki Zachód” Morningside":"DXKRI3TDHLs",
+"Craigmillar Castle":"DHOtoHCqFSy","Scotsman Picturehouse":"DVWRpx3jOCZ","Royal Botanic Garden":"DMDlWdfK9eo",
+"Portrait Gallery":"DMDlWdfK9eo","Writers' Museum":"DGbN05kqFuW","Tron Kirk Market":"DMDlWdfK9eo",
+"The Meadows":"DE0N-IbKX6m","Calton Hill (Beltane 30 IV)":"DXdHmPADX3Y","Alpine Coaster Hillend":"DWWTEUzDLMK",
+"Wheel of Fate":"DBEpKpDK_qf","Portal Leith":"DWWScfIDJhx","Blackmoon Botanica":"DMDlWdfK9eo",
+"Topping & Company":"DBEpKpDK_qf","Armchair Books":"DGbN05kqFuW","McNaughtan's":"DX9wyOgivQf",
+"Armstrong & Son":"DGbN05kqFuW","Curiouser":"DX9wyOgivQf","Scottish Design Exchange":"DYIH8EcsnDO",
+"Two Skies":"DYIH8EcsnDO","Celtic Craft Centre":"DYIH8EcsnDO",
+"Glencruitten House (Oban)":"DaQfjmjCj0H","St Conan's Kirk":"DWg_Yo5iM6l","Puck's Glen":"DGJMLr_KjGh",
+"Dunrobin Castle":"DNJMbpdMZxV","Culross + Bessie's Café":"DNJMbpdMZxV","Calanais Standing Stones":"DNJMbpdMZxV",
+"Stirling Castle":"DHOtoHCqFSy","Wallace Monument":"DWPVnhrDF_G","Linlithgow Palace":"DHOtoHCqFSy",
+"Blackness Castle":"DFlJpHoKOjI","Rosslyn Chapel":"DHOtoHCqFSy","Dunfermline Abbey + Prost Coffee":"DHOtoHCqFSy",
+"Aberdour Castle":"DHOtoHCqFSy","Dirleton Castle":"DFlJpHoKOjI","Abbotsford House":"DFlJpHoKOjI",
+"Preston Mill":"DFlJpHoKOjI","Glen Coe + Clachaig Gully":"DTN4P95jM8l","Steall Falls":"DTN4P95jM8l",
+"Glenfinnan Viaduct":"DOyb2mqjE66","Jacobite Steam Train (Fort William)":"DOyb2mqjE66","Loch Shiel":"DOyb2mqjE66",
+"Eilean na Mòine (Loch Eilt)":"DOyb2mqjE66","Camusdarach Beach":"DTN4P95jM8l","Quiraing":"DTN4P95jM8l",
+"Old Man of Storr":"DTN4P95jM8l","Fairy Pools":"DTN4P95jM8l","Creel Seafood Bar (Elgol)":"DXM5EmBjEk_",
+"Highland Cow Shop (Portree)":"DXM5EmBjEk_","Eilean Donan Castle":"DTN4P95jM8l",
+"Glenelg Turntable Ferry":"DWWTEUzDLMK","The Hermitage (Dunkeld)":"DTN4P95jM8l",
+"Fingal's Cave (Staffa)":"DWWTEUzDLMK","The Open Book (Wigtown)":"DWWTEUzDLMK","Sauna Cruise (Loch Tay)":"DWWTEUzDLMK",
+"The Kelpies":"DWWTEUzDLMK","Falkirk Wheel":"DWWTEUzDLMK","Discovery Mast Climb (Dundee)":"DWWTEUzDLMK",
+"Gearrannan Blackhouse Village":"DWWTEUzDLMK","Bridge Castle (West Lothian)":"DWWTEUzDLMK",
+"Up Helly Aa (Lerwick)":"DFYVAHisqSg","Boat Shed (Lochgoilhead)":"DV4D7tQjLOl","Drift (North Berwick)":"DV4D7tQjLOl",
+"Harbourmaster's Café (Dysart)":"DV4D7tQjLOl","Crail Harbour Gallery & Café":"DV4D7tQjLOl",
+"Chocolate Barn (Dalkeith)":"DXM5EmBjEk_","Kerrera Tea Garden":"DXM5EmBjEk_",
+"Smithy at Sandyford (Prestwick)":"DXM5EmBjEk_","Secret Garden Café (Pentlands)":"DXM5EmBjEk_",
+"Errington's Barn (Biggar)":"DXM5EmBjEk_","Elie Chainwalk (Fife)":"DadojocDpwK","Loch Goil Cruisers":"DadojocDpwK",
+"Cairngorm Mountain Karting":"DZHzomKtRJS","Pygmy Goat Pilates (Bellcraig Farm)":"DadojocDpwK"
+};
+window.SITE = { defreg:'Scotland', wiki:{}, ig: (typeof IG!=='undefined'?IG:{}), modes:[{id:'haggis', label:'🥘 tylko haggis', re:'haggis'}] };
+// ===== MAPA EDYNBURG =====
+const m1 = regMap(L.map('map-edi').setView([55.9515,-3.196], 13));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m1);
+[
+ ['Panda & Sons',55.95321,-3.20697,'Najlepszy bar świata (Top 500, 2025)','food'],
+ ['Makars Mash Bar',55.9495,-3.1953,'4.8 ★ szkocki comfort food','food'],
+ ['Dumpling Queen',55.94913,-3.18572,'4.8 ★ pierogi + haggis dumpling','food'],
+ ['Colonnades (Signet Library)',55.94911,-3.19161,'4.8 ★ afternoon tea','food'],
+ ["Kay's Bar",55.9557,-3.2062,'4.6 ★ wiktoriański mini-pub','food'],
+ ['Kezban (Leith)',55.97644,-3.17123,'4.4 ★ kuchnia turecka','food'],
+ ['The Milkman',55.95070,-3.19089,'4.6 ★ kultowa kawiarnia','food'],
+ ['Croccante & Co',55.95174,-3.21258,'sycylijskie schiacciaty','food'],
+ ['Lannan Bakery',55.95980,-3.20669,'viralowa cukiernia (kolejki!)','food'],
+ ['Arcade Haggis & Whisky House',55.9502,-3.1887,'4.3 ★ haggis','food'],
+ ['Queen Charlotte Rooms (Leith)',55.97340,-3.16732,'afternoon tea à la Orient Express','food'],
+ ['The Dome',55.95344,-3.19552,'4.4 ★ dawny bank z kopułą','food'],
+ ['Guildford Arms',55.95367,-3.19019,'4.5 ★ wiktoriański pub','food'],
+ ["St Bernard's Bar",55.9594,-3.2189,'ekscentryczny pub z winylami','food'],
+ ['Seoul Nibbles',55.9473,-3.1965,'5.0 ★ koreański street food (X–III)','food'],
+ ['The Witchery',55.9489,-3.1953,'gotycka restauracja przy zamku','food'],
+ ['Black Medicine Coffee',55.9470,-3.1857,'4.3 ★ witchy klimat','food'],
+ ["Books N' Cup",55.9430,-3.2033,'4.6 ★ kawa wśród książek','food'],
+ ['The Elephant House',55.94757,-3.19179,'3.7–3.9 ★ „kolebka” HP (21 George IV Bridge)','food'],
+ ['The Marshmallow Lady',55.96236,-3.19615,'4.6 ★ czekolada z piankami','food'],
+ ['The Cocktail Geeks',55.9508,-3.1911,'tematyczny bar koktajlowy','food'],
+ ['Frankenstein Pub',55.9477,-3.1917,'pub w dawnym kościele','food'],
+ ['Banshee Labyrinth',55.94938,-3.18692,'najbardziej nawiedzony pub','food'],
+ ['NeighbourGood Market',55.9600,-3.2200,'letni market (Stockbridge)','food'],
+ ['Old Chain Pier (szanty)',55.98005,-3.20419,'Sea Shanty Night, Newhaven','food'],
+ ['Victoria Street + MinaLima + Museum Context',55.9486,-3.1922,'inspiracja Pokątnej','attr'],
+ ['The Vennel Steps',55.9469,-3.1953,'widok na zamek','attr'],
+ ['Dean Village',55.9520,-3.2192,'osada młynarzy','attr'],
+ ['Scott Monument',55.9524,-3.1932,'287 schodów','attr','2018/05/Hand-Luggage-Only-18-4.jpg'],
+ ['Greyfriars Kirkyard',55.9469,-3.1922,'nawiedzony cmentarz + grobowiec Mackenziego','attr'],
+ ['National Museum of Scotland',55.9470,-3.1907,'darmowe; procesy czarownic','attr','2018/05/Hand-Luggage-Only-20-3.jpg'],
+ ["Surgeons' Hall Museums",55.9459,-3.1846,'#21 atrakcji TA','attr'],
+ ['Museum of Magic & Witchcraft',55.95067,-3.18583,'~4.0 ★ — uwaga: przy Royal Mile (obok John Knox House), nie na West Bow','attr'],
+ ["Witches' Well",55.9489,-3.1963,'pomnik ofiar procesów','attr'],
+ ["St Cuthbert's Kirkyard",55.9497,-3.2043,'cmentarz z widokiem','attr'],
+ ['Princes Street Gardens',55.9509,-3.2005,'dawny Nor Loch','attr'],
+ ['New College',55.9506,-3.1958,'neogotycki dziedziniec','attr'],
+ ['Cockburn Street',55.9501,-3.1892,'wiktoriańska uliczka','attr'],
+ ['Royal Mile',55.9496,-3.1870,'oś Starego Miasta','attr','2018/05/Hand-Luggage-Only-16-3.jpg'],
+ ['„Dziki Zachód” Morningside',55.9295,-3.2115,'Springvalley Gardens','attr'],
+ ['Craigmillar Castle',55.9256,-3.1420,'ruiny bez tłumów','attr'],
+ ['Scotsman Picturehouse',55.9508,-3.1877,'4.6 ★ butikowe kino','attr'],
+ ['Royal Botanic Garden',55.9650,-3.2090,'szklarnie','attr'],
+ ['Portrait Gallery',55.9550,-3.1930,'darmowa','attr'],
+ ["Writers' Museum",55.9497,-3.1936,'darmowe','attr'],
+ ['Tron Kirk Market',55.9497,-3.1874,'market w kościele','attr'],
+ ['The Meadows',55.9410,-3.1935,'park','attr','2018/05/Hand-Luggage-Only-12-4.jpg'],
+ ['Calton Hill (Beltane 30 IV)',55.9552,-3.1827,'festiwal ognia','attr'],
+ ['Alpine Coaster Hillend',55.8830,-3.2070,'górska kolejka','attr'],
+ ['Wheel of Fate',55.96025,-3.18262,'tarot, warsztaty mioteł — Broughton St (nie Candlemaker Row!)','shop'],
+ ['Portal Leith',55.9736,-3.1730,'witchy sklep','shop'],
+ ['Blackmoon Botanica',55.9410,-3.1830,'świece i zioła','shop'],
+ ['Topping & Company',55.95765,-3.18428,'księgarnia-labirynt','shop'],
+ ['Armchair Books',55.94628,-3.20007,'antykwariat','shop'],
+ ["McNaughtan's",55.95934,-3.18389,'antykwariat','shop'],
+ ['Armstrong & Son',55.94748,-3.19625,'vintage','shop'],
+ ['Curiouser',55.93718,-3.20726,'kurioza — Bruntsfield','shop'],
+ ['Scottish Design Exchange',55.95250,-3.20460,'117-119 George St — 300+ szkockich twórców','shop'],
+ ['Two Skies',55.95069,-3.18451,'5 High St — biżuteria ze szkockich kamieni','shop'],
+ ['Celtic Craft Centre',55.95062,-3.18609,'101 High St — kiltmaker','shop'],
+ ['The St Vincent Bar',55.95802,-3.20353,'grzany gin (mulled gin)','food']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Edinburgh'));
+// — z artykułu Hand Luggage Only —
+[
+ ["Arthur's Seat",55.9441,-3.1618,'wygasły wulkan, ~30 min podejścia, panorama miasta','attr','2018/05/Hand-Luggage-Only-6-7.jpg'],
+ ['Edinburgh Castle',55.9486,-3.1999,'zamek + wystrzał armatni codziennie o 13:00 (poza niedzielami)','attr','2018/05/Hand-Luggage-Only-5-9.jpg'],
+ ['Holyrood Palace',55.9527,-3.1720,'rezydencja królewska, komnaty Marii Stuart','attr','2018/05/Hand-Luggage-Only-7-8.jpg'],
+ ["The Real Mary King's Close",55.9500,-3.1905,'podziemne uliczki XVII-wiecznego miasta pod Royal Mile','attr','2018/05/Hand-Luggage-Only-4-7.jpg'],
+ ['Camera Obscura & World of Illusions',55.9490,-3.1950,'6 pięter iluzji + wiktoriańska camera obscura','attr','2018/05/Hand-Luggage-Only-14-2.jpg'],
+ ['The Chocolatarium',55.95089,-3.18401,'warsztaty czekolady przy Royal Mile','attr','2025/09/Best-Things-To-Do-In-Edinburgh-Chocolatarium.jpg'],
+ ['Georgian House Museum',55.9522,-3.2072,'gruzińska kamienica z epoki, Charlotte Square','attr','2018/05/Hand-Luggage-Only-8-7.jpg'],
+ ['Scottish National Gallery',55.9511,-3.1958,'darmowa galeria na The Mound','attr','2018/05/Hand-Luggage-Only-19-3.jpg'],
+ ["St Giles' Cathedral",55.9495,-3.1907,'katedra na Royal Mile','attr'],
+ ['Pomnik Greyfriars Bobby',55.9469,-3.1902,'terier, który 14 lat pilnował grobu pana','attr'],
+ ['Calton Hill (punkt widokowy)',55.9553,-3.1838,'najlepszy zachód słońca w mieście','attr','2018/05/Hand-Luggage-Only-25-2.jpg'],
+ ['Timberyard',55.94635,-3.20173,'sezonowe menu degustacyjne, Lady Lawson St','food','2023/11/Best-Things-To-Do-In-11.jpg'],
+ ['White Horse Oyster & Seafood',55.95062,-3.18357,'ostrygi i owoce morza, Canongate/Royal Mile','food'],
+ ['Leith + Royal Yacht Britannia',55.9825,-3.1770,'nabrzeże, dawny jacht królewski (Ocean Terminal)','attr','2018/05/Hand-Luggage-Only-1-7.jpg'],
+ ['Festival Theatre',55.9464,-3.1848,'Scottish Ballet i opera','attr','2018/05/Hand-Luggage-Only-11-7.jpg']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Edinburgh'));
+// — trasa 27.07: Royal Mile (zamek → pałac) + lista TripAdvisor —
+[
+ ["Gladstone's Land + Milne's Court",55.9493,-3.1942,'kamienica z 1620 (NT) i zaułek Lawnmarket','attr',null,"Gladstone's_Land"],
+ ["Deacon Brodie's Tavern",55.9494,-3.1930,'pub im. pierwowzoru dr. Jekylla','food',null,'Deacon_Brodie'],
+ ['Mercat Cross — Underground Vaults Tour',55.9496,-3.1902,'4.7 ★ (6,5 tys.) tury po podziemiach South Bridge — stąd startują','attr',null,'Edinburgh_Vaults'],
+ ['Museum of Childhood',55.95033,-3.18551,'darmowe, zabawki od XVIII w.','attr',null,'Museum_of_Childhood_(Edinburgh)'],
+ ['John Knox House + Moubray House',55.95065,-3.18510,'najstarsze domy Royal Mile (XV/XVI w.)','attr',null,'John_Knox_House'],
+ ['The Haggis Box 🥇',55.95064,-3.18487,'HAGGIS! — dziedziniec Storytelling Centre; haggis/neeps/tatties w misce, tanio i konkretnie','food'],
+ ["World's End",55.95051,-3.18433,'pub na dawnej granicy miasta — „koniec świata”','food'],
+ ["Cadenhead's Whisky Shop",55.95118,-3.18036,'najstarszy niezależny bottler whisky (1842)','shop'],
+ ['Museum of Edinburgh + Bakehouse Close',55.95121,-3.17950,'darmowe muzeum + dziedziniec z Outlandera','attr',null,'Museum_of_Edinburgh'],
+ ['Canongate Kirk',55.95182,-3.17964,'kirk z grobem Adama Smitha','attr',null,'Canongate_Kirk'],
+ ["Dunbar's Close Garden",55.95180,-3.17886,'ukryty ogród w stylu XVII w. — sekret Canongate','attr',null,'Canongate'],
+ ['Scottish Poetry Library',55.95146,-3.17811,'biblioteka poezji w zaułku (z Twojej listy TA)','attr',null,'Scottish_Poetry_Library'],
+ ['White Horse Close',55.95250,-3.17537,'najbardziej bajkowy dziedziniec miasta','attr',null,'White_Horse_Close'],
+ ['Scottish Parliament',55.9520,-3.1750,'kontrowersyjna architektura, wstęp darmowy','attr',null,'Scottish_Parliament_Building'],
+ ['Tempting Tattie',55.95109,-3.18430,'pieczone ziemniaki z haggisem — szybki lunch (TA)','food'],
+ ["Quinn's Cafe",55.94634,-3.19977,'kawiarnia przy West Port (TA)','food'],
+ ['The Knights Vault',55.94817,-3.19430,'sklep z mieczami i zbrojami — przy Victoria St (TA)','shop'],
+ ['Monkey Barrel Comedy',55.94939,-3.18788,'stand-up co wieczór, Blair St (TA)','attr'],
+ ['Johnnie Walker Princes Street',55.95046,-3.20758,'multimedialne doświadczenie whisky + bar na dachu (TA)','attr',null,'Johnnie_Walker'],
+ ['Edinburgh Gin Distillery',55.9512,-3.1858,'destylarnia ginu w Arches przy E Market St (TA)','attr'],
+ ['Royal Yacht Britannia',55.9820,-3.1770,'jacht królowej w Ocean Terminal (TA)','attr',null,'HMY_Britannia'],
+ ['Edinburgh Zoo',55.9420,-3.2680,'pandy już nie, ale pingwiny maszerują (TA)','attr',null,'Edinburgh_Zoo'],
+ ['BobCat Alpacas (Bonaly)',55.89614,-3.26271,'spacery z alpakami u stóp Pentlandów (TA; rezerwacja)','attr'],
+ ['Game of Throwing',55.94592,-3.20669,'rzucanie siekierami — Fountainbridge (TA)','attr'],
+ ['Escape Edinburgh (Morrison St)',55.94591,-3.20668,'escape roomy (TA)','attr'],
+ ['Observatory House (Calton Hill)',55.9550,-3.1830,'obserwatorium z 1776 (TA)','attr',null,'City_Observatory'],
+ ['Well Court (Dean Village)',55.9520,-3.2200,'ikoniczny ceglany dziedziniec (TA)','attr',null,'Dean_Village'],
+ ['Newhailes House (Musselburgh)',55.9440,-3.0730,'palladiańska rezydencja NT (TA)','attr',null,'Newhailes'],
+ ['Custom House (Leith)',55.9760,-3.1700,'gmach celny nad Water of Leith (TA)','attr'],
+ ['West Bow Well',55.9478,-3.1930,'XVII-w. studnia u stóp Victoria St (TA)','attr'],
+ ['Swanston Farm 🐮',55.9060,-3.2120,'szkockie krowy! rodzinna farma pod Pentlandami; otwarte 9:30–16:00, wstęp wolny; Brasserie z widokiem; obok wioska Swanston z krytymi strzechą domkami','attr',null,'Swanston,_Edinburgh']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Edinburgh'));
+// — trasy piesze z listy AllTrails (zdjęcia z AllTrails) —
+[
+ ["Arthur's Seat — pętla (AllTrails)",55.95084,-3.17021,'4.5 km, ↑260 m, 4.7 ★ — klasyczne wejście na wygasły wulkan; ⚠️ AllTrails oznacza trasę jako zamkniętą — sprawdźcie na miejscu · <a href="https://www.alltrails.com/trail/scotland/edinburgh/arthurs-seat" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(82314685,'289c71bc720470512ed53c4812b4e54d')],
+ ["St Anthony's Chapel + Dry Dam (AllTrails)",55.95087,-3.17066,'3.2 km, ↑197 m, 4.7 ★ — łagodniejsze podejście doliną Dry Dam przez ruiny kaplicy; ⚠️ też oznaczona jako zamknięta · <a href="https://www.alltrails.com/trail/scotland/edinburgh/the-dry-dam-path-to-saint-anthony-s-chapel-and-arthur-s-seat" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(111357272,'ed52d0e09de048d9aae9e08c3c56bdd4')]
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Edinburgh'));
+
+// trasy spacerowe — numerowane przystanki (ze zdjęciami i linkami)
+const day1Stops = stops(m1, [
+ [55.94890,-3.19620,"Esplanada + Witches' Well",'start pod zamkiem; fontanna-pomnik ofiar procesów o czary',"Witches'_Well,_Edinburgh",'DFvZnSuqDZr'],
+ [55.94900,-3.19480,'Castlehill','po drodze The Witchery (zajrzyj do przedsionka) i Camera Obscura','Camera_Obscura,_Edinburgh','DU3t81PEuc2'],
+ [55.94810,-3.19570,'Schody Castle Wynd South','zejście z podzamcza prosto na Grassmarket'],
+ [55.94740,-3.19620,'Grassmarket','plac egzekucji; budka Seoul Nibbles (sezonowo X–III!) — plan B: Mary’s Milk Bar','Grassmarket','DWHBavwjUZ7'],
+ [55.94690,-3.19530,'The Vennel','30 m w bok: kultowe schody z najlepszym widokiem na zamek',null,'DMDlWdfK9eo','9/95/Edinburgh_Castle_from_the_Vennel_-_geograph.org.uk_-_2367375.jpg/330px-Edinburgh_Castle_from_the_Vennel_-_geograph.org.uk_-_2367375.jpg'],
+ [55.94860,-3.19220,'Victoria Street','kręta „Pokątna”: Museum Context (40), MinaLima (21), Elephant House (30)','West_Bow','DZHyS4Do7gL'],
+ [55.94830,-3.19360,'West Bow + studnia','najbardziej fotogeniczny zakręt; Museum of Magic przeniosło się na Royal Mile (27.07)',null,'DU3t81PEuc2','4/4e/Shops_on_West_Bow%2CVictoria_Street_-_geograph.org.uk_-_545569.jpg/330px-Shops_on_West_Bow%2CVictoria_Street_-_geograph.org.uk_-_545569.jpg'],
+ [55.94680,-3.19070,'Candlemaker Row + Bobby','klimatyczna uliczka; pomnik wiernego teriera na rogu','Greyfriars_Bobby','DBEpKpDK_qf'],
+ [55.94690,-3.19220,'Greyfriars Kirkyard','grób Thomasa Riddella, grobowiec Mackenziego, widok na George Heriot’s = „Hogwart”','Greyfriars_Kirkyard','DMuRK6YMQ-6'],
+ [55.94700,-3.19070,'National Museum of Scotland','darmowe; procesy czarownic, Dolly the Sheep, taras na dachu z widokiem','National_Museum_of_Scotland','DFvZnSuqDZr'],
+ [55.94770,-3.19170,'Frankenstein','pub w dawnym kościele — potwór zjeżdża z sufitu',null,'DU3t81PEuc2','1/14/Edinburgh_-_Edinburgh%2C_26_George_Iv_Bridge%2C_Frankenstein_Pub_-_20140421184115.jpg/330px-Edinburgh_-_Edinburgh%2C_26_George_Iv_Bridge%2C_Frankenstein_Pub_-_20140421184115.jpg'],
+ [55.94870,-3.18660,'Department of Magic / Sandy Bell’s','escape room HP + tawerna eliksirów (rezerwuj!) albo folk na żywo w Sandy Bell’s']
+], 'd1', 'Edinburgh').addTo(m1);
+const mileStops = stops(m1, [
+ [55.9486,-3.1999,'Edinburgh Castle','start trasy; wystrzał armatni o 13:00 (poza nd)','Edinburgh_Castle'],
+ [55.9490,-3.1950,'Castlehill','The Hub, Camera Obscura, The Witchery','Camera_Obscura,_Edinburgh','DU3t81PEuc2'],
+ [55.9493,-3.1942,'Lawnmarket',"Gladstone's Land (kamienica 1620), Milne's Court, Writers' Museum w zaułku","Gladstone's_Land",'DGbN05kqFuW'],
+ [55.9495,-3.1953,'Makars Mash Bar','HAGGIS #1 — bez rezerwacji: przyjdźcie przed 12:00 albo ok. 16:30',null,'DVD39oxiD2_'],
+ [55.9495,-3.1907,"St Giles' Cathedral",'katedra + Heart of Midlothian (splunąć na szczęście) + Mercat Cross — stąd startują tury po podziemiach (4.7★)',"St_Giles'_Cathedral"],
+ [55.9502,-3.1887,'Arcade Haggis & Whisky House','HAGGIS #2 — wersja „Diana”; 1 min w bok na Cockburn St',null,'DVD39oxiD2_'],
+ [55.9497,-3.1874,'Tron Kirk Market','dawny kościół z rękodziełem','Tron_Kirk','DMDlWdfK9eo'],
+ [55.95033,-3.18551,'Museum of Childhood','darmowe; zabawki od XVIII w.','Museum_of_Childhood_(Edinburgh)'],
+ [55.95065,-3.18510,'John Knox House + Haggis Box + Museum of Magic','najstarsze domy Royal Mile; na dziedzińcu HAGGIS #3 (tani plan B); obok muzeum okultyzmu','John_Knox_House','DU3t81PEuc2'],
+ [55.95051,-3.18433,"World's End",'pub na dawnej granicy miasta — dalej zaczyna się Canongate'],
+ [55.95118,-3.18036,"Cadenhead's Whisky Shop",'najstarszy niezależny bottler whisky (1842)'],
+ [55.95121,-3.17950,'Museum of Edinburgh + Bakehouse Close','darmowe muzeum + dziedziniec z Outlandera','Museum_of_Edinburgh'],
+ [55.95182,-3.17964,"Canongate Kirk + Dunbar's Close",'kirk z grobem Adama Smitha; obok ukryty ogród XVII w.','Canongate_Kirk'],
+ [55.95146,-3.17811,'Scottish Poetry Library','biblioteka poezji w zaułku (z Twojej listy TA)','Scottish_Poetry_Library'],
+ [55.95250,-3.17537,'White Horse Close','najbardziej bajkowy dziedziniec miasta','White_Horse_Close'],
+ [55.9520,-3.1750,'Scottish Parliament','kontrowersyjna architektura; wstęp darmowy','Scottish_Parliament_Building'],
+ [55.9527,-3.1720,'Holyrood Palace','meta trasy — komnaty Marii Stuart; dalej ew. Dynamic Earth / Arthur’s Seat','Palace_of_Holyroodhouse']
+], 'd2', 'Edinburgh').addTo(m1);
+const day3a = stops(m1, [
+ [55.9060,-3.2120,'Swanston Farm','szkockie krowy! bus 4/27 do Fairmilehead + 15 min pieszo; otwarte 9:30–16:00','Swanston,_Edinburgh'],
+ [55.9020,-3.2140,'Wioska Swanston','kryte strzechą domki z XVII w.; związana z R.L. Stevensonem','Swanston,_Edinburgh'],
+ [55.8830,-3.2070,'Hillend — Alpine Coaster','zjazd z góry! + wyciąg krzesełkowy; rezerwuj sloty online','Midlothian_Snowsports_Centre','DWWTEUzDLMK'],
+ [55.8790,-3.2210,'Caerketton — punkt widokowy','30–40 min podejścia: panorama Edynburga, zatoki i Fife','Caerketton_Hill'],
+ [55.8790,-3.1780,'Secret Herb Garden (Damhead)','szklarniowa kawiarnia wśród ziół — z Twojej listy IG; 25 min pieszo od Hillend',null,'DXM5EmBjEk_'],
+ [55.8800,-3.1600,'Straiton — przesiadka','stąd bus 37 do Roslin'],
+ [55.8554,-3.1600,'Rosslyn Chapel','kaplica z Kodu Da Vinci (IG + TA); ostatnie wejście przed 17:00 — sprawdź godziny; bus 37 wraca do centrum','Rosslyn_Chapel','DHOtoHCqFSy']
+], 'd3a', 'Edinburgh').addTo(m1);
+const day3b = stops(m1, [
+ [55.9060,-3.2120,'Swanston Farm','szkockie krowy! bus 4/27 do Fairmilehead + 15 min pieszo','Swanston,_Edinburgh'],
+ [55.9020,-3.2140,'Wioska Swanston','kryte strzechą domki, 10 min od farmy','Swanston,_Edinburgh'],
+ [55.8830,-3.2070,'Hillend — Alpine Coaster','zjazd z góry + ew. Caerketton; potem bus 4 z pętli','Midlothian_Snowsports_Centre','DWWTEUzDLMK'],
+ [55.9295,-3.2115,'„Dziki Zachód” Morningside','ukryta uliczka-western przy Springvalley Gardens (bus 4 przejeżdża obok)',null,'DXKRI3TDHLs'],
+ [55.93718,-3.20726,'Curiouser (Bruntsfield)','kurioza i prezenty — z Twojej listy sklepów',null,'DX9wyOgivQf'],
+ [55.9300,-3.2100,"Canny Man's",'legendarny ekscentryczny pub Morningside — kolacja/piwo na koniec']
+], 'd3b', 'Edinburgh');
+L.control.layers(null, {
+  '<span style="color:#ffb400">&#11044;</span> 26.07 — spacer pod zamkiem': day1Stops,
+  '<span style="color:#00c46a">&#11044;</span> 27.07 — Royal Mile': mileStops,
+  '<span style="color:#4da6ff">&#11044;</span> 28.07 A — krowy + Rosslyn': day3a,
+  '<span style="color:#c98fff">&#11044;</span> 28.07 B — krowy + Morningside': day3b
+}, {collapsed:false, position:'topright'}).addTo(m1);
+
+// ===== MAPA SZKOCJA =====
+const m2 = regMap(L.map('map-scot').setView([56.9,-4.6], 6));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m2);
+[
+ ['Glencruitten House (Oban)',56.4130,-5.4430,'kolacja-opowieść, wybitne opinie','food'],
+ ["St Conan's Kirk",56.4035,-5.0445,'magiczny kościół nad Loch Awe','attr'],
+ ["Puck's Glen",56.0107,-4.9917,'4.8 ★ baśniowy wąwóz','attr'],
+ ['Dunrobin Castle',57.9820,-3.9450,'bajkowy zamek + sokolnictwo','hist'],
+ ["Culross + Bessie's Café",56.0553,-3.6290,'miasteczko Outlandera','hist'],
+ ['Calanais Standing Stones',58.1975,-6.7450,'megality, Lewis','hist'],
+ ['Stirling Castle',56.1240,-3.9470,'pociąg ~50 min','hist'],
+ ['Wallace Monument',56.1389,-3.9192,'miecz Wallace’a','hist'],
+ ['Linlithgow Palace',55.9781,-3.6010,'pociąg 20 min','hist'],
+ ['Blackness Castle',56.0057,-3.5163,'twierdza nad wodą','hist','2018/05/Hand-Luggage-Only-24-4.jpg'],
+ ['Rosslyn Chapel',55.8554,-3.1600,'bus 37','hist'],
+ ['Dunfermline Abbey + Prost Coffee',56.0700,-3.4640,'grób Roberta Bruce’a','hist'],
+ ['Aberdour Castle',56.0546,-3.3000,'pociąg ~30 min','hist'],
+ ['Dirleton Castle',56.0510,-2.7800,'bus X5','hist'],
+ ['Abbotsford House',55.5990,-2.7810,'dom Waltera Scotta','hist'],
+ ['Preston Mill',55.9905,-2.6540,'młyn z Outlandera','hist'],
+ ['Glen Coe + Clachaig Gully',56.6660,-5.0700,'dolina + chata Hagrida','attr'],
+ ['Steall Falls',56.7671,-4.9980,'wodospad, Glen Nevis','attr'],
+ ['Glenfinnan Viaduct',56.8763,-5.4310,'most Hogwart Expressu','attr'],
+ ['Jacobite Steam Train (Fort William)',56.8198,-5.1052,'parowóz do Mallaig','attr'],
+ ['Loch Shiel',56.8700,-5.4400,'„Czarne Jezioro”','attr'],
+ ['Eilean na Mòine (Loch Eilt)',56.8880,-5.6300,'grób Dumbledore’a','attr'],
+ ['Camusdarach Beach',56.9450,-5.8590,'biała plaża','attr'],
+ ['Quiraing',57.6430,-6.2650,'Skye','attr'],
+ ['Old Man of Storr',57.5070,-6.1830,'Skye','attr'],
+ ['Fairy Pools',57.2500,-6.2550,'Skye','attr'],
+ ['Creel Seafood Bar (Elgol)',57.1460,-6.1060,'seafood z widokiem na Cuillin','food'],
+ ['Highland Cow Shop (Portree)',57.4130,-6.1940,'pamiątki','food'],
+ ['Eilean Donan Castle',57.2739,-5.5164,'ikona fotografii','hist'],
+ ['Glenelg Turntable Ferry',57.2360,-5.6600,'ręcznie obracany prom','attr'],
+ ['The Hermitage (Dunkeld)',56.5620,-3.6180,'wodospad Black Linn','attr'],
+ ["Fingal's Cave (Staffa)",56.4317,-6.3410,'bazaltowa jaskinia','attr'],
+ ['The Open Book (Wigtown)',54.8690,-4.4420,'4.9 ★ prowadź własną księgarnię','food'],
+ ['Sauna Cruise (Loch Tay)',56.5870,-4.0080,'pływająca sauna','attr'],
+ ['The Kelpies',56.0119,-3.7550,'rzeźby-ikony','attr'],
+ ['Falkirk Wheel',56.0000,-3.8420,'obrotowa winda łodzi','attr'],
+ ['Discovery Mast Climb (Dundee)',56.4565,-2.9670,'wspinaczka na maszt','attr'],
+ ['Gearrannan Blackhouse Village',58.2960,-6.7930,'4.0 ★ nocleg w blackhouse','food'],
+ ['Bridge Castle (West Lothian)',55.9230,-3.6540,'zamek na wynajem','hist'],
+ ['Up Helly Aa (Lerwick)',60.1530,-1.1490,'wikiński festiwal ognia','attr'],
+ ['Boat Shed (Lochgoilhead)',56.1670,-4.9030,'kawa nad Loch Goil','food'],
+ ['Drift (North Berwick)',56.0560,-2.6440,'widok na Bass Rock','food'],
+ ["Harbourmaster's Café (Dysart)",56.1330,-3.1210,'port Fife','food'],
+ ['Crail Harbour Gallery & Café',56.2590,-2.6290,'klify Fife','food'],
+ ['Chocolate Barn (Dalkeith)',55.8890,-3.0660,'czekolada z farmy','food'],
+ ['Kerrera Tea Garden',56.3730,-5.5220,'wyspa Kerrera k. Oban','food'],
+ ['Smithy at Sandyford (Prestwick)',55.4930,-4.6060,'kuźnia-kawiarnia','food'],
+ ['Secret Garden Café (Pentlands)',55.8770,-3.1800,'Damhead','food'],
+ ["Errington's Barn (Biggar)",55.6660,-3.4640,'farma Elsrickle','food'],
+ ['Elie Chainwalk (Fife)',56.1855,-2.8560,'klifowa trasa z łańcuchami — tylko przy odpływie','attr'],
+ ['Loch Goil Cruisers',56.1690,-4.9060,'wynajem motorówek','attr'],
+ ['Cairngorm Mountain Karting',57.1338,-3.6706,'gokarty górskie, Aviemore','attr'],
+ ['Pygmy Goat Pilates (Bellcraig Farm)',56.2080,-3.2850,'pilates z kozami, k. Glenrothes','attr']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Scotland'));
+// — itinerarium Highlands (Hand Luggage Only) —
+[
+ ['Rothiemurchus / Druie Café',57.1830,-3.8060,'baza w Cairngorms: herbata, dziczyzna, quady i tubing (Full On Adventure)','food'],
+ ['Lochan Uaine „Green Loch”',57.1560,-3.6690,'szmaragdowe jeziorko, dojazd rowerem z Glenmore','attr'],
+ ['Old Bridge Inn (Aviemore)',57.1870,-3.8280,'pub z jedzeniem i koncertami na żywo po 22:00','food'],
+ ['Rogie Falls',57.5860,-4.5900,'wodospady — latem łososie skaczą w górę rzeki','attr'],
+ ['Beinn Eighe NNR',57.6280,-5.3010,'najstarszy rezerwat UK: pradawne sosny, orły przednie','attr'],
+ ['Torridon',57.5420,-5.5160,'widoki na Liathach i Beinn Alligin; kajaki w The Torridon','attr'],
+ ['Lower Diabaig + Gille Brighde',57.5680,-5.6830,'„najładniejsza osada Szkocji”; świetny chowder','food'],
+ ['Shieldaig Bar & Coastal Kitchen',57.5210,-5.6480,'skorupiaki łowione ręcznie, codziennie świeże','food'],
+ ['Applecross Inn + Walled Garden',57.4330,-5.8100,'fish&chips + ogród; jelenie w wiosce','food'],
+ ['Applecross Sands',57.4680,-5.8310,'plaża, highlandzkie krowy przy drodze','attr'],
+ ['Bealach na Bà',57.4160,-5.7000,'jedna z najwyższych przełęczy drogowych Szkocji (serpentyny, 626 m)','attr'],
+ ['Strome Castle',57.3540,-5.5540,'ruiny nad Loch Carron','hist'],
+ ["Plockton + Calum's Seal Trips",57.3440,-5.6650,'rejs na foki (60 min) + Plockton Inn: haggis i owoce morza','attr'],
+ ['Armadale Castle (Skye)',57.0650,-5.8940,'zamek, Museum of the Isles; prom CalMac do Mallaig (30 min)','hist'],
+ ['Dunscaith Castle (Skye)',57.1330,-5.9720,'jedne z najstarszych ruin na wyspie, zatoka Tokavaig','hist'],
+ ['Arisaig — Wildwood Bushcraft',56.9110,-5.8560,'foraging: małże, skałoczepy i dzikie zioła + gotowanie na ognisku','attr'],
+ ['Castle Tioram',56.7880,-5.8270,'ruiny na pływowej wyspie — najlepszy o zachodzie','hist'],
+ ['Ardnamurchan Distillery',56.7280,-6.0060,'destylarnia whisky z degustacją','food'],
+ ['Resipole Studios',56.7180,-5.6640,'kameralna galeria sztuki nad Loch Sunart','attr'],
+ ['Kilcamb Lodge (Strontian)',56.6960,-5.5710,'nagradzana restauracja nad jeziorem: seafood i dziczyzna','food'],
+ ['Corran Ferry',56.7180,-5.2430,'10-minutowy prom przez Loch Linnhe','attr'],
+ ['Fort Augustus + Lock Inn',57.1440,-4.6800,'śluzy Kanału Kaledońskiego, beef & ale pie','food'],
+ ['Dores (Loch Ness)',57.3830,-4.3320,'spokojny południowy brzeg + Loch Ness trail','attr'],
+ ['Commando Memorial (Spean Bridge)',56.9040,-4.9560,'pomnik z widokiem na Ben Nevis','attr'],
+ ['Dolphin Spirit RIB (Inverness)',57.4930,-4.2400,'rejs RIB — delfiny butlonose w Moray Firth','attr']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Scotland'));
+// — trasy piesze z listy AllTrails (zdjęcia z AllTrails); współrzędne = punkt startowy trasy —
+[
+ ['Coire Gabhail — Lost Valley (Glen Coe)',56.66775,-4.98677,'5 km, ↑275 m, 4.8 ★ — ukryta dolina, w której klan MacDonald chował bydło; w sercu Glen Coe, idealna 29–30.07 · <a href="https://www.alltrails.com/trail/scotland/highlands/lost-valley-coire-gabhail" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(64828474,'a1cff66afeeedecdc00e2361085fd935')],
+ ['Glenfinnan Viaduct Loop',56.87095,-5.43522,'4.3 km, ↑123 m, 4.7 ★ — pętla z punktami widokowymi na wiadukt Hogwart Expressu · <a href="https://www.alltrails.com/trail/scotland/highlands/glenfinnan-viaduct-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(62985857,'127713b6a91357da0edc16da0ff7e9ce')],
+ ['Ben Nevis Mountain Track',56.81008,-5.07665,'16.4 km, ↑1341 m, 4.8 ★ — najwyższy szczyt UK; cały dzień i tylko przy dobrej pogodzie · <a href="https://www.alltrails.com/trail/scotland/highlands/ben-nevis-mountain-path" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(49771527,'ec8ea304cc3be1c45da76fcbf642afbb')],
+ ['Ben Nevis od Glen Nevis Youth Hostel',56.79945,-5.06733,'14.8 km, ↑1363 m, 4.7 ★ — wariant startu ze schroniska w Glen Nevis · <a href="https://www.alltrails.com/trail/scotland/highlands/glen-nevis-youth-hostel-to-ben-nevis" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(59231532,'938fa46afc5a32848f7edd68dde96ac3')],
+ ["Ben A'an",56.23239,-4.40598,'3.9 km, ↑347 m, 4.8 ★ — „miniaturowa góra” Trossachs z wielkim widokiem na Loch Katrine; tuż przy trasie przez Callander · <a href="https://www.alltrails.com/trail/scotland/stirling/ben-aan" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(75935603,'f5c5798146255c19a5414a01f8f03d81')],
+ ['The Cobbler (Ben Arthur)',56.2058,-4.7509,'11.9 km, ↑900 m, 4.7 ★ — charakterystyczny skalny wierzchołek nad Arrochar · <a href="https://www.alltrails.com/trail/scotland/argyll-and-bute/the-cobbler-ben-arthur" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(36832306,'cd9da76077cfab24c49b77187f47bdf8')],
+ ['Conic Hill (Balmaha)',56.0852,-4.53935,'5.8 km, ↑352 m, 4.7 ★ — krótkie podejście, panorama Loch Lomond i wysp · <a href="https://www.alltrails.com/trail/scotland/west-dunbartonshire/conic-hill-from-balmaha-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(81969679,'cc6afb2f27151b8fd6bdfa36a8130aa1')],
+ ['Hermitage i Pine Cone Point (Dunkeld)',56.56157,-3.60729,'5.8 km, ↑250 m, 4.7 ★ — baśniowy las nad rzeką Braan i wodospad Black Linn; przy Waszej trasie Pitlochry→Perth · <a href="https://www.alltrails.com/trail/scotland/perth-and-kinross/the-hermitage-and-pine-cone-point" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(47622857,'7ec80a1006dc87604c7aa8baa3b68af7')],
+ ['Dumyat Hill',56.15997,-3.91272,'5 km, ↑221 m, 4.6 ★ — szczyt Ochil Hills z widokiem na Stirling i dolinę Forth · <a href="https://www.alltrails.com/trail/scotland/clackmannanshire/dumyat-hill-walk" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(46412804,'431a31df93f06622acd3258423f88ac7')],
+ ['Loch Leven Heritage Trail',56.19961,-3.41741,'19.6 km pętla, płasko, 4.5 ★ — wokół jeziora z zamkiem Marii Stuart; idealna na rower (wypożyczalnia na miejscu) · <a href="https://www.alltrails.com/trail/scotland/perth-and-kinross/loch-leven" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(110605475,'c7bf9236c1ba469473ba93cbb9432b1d')],
+ ['Falkland i Maspie Burn',56.25381,-3.21703,'3.4 km, ↑130 m, 4.8 ★ — las, wodospad i wioska Falkland z pałacem; ~20 min od M90 w drodze powrotnej · <a href="https://www.alltrails.com/trail/scotland/fife/falkland-and-maspie-burn" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(73330248,'7b6f643ed50ce4641ae5ea2c50ee3935')],
+ ['Maspie Den i Temple of Decision',56.25387,-3.21662,'6.3 km, ↑240 m, 4.6 ★ — wąwóz z przejściem ZA wodospadem + folly na wzgórzu · <a href="https://www.alltrails.com/trail/scotland/fife/maspie-den-tyndall-bruce-monument-and-temple-of-decision-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(73330221,'029b5768bb836f3ca27689c686b76697')],
+ ["John Knox's Pulpit",56.24805,-3.3365,'6.4 km, ↑163 m, 4.7 ★ — skalna „ambona” w Lomond Hills · <a href="https://www.alltrails.com/trail/scotland/fife/john-knox-pulpit" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(110363243,'bfdd8c6b65af041a240b47b750135142')]
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Scotland'));
+// — wypożyczalnie rowerów (e-bike) na trasie; współrzędne zweryfikowane photonem —
+[
+ ['Rugged Coast Glencoe (Ballachulish)',56.67996,-5.13042,'e-bike £45/3h, £65/dzień (2026) — przy hotelu Isles of Glencoe, 5 min od Waszego noclegu! Pętla „Glencoe Orbital”: car-free Greenway pod Trzema Siostrami + Clachaig Inn; dłużej: Route 78 do Castle Stalker','bike'],
+ ['Glencoe Mountain Resort',56.62025,-4.83947,'wyciąg krzesełkowy (widoki na Rannoch Moor) + zjazdowe MTB enduro (Bird/Commencal) — bez e-bike’ów w wypożyczalni; na spokojne pagórki lepszy Rugged Coast; trasy V–X, uplift do 16:00','bike'],
+ ['Katrinewheelz (Trossachs Pier)',56.23364,-4.42851,'e-bike nad Loch Katrine — prywatna droga bez aut wzdłuż jeziora; opcja „cycle &amp; sail” parowcem Sir Walter Scott; 3 km od parkingu pod Ben A’an','bike'],
+ ['Roll Outdoors (Callander)',56.24419,-4.21892,'e-bike, MTB i rowery dziecięce przy NCR7 (Meadows Car Park); ładne pętle do wodospadów Bracklinn','bike'],
+ ['Off Beat Bikes (Fort William)',56.81675,-5.11349,'e-bike hire na High Street (kask, zapięcie, zestaw naprawczy w cenie); blisko startu szlaków na Ben Nevis i Nevis Range','bike'],
+ ['Laggan Wolftrax (Bike Bothy)',57.00010,-4.31751,'centrum tras MTB z wypożyczalnią przy A86 — dokładnie na Waszej trasie Glen Coe → Pitlochry; trasy też dla początkujących + kawiarnia','bike'],
+ ['Progression Bikes (Dunkeld)',56.56619,-3.58591,'największa flota e-bike w środkowej Szkocji (Bosch/Shimano/Fazua); 2 km od Hermitage — idealne combo: spacer + rower','bike'],
+ ['E-Ride / Pitlochry Boating Station',56.70769,-3.75120,'elektryczne MTB (Scott) nad Loch Faskally, śr–nd 9–17; pętla wokół jeziora, Faskally Forest i zapora z przepławką dla łososi','bike'],
+ ["Sinclair Cycles / Loch Leven's Larder",56.22175,-3.35468,'wypożyczalnia rowerów przy pętli Loch Leven Heritage Trail (19,6 km, płasko) + farma-kawiarnia z widokiem na jezioro','bike']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], p[6], 'Scotland'));
+
+SITE_INIT();
+</script>
+</div>
+</body>
+</html>

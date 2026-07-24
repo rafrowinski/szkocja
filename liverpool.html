@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liverpool i okolice – lista miejsc</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#101418">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<h1>Liverpool i okolice — plan na dłuższy pobyt</h1>
+<div class="nav"><a href="index.html">📅 Plan</a><a href="szkocja.html">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Szkocja</a><a href="belfast.html">🇮🇪 Belfast</a><a href="liverpool.html" class="here">🇬🇧 Liverpool</a></div>
+<p class="sub">Nie martw się nudą: samo miasto to spokojnie 3–4 dni (Beatlesi, doki, podziemia, puby-perły), a do tego 3–4 pełne wycieczki jednodniowe: Snowdonia, Manchester (stok narciarski), Chester i plaże z rzeźbami Gormleya. Poniżej wszystko z ocenami, a na mapach — zdjęcia i linki do nawigacji po najechaniu na punkt.</p>
+
+
+<div style="display:flex;gap:8px;margin:14px 0 18px;flex-wrap:wrap">
+  <button id="tb1" class="tabbtn on" onclick="showTab(1)">🏙️ Liverpool</button>
+  <button id="tb2" class="tabbtn" onclick="showTab(2)">🚂 Wypady</button>
+  <button id="tb3" class="tabbtn" onclick="showTab(3)">🇬🇧 Londyn</button>
+</div>
+<div id="tab1">
+<div class="fbar" id="fbar1"></div>
+<div id="map-liv" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/puby &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/muzea &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy/dzielnice</p>
+<h2>🎸 Beatlesi, Queen i muzyka</h2>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>The Beatles Story</b> — Royal Albert Dock</td><td class="r">top atrakcja</td><td class="n">Największe muzeum Beatlesów na świecie, z audioprzewodnikiem (jest polski).</td></tr>
+<tr><td><b>British Music Experience</b> — Cunard Building</td><td class="r">b. pozytywne (2–3 h)</td><td class="n">Muzeum brytyjskiej muzyki: stroje <b>Freddiego Mercury'ego</b>, instrumenty, interaktywne studia — tu znajdziesz swój wątek Queen.</td></tr>
+<tr><td><b>Cavern Club</b> — 10 Mathew St</td><td class="r">legendarne</td><td class="n">Klub, w którym Beatlesi zagrali ~300 razy. Muzyka na żywo codziennie od południa, wieczorami tribute'y (bywają też do Queen). Odbudowany z oryginalnych cegieł.</td></tr>
+<tr><td><b>Magical Mystery Tour</b> (autobus)</td><td class="r">4.5 TA</td><td class="n">2 h objazd: Penny Lane, Strawberry Field, domy Beatlesów; kończy w Cavern.</td></tr>
+<tr><td><b>Penny Lane</b> i <b>Strawberry Field</b></td><td class="r">—</td><td class="n">Kultowe miejsca z piosenek; w Strawberry Field wystawa i ogród (czerwona brama!).</td></tr>
+<tr><td><b>Domy dzieciństwa: Mendips + 20 Forthlin Road</b> (National Trust)</td><td class="r">rezerwuj</td><td class="n">Dom Lennona i McCartneya — tylko z turą NT, wnętrza z epoki.</td></tr>
+<tr><td><b>Casbah Coffee Club</b> — West Derby</td><td class="r">hidden gem</td><td class="n">Piwnica, w której wszystko się zaczęło (przed Cavern) — malowana ręcznie przez Beatlesów. Tylko z rezerwacją.</td></tr>
+<tr><td><b>Pomnik Beatlesów</b> (Pier Head) i <b>Eleanor Rigby</b> (Stanley St)</td><td class="r">—</td><td class="n">Dwie fotki obowiązkowe.</td></tr>
+</table>
+
+<h2>⚓ Stary port i doki</h2>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Royal Albert Dock</b></td><td class="r">UNESCO-klasa</td><td class="n">Największy zespół zabytkowych magazynów I klasy w UK (1846) — serce Waszego portowego klimatu.</td></tr>
+<tr><td><b>Merseyside Maritime Museum</b> + International Slavery Museum</td><td class="r">darmowe</td><td class="n">Historia portu, Titanica i Lusitanii (obie związane z Liverpoolem!).</td></tr>
+<tr><td><b>Museum of Liverpool</b></td><td class="r">darmowe</td><td class="n">Historia miasta w nowoczesnym gmachu na Pier Head.</td></tr>
+<tr><td><b>Tate Liverpool</b></td><td class="r">darmowe (część wystaw)</td><td class="n">Sztuka współczesna w dawnym magazynie dokowym.</td></tr>
+<tr><td><b>Trzy Gracje + Royal Liver Building 360</b></td><td class="r">4.5 TA</td><td class="n">Wejście na wieżę z mitycznymi Liver Birds — panorama portu.</td></tr>
+<tr><td><b>Ferry across the Mersey</b></td><td class="r">klasyk</td><td class="n">50-min River Explorer Cruise — najlepszy widok na waterfront (i piosenka gratis).</td></tr>
+<tr><td><b>Western Approaches Museum</b></td><td class="r">4.5 TA</td><td class="n">Tajny podziemny bunkier dowodzenia bitwą o Atlantyk — zachowany jak w 1945. Idealne pod Wasz gust!</td></tr>
+<tr><td><b>Stanley Dock + Tobacco Warehouse</b> (Titanic Hotel)</td><td class="r">—</td><td class="n">Największy ceglany magazyn świata; klimat surowego portu (Peaky Blinders kręcone tu obok).</td></tr>
+</table>
+
+<h2>💡 Pod Wasz gust (jak w Edynburgu)</h2>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Williamson Tunnels</b> (Friends of)</td><td class="r">TA Travellers' Choice</td><td class="n">Tajemnicze tunele wykopane bez powodu przez wiktoriańskiego ekscentryka — tury z pasjonatami. Wasz odpowiednik Mary King's Close.</td></tr>
+<tr><td><b>Philharmonic Dining Rooms</b></td><td class="r">najsłynniejszy pub miasta</td><td class="n">Najbardziej zdobiony pub Anglii (zabytek I klasy, nawet toalety!). Lennon: „cena sławy to niemożność pójścia do Phila”.</td></tr>
+<tr><td><b>Peter Kavanagh's</b>, <b>Ye Cracke</b>, <b>The Baltic Fleet</b></td><td class="r">—</td><td class="n">Ekscentryczny pub z muralami i bibelotami; pub studenckich czasów Lennona; ostatni portowy pub z własnym browarem — zestaw w duchu Kay's Bar.</td></tr>
+<tr><td><b>Liverpool Cathedral</b> + wieża</td><td class="r">4.6 TA</td><td class="n">Największa katedra UK; winda+schody na dach (100 m) — widok jak z Arthur's Seat. Obok neogotycki cmentarz <b>St James</b> w wąwozie — mroczny spacer.</td></tr>
+<tr><td><b>Metropolitan Cathedral</b> („Paddy's Wigwam”)</td><td class="r">—</td><td class="n">Modernistyczny „namiot” z krypta Lutyensa.</td></tr>
+<tr><td><b>Sefton Park Palm House</b></td><td class="r">darmowe</td><td class="n">Wiktoriańska palmiarnia — Wasz odpowiednik edynburskich Botanics.</td></tr>
+<tr><td><b>Bold Street</b> + <b>News from Nowhere</b></td><td class="r">—</td><td class="n">Ulica niezależnych sklepów i kawiarni + radykalna księgarnia-spółdzielnia (od 1974).</td></tr>
+<tr><td><b>Baltic Triangle</b></td><td class="r">—</td><td class="n">Postindustrialna dzielnica: street art, food halle, kraftowe browary — jak edynburski klimat „hidden”.</td></tr>
+<tr><td><b>St George's Hall</b>, <b>Walker Art Gallery</b>, <b>World Museum</b></td><td class="r">darmowe</td><td class="n">Neoklasyczny kolos z celami więziennymi pod spodem + galerie przy Lime St.</td></tr>
+<tr><td><b>St Johns Beacon (Radio City Tower)</b></td><td class="r">—</td><td class="n">Platforma widokowa 138 m — całe miasto i zatoka.</td></tr>
+<tr><td><b>Chinatown</b></td><td class="r">—</td><td class="n">Najstarsza chińska społeczność Europy, największa brama poza Chinami.</td></tr>
+</table>
+
+
+
+</div>
+<div id="tab2" style="display:none">
+<h2>🚂 Wypady jednodniowe (na dłuższy pobyt)</h2>
+<div class="fbar" id="fbar2"></div>
+<div id="map-oko" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/doświadczenia &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/natura &nbsp; <span class="dot" style="background:#7fe6a5"></span>zamki/historia &nbsp; <span class="dot" style="background:#111;border:1px solid #777"></span>trasy piesze (AllTrails) &nbsp; <span class="dot" style="background:#ff9440"></span>rowery/e-bike</p>
+
+<h3>🥾 Trasy piesze z Twojej listy AllTrails (czarne kropki)</h3>
+<p class="n">Trzy rejony do wyboru na wolne dni 5–7.08: <b>Snowdonia</b> (auto albo pociąg do Betws-y-Coed), <b>Peak District</b> (pociągiem: Manchester → linia Hope Valley, stacje Edale/Hope) i <b>Cheshire/Mersey</b> (najbliżej, stacje Helsby/Frodsham). Pomarańczowe kropki = e-bike przy trasach.</p>
+<table>
+<tr><th>Trasa</th><th>Dystans</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><a href="https://www.alltrails.com/trail/wales/gwynedd/yr-wyddfa-snowdon-via-miner-s-track-and-pyg-circular" target="_blank"><b>Snowdon — Miners + Pyg (pętla)</b></a></td><td class="r">12.7 km ↑801 m</td><td class="r">4.8 ★</td><td class="n">Najładniejszy wariant; parking Pen-y-Pass tylko z rezerwacją (albo bus Sherpa z Llanberis).</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/wales/gwynedd/yr-wyddfa-snowdon-via-llanberis-path" target="_blank"><b>Snowdon — Llanberis Path</b></a></td><td class="r">15.1 km ↑982 m</td><td class="r">4.7 ★</td><td class="n">Najłagodniejszy; wzdłuż kolei zębatej (opcja zjazdu koleją).</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/wales/gwynedd/llyn-idwal-circular" target="_blank"><b>Llyn Idwal (Cwm Idwal)</b></a></td><td class="r">4.8 km ↑252 m</td><td class="r">4.8 ★</td><td class="n">Krótko a spektakularnie — plan B na chmurny dzień w Snowdonii.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/wales/conwy/y-garn-via-devils-kitchen" target="_blank"><b>Y Garn przez Devil's Kitchen</b></a></td><td class="r">7.7 km ↑706 m</td><td class="r">4.8 ★</td><td class="n">Stromo, ale widoki na całe Glyderau.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/england/derbyshire/castleton-mam-tor-and-the-great-ridge-walk" target="_blank"><b>Castleton — Mam Tor i Great Ridge</b></a></td><td class="r">13 km ↑654 m</td><td class="r">4.7 ★</td><td class="n">Kultowy grzbiet Peak District; pociągiem przez Manchester.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/england/derbyshire/edale-and-upper-booth-circular" target="_blank"><b>Edale — Kinder Scout i Upper Booth</b></a></td><td class="r">13.2 km ↑527 m</td><td class="r">4.8 ★</td><td class="n">Start prosto ze stacji Edale — najprościej bez auta.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/england/derbyshire/kinder-scout-and-kinder-downfall-circular" target="_blank"><b>Kinder Scout i Kinder Downfall</b></a></td><td class="r">13.8 km ↑586 m</td><td class="r">4.7 ★</td><td class="n">Wodospad wiejący „do góry” przy wietrze.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/england/cheshire/the-roaches-and-lud-s-church-circular" target="_blank"><b>The Roaches i Lud's Church</b></a></td><td class="r">12.6 km ↑432 m</td><td class="r">4.8 ★</td><td class="n">Grań + mszysty wąwóz jak z baśni (krótsze warianty: Roach End 5.1 km, Gradbach 5.1 km).</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/england/cheshire/helsby-hill-and-woodhouses-hill-fort" target="_blank"><b>Helsby Hill</b></a> / <a href="https://www.alltrails.com/trail/england/cheshire/frodsham-and-sandstone-trail-circular" target="_blank"><b>Frodsham Sandstone Trail</b></a></td><td class="r">6.8–7.9 km</td><td class="r">4.4–4.6 ★</td><td class="n">Najbliżej: piaskowcowe urwiska nad Mersey, stacje Helsby/Frodsham.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/england/merseyside/hale-lighthouse-circular" target="_blank"><b>Hale Lighthouse</b></a> / <a href="https://www.alltrails.com/trail/england/merseyside/hale-park-and-river-mersey" target="_blank"><b>Hale Park i Mersey</b></a></td><td class="r">4.3–8 km płasko</td><td class="r">4.5–4.7 ★</td><td class="n">Spacerowo: latarnia na cyplu Mersey tuż za Liverpoolem.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/wales/gwynedd/cadair-idris-mynydd-moel-craig-lwyd-and-tal-y-llyn-circular" target="_blank"><b>Cadair Idris</b></a></td><td class="r">12.1 km ↑983 m</td><td class="r">4.8 ★</td><td class="n">Wybitna, ale 2,5 h autem — raczej na inny wyjazd.</td></tr>
+</table>
+<p class="n">🚲 <b>E-bike przy trasach:</b> <a href="https://www.llanberisbikehire.co.uk/" target="_blank">Llanberis Bike Hire</a> (pod Snowdonem), <a href="https://bikewales.co.uk/" target="_blank">Beics Betws</a> (Betws-y-Coed — dojazd pociągiem!), <a href="https://www.delamerebikes.co.uk/" target="_blank">Tracs Delamere Forest</a> (e-MTB ~£35/3h, własna stacja kolejowa, obok Helsby/Frodsham).</p>
+
+<h3>🌊 Wybrzeże (30–40 min pociągiem Merseyrail)</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Crosby Beach — „Another Place”</b></td><td class="r">darmowe</td><td class="n">100 żeliwnych figur Antony'ego Gormleya zanurzających się w morzu — surrealne, zwłaszcza we mgle i o zachodzie.</td></tr>
+<tr><td><b>Formby</b> (National Trust)</td><td class="r">—</td><td class="n">Wydmy, sosnowy las i rude wiewiórki.</td></tr>
+<tr><td><b>Port Sunlight</b></td><td class="r">—</td><td class="n">Bajkowa wioska modelowa fabrykanta mydła + galeria Lady Lever.</td></tr>
+</table>
+
+<h3>🏔️ Snowdonia / Eryri (1,5–2 h)</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Conwy Castle</b> + mury miejskie</td><td class="r">UNESCO</td><td class="n">Najlepiej zachowany zamek Edwarda I; dojazd też pociągiem (przesiadka w Chester).</td></tr>
+<tr><td><b>Llandudno + Great Orme</b></td><td class="r">—</td><td class="n">Wiktoriański kurort, tramwaj/kolejka na wapienny masyw z kozicami.</td></tr>
+<tr><td><b>Betws-y-Coed</b> + Swallow Falls</td><td class="r">—</td><td class="n">„Brama Snowdonii”; dojazd malowniczą Conwy Valley Line.</td></tr>
+<tr><td><b>Snowdon (Yr Wyddfa)</b> — Llanberis</td><td class="r">—</td><td class="n">Wejście szlakiem Llanberis (~5 h w obie strony) albo zabytkową koleją zębatą na szczyt (rezerwuj!).</td></tr>
+<tr><td><b>Zip World Velocity 2</b> — Penrhyn Quarry</td><td class="r">unikat</td><td class="n">Najszybsza tyrolka świata (160+ km/h) nad turkusowym jeziorem kamieniołomu — Wasz typ „unique experience”.</td></tr>
+<tr><td><b>Caernarfon Castle</b> i <b>Portmeirion</b></td><td class="r">UNESCO / kultowe</td><td class="n">Potężna twierdza + surrealistyczna włoska wioska nad zatoką (plan „The Prisoner”).</td></tr>
+</table>
+
+<h3>🏙️ Manchester i Chester (pociągiem)</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Chill Factore</b> — Manchester (Trafford)</td><td class="r">najdłuższy kryty stok UK (180 m)</td><td class="n">Prawdziwy śnieg cały rok; pociąg do Manchesteru ~50 min + tramwaj/bus do Trafford. Wypożyczalnia na miejscu.</td></tr>
+<tr><td><b>Manchester: Science and Industry Museum</b>, Northern Quarter</td><td class="r">darmowe</td><td class="n">Kolebka rewolucji przemysłowej + dzielnica street artu i winyli.</td></tr>
+<tr><td><b>Chester</b> (~45 min pociągiem)</td><td class="r">—</td><td class="n">Rzymskie mury, średniowieczne dwupoziomowe „Rows”, katedra — idealny łatwy day trip.</td></tr>
+</table>
+
+
+
+</div>
+<div id="tab3" style="display:none">
+<h2>🇬🇧 Londyn — Twoja lista z Instagrama</h2>
+<div class="fbar" id="fbar3"></div>
+<div id="map-lon" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/nocleg &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy</p>
+<table>
+<tr><th>Miejsce</th><th>Notatka</th><th>IG</th></tr>
+<tr><td><b>Bridge Command</b> — Vauxhall</td><td class="n">Immersyjny symulator mostku okrętu (załoga = Wy) — „najlepsza rzecz na deszcz”.</td><td><a href="https://www.instagram.com/p/DWExpCTjWEe/">IG</a></td></tr>
+<tr><td><b>Mail Rail — Postal Museum</b></td><td class="n">Przejazd miniaturową kolejką pocztową w tunelach 21 m pod miastem. Rezerwuj ciche sloty w tygodniu.</td><td><a href="https://www.instagram.com/p/DV0G8DjE2LC/">IG</a></td></tr>
+<tr><td><b>Zedwell Tottenham Court Road</b></td><td class="n">Hotel-kokon w dawnym podziemnym parkingu (pokoje bez okien, totalna cisza).</td><td><a href="https://www.instagram.com/p/DUQ9ghMiEXF/">IG</a></td></tr>
+<tr><td><b>Books for Cooks</b> — Notting Hill</td><td class="n">Księgarnia tylko z książkami kucharskimi + kuchnia testowa z tyłu (lunch z przepisów z półek).</td><td><a href="https://www.instagram.com/p/DQJ7VnFghkI/">IG</a></td></tr>
+<tr><td><b>V&amp;A East Storehouse</b> — Stratford</td><td class="n">Darmowy „magazyn” pół miliona eksponatów V&amp;A + kawiarnia e5 bakehouse.</td><td><a href="https://www.instagram.com/p/DKOwk-dTZEQ/">IG</a></td></tr>
+<tr><td><b>58th Street Country Club</b> — Peckham</td><td class="n">Ukryty „amerykański country club” — speakeasy z jedzeniem i zabawą na godziny.</td><td><a href="https://www.instagram.com/p/DIub7aHAJbk/">IG</a></td></tr>
+<tr><td><b>KiliG</b> — Deptford</td><td class="n">Kolacja jak z filmów Ghibli (~£60/os.) — dania odtworzone z anime.</td><td><a href="https://www.instagram.com/p/DEchvvLIvKY/">IG</a></td></tr>
+<tr><td><b>Tate Britain</b> + kawiarnia</td><td class="n">Z rolki „19 hidden gems” — piękna kawiarnia w muzeum; reszta miejsc w wideo.</td><td><a href="https://www.instagram.com/p/DIHWe6yol6y/">IG</a> / <a href="https://www.instagram.com/p/DFAUhxzoB4K/">IG&nbsp;2</a></td></tr>
+<tr><td><b>The Royal Standard of England</b> — Beaconsfield (~1 h)</td><td class="n">Najmocniejszy kandydat na najstarszy pub Anglii (900+ lat).</td><td><a href="https://www.instagram.com/p/DVCHiSIgiEy/">IG</a></td></tr>
+<tr><td><b>Ognisko Restaurant</b> — S. Kensington</td><td class="n">Polska instytucja przy Prince's Gate — elegancka sala, ogród, pickle martini.</td><td><a href="https://www.instagram.com/p/DbDYfEioFR5/">IG</a></td></tr>
+<tr><td><b>Novelty Automation</b> — Holborn</td><td class="n">Szalone, ręcznie budowane automaty satyryka Tima Hunkina (m.in. „autofrisk").</td><td><a href="https://www.instagram.com/p/DFJjxNKN2OL/">IG</a></td></tr>
+<tr><td><b>London Wetland Centre</b> — Barnes</td><td class="n">Karmienie wydr w miejskim rezerwacie; z rolki „off the beaten path" (tam też: Viktor Wynd, Museum of Brands).</td><td><a href="https://www.instagram.com/p/DaN0RPJMuD3/">IG</a></td></tr>
+<tr><td><b>Viktor Wynd Museum</b> — Hackney</td><td class="n">Gabinet osobliwości (taksydermia, kurioza) + bar z absyntem — bardzo Wasz klimat.</td><td><a href="https://www.instagram.com/p/DaN0RPJMuD3/">IG</a></td></tr>
+<tr><td><b>Museum of Brands</b> — Notting Hill</td><td class="n">150 lat opakowań, reklam i codziennych produktów.</td><td><a href="https://www.instagram.com/p/DaN0RPJMuD3/">IG</a></td></tr>
+<tr><td><b>London Night Café</b> — E1</td><td class="n">Herbata i ciastka bez limitu, dwa piętra przestrzeni i „rave toilet".</td><td><a href="https://www.instagram.com/p/DFahrH7i0nR/">IG</a></td></tr>
+<tr><td><b>Georgian House Hotel — Wizard Chambers</b> — Pimlico</td><td class="n">Nocleg w komnatach jak z HP + wizard afternoon tea i warsztaty eliksirów.</td><td><a href="https://www.instagram.com/p/DDINxJCSu-i/">IG</a></td></tr>
+<tr><td><b>Middle Temple Hall</b> — lunch</td><td class="n">Bufetowy lunch w elżbietańskiej sali prawników (1573); dania od £5, wino £15; rezerwuj online.</td><td><a href="https://www.instagram.com/p/DBMhR22CJdb/">IG</a></td></tr>
+<tr><td><b>Rhum Tavern</b> — Fitzrovia</td><td class="n">Piracki bar jak kadłub statku z XVII w.; robata grill.</td><td><a href="https://www.instagram.com/p/DEFPhtZME3s/">IG</a> / <a href="https://www.instagram.com/p/DBEjXgXo5WA/">IG&nbsp;2</a></td></tr>
+<tr><td><b>Cahoots Postal Office</b> — Borough Yards</td><td class="n">Bar-poczta lat 40. — koktajle rurą pneumatyczną prosto do stolika.</td><td><a href="https://www.instagram.com/p/DBOFongoAXW/">IG</a> / <a href="https://www.instagram.com/p/DA5b4RKIUqS/">IG&nbsp;2</a></td></tr>
+<tr><td><b>House of Dreams</b> — East Dulwich</td><td class="n">Dom-mozaika artysty Stephena Wrighta; otwarte tylko w wybrane dni — sprawdź kalendarz.</td><td><a href="https://www.instagram.com/p/DCZYPefCGs0/">IG</a></td></tr>
+<tr><td><b>Electric Cinema White City</b></td><td class="n">Najprzytulniejsze vintage kino, w Television Centre.</td><td><a href="https://www.instagram.com/p/DCjyUP7I0y4/">IG</a></td></tr>
+<tr><td><b>Queen's Wood Café</b> — Highgate</td><td class="n">Kawiarnia-oaza w środku lasu, 5–10 min od stacji Highgate.</td><td><a href="https://www.instagram.com/p/DCRPfdOIGhN/">IG</a></td></tr>
+<tr><td><b>Café in the Crypt</b> — St Martin-in-the-Fields</td><td class="n">Kawa w ceglanej krypcie z nagrobkami pod posadzką, przy Trafalgar Square.</td><td><a href="https://www.instagram.com/p/C_C9ZbgoGzN/">IG</a></td></tr>
+<tr><td><b>Lost Souls Pizza</b> — Camden</td><td class="n">„Jedyna wampirza pizzeria świata" — mrok, neony, koktajle.</td><td><a href="https://www.instagram.com/p/DA-zzmOCxvq/">IG</a></td></tr>
+<tr><td><b>Java Whiskers Cat Café</b> — Marylebone</td><td class="n">Kocia kawiarnia (druga filia w White City).</td><td><a href="https://www.instagram.com/p/C171sN_sUzI/">IG</a></td></tr>
+<tr><td><b>The Blackfriar</b></td><td class="n">Pub art nouveau na miejscu klasztoru dominikanów — mozaiki mnichów; naprzeciw stacji Blackfriars.</td><td><a href="https://www.instagram.com/p/C3e7i2KobQm/">IG</a></td></tr>
+<tr><td><b>The White Cross</b> — Richmond</td><td class="n">Pub nad Tamizą, który przypływ regularnie odcina od świata — w barze pożyczają kalosze.</td><td><a href="https://www.instagram.com/p/C_bJ0NQo27M/">IG</a></td></tr>
+<tr><td><b>Sir John Soane's Museum</b> — Holborn</td><td class="n">Darmowy dom-muzeum ekscentrycznego architekta; egipski sarkofag w piwnicy.</td><td><a href="https://www.instagram.com/p/C9hxKeftzdQ/">IG</a></td></tr>
+<tr><td><b>Hoxton Street Monster Supplies</b></td><td class="n">Sklep „dla żywych, martwych i nieumarłych" — dochód wspiera warsztaty pisarskie dla dzieci.</td><td><a href="https://www.instagram.com/p/DA_OqxIC5x5/">IG</a></td></tr>
+<tr><td><b>Butterfly Trail</b> — Tottenham Court Rd</td><td class="n">Darmowa immersyjna instalacja przy stacji — sprawdźcie, czy jeszcze działa.</td><td><a href="https://www.instagram.com/p/C3kYU0tMDuc/">IG</a></td></tr>
+<tr><td><b>Lacock</b> — Wiltshire (~2 h)</td><td class="n">Wioska NT = plan filmowy HP (dom Potterów, krużganki-Hogwart w opactwie).</td><td><a href="https://www.instagram.com/p/DA-hcM1sgv5/">IG</a></td></tr>
+<tr><td colspan="3" class="n">Rolki-listy bez pojedynczego miejsca (obejrzyjcie przed wyjazdem): 17 hidden places (<a href="https://www.instagram.com/p/C42qeeRot-d/">IG</a>), 22 hidden gems (<a href="https://www.instagram.com/p/DE0EjXUIp74/">IG</a>), 18 hidden gems (<a href="https://www.instagram.com/p/DBgFKjXoH-Z/">IG</a>), pomysły na wieczór (<a href="https://www.instagram.com/p/DFNy00woug9/">IG</a>).</td></tr>
+<tr><td colspan="3" class="n">Nieaktualne/poza mapą: wystawa <b>The World of Tim Burton</b> w Design Museum skończyła się 21.04.2025 (<a href="https://www.instagram.com/p/DBeDEZ5IQIh/">IG</a>, <a href="https://www.instagram.com/p/DBg-xfag5IM/">IG&nbsp;2</a>); <b>Beamish Museum</b> — żywy skansen k. Durham, ~2,5 h z Liverpoolu (<a href="https://www.instagram.com/p/DCtGkhSIq2d/">IG</a>); <b>Made in Japan</b> — sklepik na… warszawskim Targówku (<a href="https://www.instagram.com/p/C2aTBc1Iv6-/">IG</a>); <b>Platzki</b> — polska restauracja w Manchesterze → dodana do zakładki Wypady (<a href="https://www.instagram.com/p/C-uxVZNNzSX/">IG</a>); <b>Puy du Fou</b> — park tematyczny we Francji k. Nantes (<a href="https://www.instagram.com/p/DKTp-kpM9kz/">IG</a>) i <b>Old Town Laundry Bar</b> — sekretny bar w Swindon (<a href="https://www.instagram.com/p/DGbVxFbuvcP/">IG</a>).</td></tr>
+</table>
+
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="engine.js"></script>
+<script>
+// zdjęcia AllTrails: URL = base64 z parametrami resizera (dowolna szerokość jest OK)
+function atImg(id, hash, w, h) {
+  return 'https://images.alltrails.com/' + btoa(JSON.stringify({bucket:'assets.alltrails.com', key:'uploads/photo/image/'+id+'/'+hash+'.jpg', edits:{toFormat:'jpeg', resize:{width:w||960, height:h||(Math.round((w||960)*2/3)), fit:'cover'}, rotate:null, jpeg:{trellisQuantisation:true, overshootDeringing:true, optimiseScans:true, quality:75}}}));
+}
+const WIKI = {
+"The Beatles Story":"The_Beatles_Story",
+"British Music Experience (Queen!)":"British_Music_Experience",
+"Cavern Club":"Cavern_Club",
+"Penny Lane":"Penny_Lane",
+"Strawberry Field":"Strawberry_Field",
+"Mendips + 20 Forthlin Rd (domy Beatlesów, NT)":"251_Menlove_Avenue",
+"Casbah Coffee Club":"Casbah_Coffee_Club",
+"Pomnik Beatlesów (Pier Head)":"The_Beatles_statue",
+"Royal Albert Dock":"Royal_Albert_Dock",
+"Maritime Museum + Slavery Museum":"Merseyside_Maritime_Museum",
+"Museum of Liverpool":"Museum_of_Liverpool",
+"Tate Liverpool":"Tate_Liverpool",
+"Royal Liver Building 360":"Royal_Liver_Building",
+"Mersey Ferry (Pier Head)":"Mersey_Ferry",
+"Western Approaches Museum":"Western_Approaches_Museum",
+"Stanley Dock / Tobacco Warehouse":"Stanley_Dock_Tobacco_Warehouse",
+"Williamson Tunnels":"Williamson_Tunnels",
+"Philharmonic Dining Rooms":"Philharmonic_Dining_Rooms",
+"Peter Kavanagh's":"Peter_Kavanagh's",
+"Ye Cracke":"Ye_Cracke",
+"The Baltic Fleet":"Baltic_Fleet,_Liverpool",
+"Liverpool Cathedral + wieża":"Liverpool_Cathedral",
+"Metropolitan Cathedral":"Liverpool_Metropolitan_Cathedral",
+"Sefton Park Palm House":"Sefton_Park_Palm_House",
+"News from Nowhere (Bold St)":"News_from_Nowhere_(bookshop)",
+"Baltic Triangle":"Baltic_Triangle",
+"St George's Hall":"St_George's_Hall,_Liverpool",
+"Walker Art Gallery":"Walker_Art_Gallery",
+"World Museum":"World_Museum",
+"St Johns Beacon (Radio City Tower)":"St_Johns_Beacon",
+"Chinatown":"Chinatown,_Liverpool",
+"Anfield (LFC)":"Anfield",
+"Crosby Beach — Another Place":"Another_Place_(sculpture)",
+"Formby (wiewiórki, wydmy)":"Formby",
+"Port Sunlight":"Port_Sunlight",
+"Conwy Castle":"Conwy_Castle",
+"Llandudno + Great Orme":"Great_Orme",
+"Betws-y-Coed":"Betws-y-Coed",
+"Swallow Falls":"Swallow_Falls",
+"Snowdon / Yr Wyddfa (Llanberis)":"Snowdon",
+"Kolej na Snowdon":"Snowdon_Mountain_Railway",
+"Zip World Velocity 2 (Penrhyn Quarry)":"Penrhyn_Quarry",
+"Caernarfon Castle":"Caernarfon_Castle",
+"Portmeirion":"Portmeirion",
+"Chill Factore (Manchester)":"Chill_Factore",
+"Science and Industry Museum (Manchester)":"Science_and_Industry_Museum",
+"Chester":"Chester"
+};
+// posty IG (Londyn): nazwa -> kod posta
+const IGL = {
+"Bridge Command (Vauxhall)":"DWExpCTjWEe",
+"Mail Rail — Postal Museum":"DV0G8DjE2LC",
+"Zedwell Tottenham Court Road":"DUQ9ghMiEXF",
+"Books for Cooks (Notting Hill)":"DQJ7VnFghkI",
+"V&A East Storehouse":"DKOwk-dTZEQ",
+"58th Street Country Club (Peckham)":"DIub7aHAJbk",
+"KiliG (Deptford)":"DEchvvLIvKY",
+"Tate Britain + kawiarnia":"DIHWe6yol6y",
+"The Royal Standard of England (Beaconsfield)":"DVCHiSIgiEy",
+"Ognisko Restaurant (S. Kensington)":"DbDYfEioFR5",
+"Novelty Automation (Holborn)":"DFJjxNKN2OL",
+"London Wetland Centre (Barnes)":"DaN0RPJMuD3",
+"Viktor Wynd Museum (Hackney)":"DaN0RPJMuD3",
+"Museum of Brands (Notting Hill)":"DaN0RPJMuD3",
+"London Night Café (E1)":"DFahrH7i0nR",
+"Georgian House Hotel — Wizard Chambers":"DDINxJCSu-i",
+"Middle Temple Hall — lunch":"DBMhR22CJdb",
+"Rhum Tavern (Fitzrovia)":"DEFPhtZME3s",
+"Cahoots Postal Office (Borough Yards)":"DBOFongoAXW",
+"House of Dreams (East Dulwich)":"DCZYPefCGs0",
+"Electric Cinema White City":"DCjyUP7I0y4",
+"Queen's Wood Café (Highgate)":"DCRPfdOIGhN",
+"Café in the Crypt (St Martin-in-the-Fields)":"C_C9ZbgoGzN",
+"Lost Souls Pizza (Camden)":"DA-zzmOCxvq",
+"Java Whiskers Cat Café (Marylebone)":"C171sN_sUzI",
+"The Blackfriar":"C3e7i2KobQm",
+"The White Cross (Richmond)":"C_bJ0NQo27M",
+"Sir John Soane's Museum":"C9hxKeftzdQ",
+"Hoxton Street Monster Supplies":"DA_OqxIC5x5",
+"Butterfly Trail (Tottenham Court Rd)":"C3kYU0tMDuc",
+"Lacock (wioska HP, Wiltshire)":"DA-hcM1sgv5",
+"Platzki (Manchester)":"C-uxVZNNzSX"
+};
+window.SITE = { defreg:'UK', wiki: (typeof WIKI!=='undefined'?WIKI:{}), ig: (typeof IGL!=='undefined'?IGL:{}), modes:[{id:'beatles', label:'🎸 tylko Beatlesi', re:'beatles|cavern|penny lane|strawberry|casbah|mendips|forthlin|magical mystery|eleanor'}] };
+// ===== MAPA LIVERPOOL =====
+const m1 = regMap(L.map('map-liv').setView([53.402,-2.975], 13));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m1);
+[
+ ['The Beatles Story',53.3990,-2.9920,'muzeum Beatlesów, Albert Dock','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-14.jpg'],
+ ['British Music Experience (Queen!)',53.4055,-2.9950,'stroje Freddiego, interaktywne studia','attr'],
+ ['Cavern Club',53.4060,-2.9870,'muzyka na żywo codziennie; tribute\'y wieczorami','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-4.jpg'],
+ ['Magical Mystery Tour (start)',53.4000,-2.9915,'2h autobus po miejscach Beatlesów','attr'],
+ ['Penny Lane',53.3903,-2.9236,'ta piosenka','attr'],
+ ['Strawberry Field',53.3808,-2.8992,'czerwona brama + wystawa','attr'],
+ ['Mendips + 20 Forthlin Rd (domy Beatlesów, NT)',53.3730,-2.8950,'tylko z turą National Trust','attr'],
+ ['Casbah Coffee Club',53.4310,-2.9060,'piwnica, gdzie wszystko się zaczęło','attr'],
+ ['Pomnik Beatlesów (Pier Head)',53.4046,-2.9962,'+ Eleanor Rigby na Stanley St','attr'],
+ ['Royal Albert Dock',53.4010,-2.9930,'zabytkowe doki 1846','attr'],
+ ['Maritime Museum + Slavery Museum',53.4020,-2.9940,'Titanic i Lusitania; darmowe','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-26.jpg'],
+ ['Museum of Liverpool',53.4048,-2.9970,'darmowe','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-15.jpg'],
+ ['Tate Liverpool',53.4003,-2.9945,'sztuka współczesna w doku','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-19.jpg'],
+ ['Royal Liver Building 360',53.4058,-2.9958,'wieża z Liver Birds','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-5.jpg'],
+ ['Mersey Ferry (Pier Head)',53.4067,-2.9945,'50-min rejs po porcie','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-10.jpg'],
+ ['Western Approaches Museum',53.4080,-2.9900,'podziemny bunkier bitwy o Atlantyk','attr'],
+ ['Stanley Dock / Tobacco Warehouse',53.4230,-2.9930,'największy ceglany magazyn świata','attr'],
+ ['Williamson Tunnels',53.4030,-2.9530,'tajemnicze wiktoriańskie tunele','attr'],
+ ['Philharmonic Dining Rooms',53.4000,-2.9705,'najbardziej zdobiony pub Anglii','food'],
+ ["Peter Kavanagh's",53.3940,-2.9670,'murale i bibeloty','food'],
+ ['Ye Cracke',53.4005,-2.9720,'pub Lennona z czasów studiów','food'],
+ ['The Baltic Fleet',53.3960,-2.9890,'portowy pub z własnym browarem','food'],
+ ['Liverpool Cathedral + wieża',53.3975,-2.9730,'największa katedra UK; obok cmentarz St James','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-18-scaled.jpg'],
+ ['Metropolitan Cathedral',53.4045,-2.9685,'modernistyczny „wigwam”','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-28.jpg'],
+ ['Sefton Park Palm House',53.3810,-2.9390,'wiktoriańska palmiarnia','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-21.jpg'],
+ ['Bold Street',53.4030,-2.9800,'niezależne sklepy i kawiarnie','shop'],
+ ['News from Nowhere (Bold St)',53.4020,-2.9790,'radykalna księgarnia-spółdzielnia','shop'],
+ ['Baltic Triangle',53.3940,-2.9830,'street art, food halle, browary','shop','2024/01/Best-Things-To-Do-In-Liverpool-England-24.jpg'],
+ ["St George's Hall",53.4085,-2.9800,'neoklasyczny kolos z celami więziennymi','attr'],
+ ['Walker Art Gallery',53.4100,-2.9800,'darmowa galeria','attr'],
+ ['World Museum',53.4100,-2.9820,'darmowe muzeum','attr'],
+ ['St Johns Beacon (Radio City Tower)',53.4066,-2.9815,'widok z 138 m','attr'],
+ ['Chinatown',53.3990,-2.9790,'największa brama poza Chinami','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-7.jpg'],
+ ['Anfield (LFC)',53.4308,-2.9608,'stadion i muzeum — jeśli po drodze','attr','2024/01/Best-Things-To-Do-In-Liverpool-England-13.jpg']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], null, 'Liverpool'));
+
+// ===== MAPA WYPADY =====
+const m2 = regMap(L.map('map-oko').setView([53.25,-3.35], 8));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m2);
+[
+ ['Crosby Beach — Another Place',53.4870,-3.0550,'100 figur Gormleya w morzu; Merseyrail do Blundellsands','attr','2024/01/Best-Things-To-Do-In-Liverpool-England.jpg'],
+ ['Formby (wiewiórki, wydmy)',53.5590,-3.0980,'National Trust; Merseyrail ~35 min','attr'],
+ ['Port Sunlight',53.3560,-2.9990,'wioska modelowa + Lady Lever Art Gallery','attr'],
+ ['Conwy Castle',53.2800,-3.8250,'UNESCO; pociąg przez Chester','hist'],
+ ['Llandudno + Great Orme',53.3330,-3.8520,'kurort + tramwaj na masyw z kozicami','attr'],
+ ['Betws-y-Coed',53.0920,-3.8020,'brama Snowdonii; Conwy Valley Line','attr'],
+ ['Swallow Falls',53.0940,-3.8490,'wodospad przy A5','attr'],
+ ['Snowdon / Yr Wyddfa (Llanberis)',53.1180,-4.1260,'szlak Llanberis lub kolej zębata (rezerwuj)','attr'],
+ ['Zip World Velocity 2 (Penrhyn Quarry)',53.1660,-4.0630,'najszybsza tyrolka świata, 160+ km/h','attr'],
+ ['Caernarfon Castle',53.1390,-4.2770,'UNESCO, twierdza Edwarda I','hist'],
+ ['Portmeirion',52.9137,-4.0980,'surrealna włoska wioska („The Prisoner”)','attr'],
+ ['Chill Factore (Manchester)',53.4657,-2.3428,'kryty stok 180 m, prawdziwy śnieg; pociąg + tram','attr'],
+ ['Science and Industry Museum (Manchester)',53.4770,-2.2550,'darmowe; kolebka rewolucji przemysłowej','attr'],
+ ['Chester',53.1905,-2.8910,'rzymskie mury i „Rows”; pociąg ~45 min','hist']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], null, 'UK'));
+// — trasy piesze z listy AllTrails (zdjęcia z AllTrails); współrzędne = punkt startowy —
+[
+ ['Hale Lighthouse Circular',53.33478,-2.79825,'4.3 km, płasko, 4.7 ★ — latarnia na cyplu Mersey, najbliższy „wiejski” spacer od Liverpoolu (za lotniskiem) · <a href="https://www.alltrails.com/trail/england/merseyside/hale-lighthouse-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(92499942,'7f9bdbada2f3b37ef1310933692a7ce1')],
+ ['Hale Park i River Mersey',53.3343,-2.79983,'8 km, płasko, 4.5 ★ — dłuższa pętla wałem wzdłuż estuarium Mersey · <a href="https://www.alltrails.com/trail/england/merseyside/hale-park-and-river-mersey" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(27491187,'d030746c6ced7e208713baa04bcf9f10')],
+ ['Helsby Hill i Woodhouses Hill Fort',53.27046,-2.76477,'6.8 km, ↑253 m, 4.6 ★ — czerwone urwisko z fortem z epoki żelaza nad estuarium; stacja Helsby na linii do Chester · <a href="https://www.alltrails.com/trail/england/cheshire/helsby-hill-and-woodhouses-hill-fort" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(52819517,'7d032b5def528093c6bee2576bf00901')],
+ ['Frodsham i Sandstone Trail',53.28399,-2.72316,'7.9 km, ↑266 m, 4.4 ★ — piaskowcowa krawędź z widokiem na Mersey i Walię; stacja Frodsham · <a href="https://www.alltrails.com/trail/england/cheshire/frodsham-and-sandstone-trail-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(98911729,'dea427cd58e25e326917b8156958df8b')],
+ ['Snowdon — Llanberis Path',53.11682,-4.1189,'15.1 km, ↑982 m, 4.7 ★ — najłagodniejszy (i najdłuższy) szlak na Yr Wyddfa, wzdłuż kolei zębatej; cały dzień, wymaga auta · <a href="https://www.alltrails.com/trail/wales/gwynedd/yr-wyddfa-snowdon-via-llanberis-path" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(67478126,'dda07ff28e997d8ae74798b21001b98b')],
+ ['Snowdon — Miners + Pyg (pętla)',53.0806,-4.02091,'12.7 km, ↑801 m, 4.8 ★ — najładniejsza kombinacja z Pen-y-Pass (parking TYLKO z rezerwacją albo bus Sherpa) · <a href="https://www.alltrails.com/trail/wales/gwynedd/yr-wyddfa-snowdon-via-miner-s-track-and-pyg-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(67328606,'feebde68ebde5d41b56776960e0b8d8f')],
+ ['Snowdon — Pyg Track',53.08043,-4.02099,'11.4 km, ↑752 m, 4.7 ★ — wariant tylko Pyg · <a href="https://www.alltrails.com/trail/wales/gwynedd/yr-wyddfa-snowdon-via-pyg-track" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(58386902,'feed2339c8c0d3426dc7f29105a4dfd0')],
+ ['Snowdon — Miners Track',53.08032,-4.02083,'13.8 km, ↑850 m, 4.8 ★ — wariant tylko Miners (łagodny start jeziorami) · <a href="https://www.alltrails.com/trail/wales/gwynedd/yr-wyddfa-snowdon-via-miner-s-track" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(59590809,'e67525dde09b6f22c70e30b87ed15d9a')],
+ ['Llyn Idwal (Cwm Idwal)',53.12334,-4.01989,'4.8 km, ↑252 m, 4.8 ★ — jezioro w polodowcowym cyrku: krótko, a spektakularnie; plan B gdy Snowdon zatłoczony/w chmurze · <a href="https://www.alltrails.com/trail/wales/gwynedd/llyn-idwal-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(40152304,'79715aed80bf9938cadb557677fd2511')],
+ ["Y Garn przez Devil's Kitchen",53.12339,-4.01964,'7.7 km, ↑706 m, 4.8 ★ — stromo przez „Kuchnię Diabła” nad Cwm Idwal, wielkie widoki na Glyderau · <a href="https://www.alltrails.com/trail/wales/conwy/y-garn-via-devils-kitchen" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(71418961,'6562c6b2617a9d63a35da881c21e5925')],
+ ['Cadair Idris (pętla Minffordd)',52.68701,-3.87804,'12.1 km, ↑983 m, 4.8 ★ — „krzesło olbrzyma” na południu Snowdonii; daleko (2,5 h autem) — raczej na inny wyjazd · <a href="https://www.alltrails.com/trail/wales/gwynedd/cadair-idris-mynydd-moel-craig-lwyd-and-tal-y-llyn-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(24359295,'c3854cd621543a4ea4510d14c258b2aa')],
+ ["The Roaches i Lud's Church",53.15099,-1.99249,'12.6 km, ↑432 m, 4.8 ★ — skalna grań + mszysty wąwóz-rozpadlina (kryjówka lollardów); Peak District · <a href="https://www.alltrails.com/trail/england/cheshire/the-roaches-and-lud-s-church-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(64973648,'d207fc678401ea19da8eeac0af7387c3')],
+ ["Lud's Church z Roach End",53.17716,-2.00815,'5.1 km, ↑153 m, 4.7 ★ — najkrótsze dojście do baśniowego wąwozu · <a href="https://www.alltrails.com/trail/england/cheshire/luds-church-from-roach-end-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(75346381,'4e2c3eaf5ff45df09b1975ddda9edf67')],
+ ["Gradbach i Lud's Church",53.19302,-2.00303,'5.1 km, ↑197 m, 4.7 ★ — wariant znad rzeki Dane · <a href="https://www.alltrails.com/trail/england/staffordshire/gradbach-and-lud-s-church-short-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(90875480,'ae18c354b2effe8b7b4f07ae5561f0e5')],
+ ["Hen Cloud + Roaches + Lud's Church",53.14857,-1.99098,'13.5 km, ↑457 m, 4.7 ★ — pełna wersja z Hen Cloud · <a href="https://www.alltrails.com/trail/england/staffordshire/hen-cloud-the-roaches-and-lud-s-church-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(51971481,'ae6ea26f68becb4492ad552bd3aa31e4')],
+ ['Castleton — Mam Tor i Great Ridge',53.3459,-1.81549,'13 km, ↑654 m, 4.7 ★ — grzbiet nad Hope Valley + „drżąca góra”; pociąg z Manchesteru (linia Hope Valley) · <a href="https://www.alltrails.com/trail/england/derbyshire/castleton-mam-tor-and-the-great-ridge-walk" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(106825880,'a11b90e1dd10961bc274e7561d9d9e22')],
+ ['Edale — Kinder Scout i Upper Booth',53.36463,-1.81544,'13.2 km, ↑527 m, 4.8 ★ — start prosto ze stacji Edale; początek Pennine Way · <a href="https://www.alltrails.com/trail/england/derbyshire/edale-and-upper-booth-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(47628109,'13f78fd78cb9b6be941847789e985c53')],
+ ['Kinder Scout i Kinder Downfall',53.37937,-1.92817,'13.8 km, ↑586 m, 4.7 ★ — wodospad, który przy wietrze „leci do góry”; start Hayfield · <a href="https://www.alltrails.com/trail/england/derbyshire/kinder-scout-and-kinder-downfall-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(41504371,'09023db41d4b485a74812c1201064469')]
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], null, 'UK'));
+// — wypożyczalnie rowerów (e-bike) przy trasach; współrzędne zweryfikowane photonem —
+[
+ ['Llanberis Bike Hire',53.12192,-4.12754,'e-MTB i zwykłe rowery przy High Street (za sklepem Rumdoodles), u podnóża Snowdonu; pętle wokół Llyn Padarn i dolina Llanberis','bike'],
+ ['Beics Betws (Betws-y-Coed)',53.09094,-3.80187,'wypożyczalnia (też e-bike) w bramie Snowdonii — dojazd POCIĄGIEM Conwy Valley Line, bez auta; leśne trasy Gwydir wokół wioski','bike'],
+ ['Tracs — Delamere Forest',53.22872,-2.67631,'e-MTB (Yamaha, ~£35/3h) w lesie Delamere; własna stacja kolejowa na linii Chester↔Manchester, obok tras Helsby i Frodsham','bike'],
+ ['Platzki (Manchester)',53.47773,-2.2497,'polska kuchnia w nowoczesnym wydaniu — „ikoniczne placki”; z Twojej kolekcji IG, pasuje do wypadu na Chill Factore','food']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], null, 'UK'));
+
+// ===== MAPA LONDYN =====
+const m3 = regMap(L.map('map-lon').setView([51.505,-0.11], 12));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m3);
+[
+ ['Bridge Command (Vauxhall)',51.4830,-0.1250,'immersyjny symulator mostku okrętu — idealne na deszcz','attr'],
+ ['Mail Rail — Postal Museum',51.5250,-0.1120,'kolejka pocztowa w tunelach pod miastem','attr'],
+ ['Zedwell Tottenham Court Road',51.5180,-0.1300,'hotel-kokon w podziemnym parkingu','food'],
+ ['Books for Cooks (Notting Hill)',51.5090,-0.2060,'księgarnia kucharska z kuchnią testową','shop'],
+ ['V&A East Storehouse',51.5460,-0.0230,'darmowy magazyn 500 tys. eksponatów','attr'],
+ ['58th Street Country Club (Peckham)',51.4740,-0.0690,'ukryte speakeasy-„country club”','food'],
+ ['KiliG (Deptford)',51.4790,-0.0270,'kolacja jak z filmów Ghibli','food'],
+ ['Tate Britain + kawiarnia',51.4910,-0.1280,'galeria + piękna kawiarnia','attr'],
+ ['The Royal Standard of England (Beaconsfield)',51.6240,-0.6560,'kandydat na najstarszy pub Anglii (~1h autem)','food'],
+ ['Ognisko Restaurant (S. Kensington)',51.49909,-0.17405,'polska instytucja przy Prince’s Gate — elegancko, pickle martini','food'],
+ ['Novelty Automation (Holborn)',51.51969,-0.11691,'szalone, ręcznie budowane automaty do gier satyryka Tima Hunkina','attr'],
+ ['London Wetland Centre (Barnes)',51.4789,-0.23182,'rezerwat wodny w mieście — karmienie wydr; od £18.50','attr'],
+ ['Viktor Wynd Museum (Hackney)',51.5347,-0.05764,'gabinet osobliwości: taksydermia, kurioza, absynt w barze — Wasz klimat','attr'],
+ ['Museum of Brands (Notting Hill)',51.51625,-0.21117,'150 lat opakowań i reklam — nostalgiczny tunel czasu','attr'],
+ ['London Night Café (E1)',51.51648,-0.07631,'herbata i ciastka bez limitu, pokoje do gier i „rave toilet”','food'],
+ ['Georgian House Hotel — Wizard Chambers',51.49061,-0.14383,'pokoje w klimacie HP + wizard afternoon tea i warsztaty eliksirów (Pimlico)','food'],
+ ['Middle Temple Hall — lunch',51.51237,-0.11151,'bufetowy lunch w elżbietańskiej sali prawników (1573); rezerwuj online; dania od £5','food'],
+ ['Rhum Tavern (Fitzrovia)',51.51645,-0.14181,'piracki bar jak wnętrze kadłuba z XVII w.; robata grill','food'],
+ ['Cahoots Postal Office (Borough Yards)',51.50626,-0.09228,'bar-poczta lat 40.: koktajle przyjeżdżają rurą pneumatyczną; spłuczka odpala imprezę','food'],
+ ['House of Dreams (East Dulwich)',51.4599,-0.07936,'dom-mozaika artysty Stephena Wrighta — surrealne wnętrze; otwarte tylko wybrane dni (sprawdź!)','attr'],
+ ['Electric Cinema White City',51.51062,-0.22601,'przytulne vintage kino w Television Centre','attr'],
+ ["Queen's Wood Café (Highgate)",51.58146,-0.14629,'kawiarnia-oaza w lesie, 5–10 min od stacji Highgate','food'],
+ ['Café in the Crypt (St Martin-in-the-Fields)',51.50883,-0.12668,'kawa w ceglanej krypcie z nagrobkami pod posadzką, przy Trafalgar Sq','food'],
+ ['Lost Souls Pizza (Camden)',51.53359,-0.13785,'„jedyna wampirza pizzeria świata” — mroczny klimat, koktajle','food'],
+ ['Java Whiskers Cat Café (Marylebone)',51.51955,-0.14264,'kocia kawiarnia (jest też filia White City)','attr'],
+ ['The Blackfriar',51.51215,-0.10364,'pub art nouveau na miejscu klasztoru dominikanów, naprzeciw stacji Blackfriars','food'],
+ ['The White Cross (Richmond)',51.45895,-0.30836,'pub nad Tamizą, który przypływ regularnie odcina od świata (kalosze w barze)','food'],
+ ["Sir John Soane's Museum",51.51708,-0.1175,'darmowy dom-muzeum ekscentrycznego architekta — sarkofag w piwnicy','attr'],
+ ['Hoxton Street Monster Supplies',51.53142,-0.08039,'sklep „dla potworów” (ciastka wilkołacze) wspierający Ministry of Stories','shop'],
+ ['Butterfly Trail (Tottenham Court Rd)',51.51621,-0.13013,'darmowa immersyjna instalacja motyli przy stacji TCR (sprawdź, czy jeszcze działa)','attr'],
+ ['Lacock (wioska HP, Wiltshire)',51.42142,-2.11934,'wioska-NT plan filmowy HP (dom Potterów, klasztor = korytarze Hogwartu); ~2h autem','attr']
+].forEach(p => mk(m3, p[1], p[2], p[0], p[3], p[4], p[5], null, 'London'));
+
+SITE_INIT();
+</script>
+</div>
+</body>
+</html>

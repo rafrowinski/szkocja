@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belfast i okolice – lista miejsc</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#101418">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<h1>Belfast i okolice — plan wyjazdu</h1>
+<div class="nav"><a href="index.html">📅 Plan</a><a href="szkocja.html">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Szkocja</a><a href="belfast.html" class="here">🇮🇪 Belfast</a><a href="liverpool.html">🇬🇧 Liverpool</a></div>
+<p class="sub">Twoja lista + artykuł Hand Luggage Only + Gobbins, Giant's Causeway i Dark Hedges + moje propozycje dobrane pod to, co lubiliście w Szkocji (ukryte puby, mroczna historia, lokacje filmowe, baśniowa natura, niezależne sklepy, unikatowe doświadczenia). Oceny: Google / TripAdvisor / inne (stan: lipiec 2026). Najedź na punkt mapy — część ma zdjęcia.</p>
+
+<div style="display:flex;gap:8px;margin:14px 0 18px">
+  <button id="tb1" class="tabbtn on" onclick="showTab(1)">🏙️ Belfast</button>
+  <button id="tb2" class="tabbtn" onclick="showTab(2)">🌄 Okolice (wypad autem)</button>
+</div>
+<div id="tab1">
+<div class="fbar" id="fbar1"></div>
+<div id="map-bel" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/picie &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/kultura &nbsp; <span class="dot" style="background:#a67fe6"></span>sklepy &nbsp; <span class="dot" style="background:#111;border:1px solid #777"></span>trasy piesze (AllTrails)</p>
+<h2>🏙️ Belfast — Twoja lista</h2>
+
+<h3>🎭 Teatr i występy</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>The MAC</b> — Cathedral Quarter</td><td class="r">—</td><td class="n">Sztuka współczesna, eksperymentalny teatr, performanse, darmowe galerie. Sprawdź program przed wyjazdem.</td></tr>
+<tr><td><b>Grand Opera House</b></td><td class="r">—</td><td class="n">Wiktoriańska perła Franka Matchama (1895), duże produkcje.</td></tr>
+<tr><td><b>Tumble Circus</b></td><td class="r">kultowe w mieście</td><td class="n">Belfastański nowoczesny cyrk. Ich <a href="https://www.tumblecircus.com/shows/">Winter Circus</a> gra w namiocie na Writers' Square (grudzień–styczeń); poza sezonem występują w przestrzeniach artystycznych — sprawdź harmonogram.</td></tr>
+</table>
+
+<h3>🎻 Muzyka irlandzka na żywo</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Kelly's Cellars</b> — 30 Bank St</td><td class="r">klasyk od 1720</td><td class="n">Najstarszy tradycyjny pub Belfastu. Trad sessions, niskie belki, dobrze lany Guinness, lokalna klientela.</td></tr>
+<tr><td><b>The Dirty Onion</b> — 3 Hill St</td><td class="r">—</td><td class="n">Muzyka na żywo codziennie, w najstarszym budynku miasta (1780); duży dziedziniec.</td></tr>
+<tr><td><b>The Duke of York</b> — Commercial Court</td><td class="r">—</td><td class="n">Ściany pełne pamiątek, sesje wewnątrz i na zewnątrz; obowiązkowy zaułek z parasolkami obok.</td></tr>
+</table>
+
+<h3>🛍️ Sklepy i miejsca niszowe</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>St George's Market</b></td><td class="r">jeden z najlepszych rynków UK</td><td class="n">Pt–nd. Rzemiosło, jedzenie, muzyka na żywo. Wiktoriańska hala z 1896 r.</td></tr>
+<tr><td><b>No Alibis</b> — 83 Botanic Ave</td><td class="r">—</td><td class="n">Kultowa księgarnia kryminałów i literatury niezależnej, spotkania autorskie.</td></tr>
+<tr><td><b>Winetavern St / Smithfield</b></td><td class="r">—</td><td class="n">Antykwariaty i winyle (m.in. Dragon Records) — klimat starego handlowego Belfastu.</td></tr>
+</table>
+
+<h3>💡 Moje propozycje pod Wasz gust</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Crumlin Road Gaol</b> + Paranormal Tour</td><td class="r">#24 atrakcji TA</td><td class="n">Wiktoriańskie więzienie (1846–1996), cele skazańców, tunel pod ulicą. Wieczorne <a href="https://www.crumlinroadgaol.com/scare-events/paranormal-tours/">tury paranormalne</a> — jak Wasze edynburskie ghost tours.</td></tr>
+<tr><td><b>Ghost Walk Belfast</b> („GhostLady”)</td><td class="r">7. wyprzedany sezon</td><td class="n">Spacer po nawiedzonych zaułkach — odpowiednik strasznego Edynburga.</td></tr>
+<tr><td><b>Crown Liquor Saloon</b></td><td class="r">4.4 G / 4.9 RG</td><td class="n">Najpiękniejszy wiktoriański pub na Wyspach (gaz, snugi, mozaiki) — należy do National Trust. Wasz odpowiednik Guildford Arms.</td></tr>
+<tr><td><b>White's Tavern</b> (1630), <b>Bittles Bar</b>, <b>The Spaniard</b>, <b>Sunflower Bar</b></td><td class="r">Guinness 4.1–4.2 Untappd</td><td class="n">Najstarsza tawerna miasta; trójkątny pub z malarstwem sądowym; ciasny bar z rumem i winylowym klimatem; lokalny pub z muzyką — zestaw w duchu Kay's Bar i St Bernard's.</td></tr>
+<tr><td><b>Muriel's Café Bar</b> — Church Lane</td><td class="r">—</td><td class="n">Ekscentryczny barek z kapeluszami na suficie i wielką kartą ginów — pasuje do Waszych „hidden bars”.</td></tr>
+<tr><td><b>Afternoon tea w The Merchant Hotel</b></td><td class="r">„must do” (opinie mieszane co do obsługi)</td><td class="n">Wielka sala dawnego banku, przepych jak w edynburskim The Dome.</td></tr>
+<tr><td><b>Mourne Seafood Bar</b> — Bank St</td><td class="r">4.5 TA/RG</td><td class="n">Najlepsze owoce morza w mieście (ostrygi z własnych łowisk) — kontynuacja Waszego wątku seafood.</td></tr>
+<tr><td><b>Established Coffee</b> — Hill St</td><td class="r">—</td><td class="n">Najlepsza kawa speciality w Cathedral Quarter — odpowiednik The Milkman.</td></tr>
+<tr><td><b>C.S. Lewis Square</b> + szlak Lewisa</td><td class="r">darmowe</td><td class="n">Rzeźby z Narnii w dzielnicy dzieciństwa pisarza — wątek literacki jak Writers' Museum.</td></tr>
+<tr><td><b>Cave Hill („Nos Napoleona”)</b> + Belfast Castle</td><td class="r">4.7 AllTrails</td><td class="n">Miejski szczyt z widokiem na całe miasto — belfastański Arthur's Seat. Podobno inspiracja dla Guliwera Swifta.</td></tr>
+<tr><td><b>Black cab tour: murale + Peace Wall</b></td><td class="r">b. wysokie oceny</td><td class="n">Historia Troubles opowiedziana przez lokalsów z obu stron muru — unikat na skalę światową.</td></tr>
+<tr><td><b>Titanic Belfast</b> + SS Nomadic</td><td class="r">top atrakcja (drogo, rezerwuj slot)</td><td class="n">9 galerii w miejscu budowy Titanica + ostatni statek White Star Line.</td></tr>
+</table>
+
+<h3>📱 Z Twojej listy z Instagrama</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Colin Glen — Alpine Coaster</b> — 28 Colin Glen Rd</td><td class="r">unikat</td><td class="n">Jedyny alpine coaster w Irlandii (do 40 km/h, 3 zjazdy od £15) — Wasz belfastański Hillend! Rezerwuj sloty online; bywa czynny głównie w weekendy → celujcie w sobotę 1.08. Dojazd: Glider G1 do Dairy Farm.</td></tr>
+<tr><td><b>Bakari</b> — 25 Donegall St</td><td class="r">„najlepsza piekarnia w mieście"</td><td class="n">Migdałowe croissanty i cynamonki z irlandzkich zbóż — w samym Cathedral Quarter, idealne na śniadanie.</td></tr>
+<tr><td><b>Meat &amp; Mo Smokehouse</b> — 81 Springfield Rd</td><td class="r">„top 3 BBQ na wyspie"</td><td class="n">Wędzone BBQ w zachodnim Belfaście — można połączyć z black cab tour / Peace Wall (to ta sama okolica).</td></tr>
+<tr><td><b>St George's Market — stoiska z rolki</b></td><td class="r">—</td><td class="n">Chowder Up (seafood chowder), Belfast Bap Co (legendarna buła śniadaniowa), Tapitas — celuj w sobotę rano.</td></tr>
+<tr><td><b>Trademarket</b> + <b>Fat Sal's</b> — Dublin Rd</td><td class="r">—</td><td class="n">Kontenerowy street-food market; Fat Sal's = viralowe włoskie kanapki. Obok Smash Bros (burgery).</td></tr>
+<tr><td><b>Banana Block</b> + <b>Flout Pizza</b> — Portview Trade Centre</td><td class="r">—</td><td class="n">Dawna przędzalnia lnu zamieniona w „muzeum-dżunglę" z markerami i eventami + jedna z najlepszych pizz w mieście. 10 min od Waszego noclegu!</td></tr>
+<tr><td><b>Ox</b>, <b>Yügo</b>, <b>The Pocket</b></td><td class="r">Ox: ★ Michelin</td><td class="n">Z zapisanej listy „where to eat": fine dining nad rzeką (rezerwacja!), azjatycki fusion, świetna kawiarnia przy Queen's.</td></tr>
+<tr><td><b>Bert's Jazz Bar</b> i <b>Margot</b></td><td class="r">—</td><td class="n">Jazz na żywo co wieczór w stylu art deco (przy Merchant) + wine bar — na wieczory w Cathedral Quarter.</td></tr>
+<tr><td><b>Dandylion Vintage</b></td><td class="r">—</td><td class="n">Vintage z listy — Wasz odpowiednik Armstrongs.</td></tr>
+<tr><td><b>Galboly</b> — opuszczona wioska (Glens of Antrim)</td><td class="r">hidden gem</td><td class="n">Wyludniona wioska pod płaskowyżem Garron („Runestone" z GoT) — krótki spacer z drogi; po drodze na pętli Causeway.</td></tr>
+<tr><td colspan="3" class="n">Z rolek bez nazwy miejsca: „najładniejsze ciastka w Belfaście" (<a href="https://www.instagram.com/p/DCPSdk_O-_O/">IG</a>) i „cool concept na lunch w centrum" (<a href="https://www.instagram.com/p/C-0lJ16MP4e/">IG</a>) — obejrzyjcie przed wyjazdem; „Giant's Loop" — inspiracja trasy 220 mil (<a href="https://www.instagram.com/p/DV3oToTjrpA/">IG</a>).</td></tr>
+</table>
+
+<h3>✅ Sprawdzone dodatki (z polecenia lokalsów)</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Prison Island</b> — Balmoral Rd</td><td class="r">4.9</td><td class="n">„Belfastański Crystal Maze" — pokoje wyzwań zręcznościowo-logicznych. Świetne na deszcz.</td></tr>
+<tr><td><b>Glass of Thrones</b> — szlak witraży</td><td class="r">darmowe</td><td class="n">6 witraży GoT wzdłuż nabrzeża (City Hall → Titanic) — spacer łączący się ze zwiedzaniem doków.</td></tr>
+<tr><td><b>Maggie May's</b> — Botanic Ave</td><td class="r">4.8 RG</td><td class="n">Klasyczne irlandzkie śniadania, wielkie porcje — idealne przed Ulster Museum (obok).</td></tr>
+<tr><td><b>Madame Pho</b> — Botanic Ave i <b>Zen</b> — Adelaide St</td><td class="r">dobre/mieszane</td><td class="n">Pierwszy wietnamski w mieście + japońska instytucja.</td></tr>
+<tr><td><b>Yardbird</b> — nad The Dirty Onion</td><td class="r">—</td><td class="n">Kurczak z rożna piętro nad pubem, który już macie na mapie — kolacja + muzyka w jednym budynku.</td></tr>
+<tr><td><b>The Garrick</b> (Chichester St) i <b>Errigal Inn</b> (Ormeau Rd)</td><td class="r">—</td><td class="n">Solidne lokalne puby z polecenia mieszkańców.</td></tr>
+<tr><td><b>Common Market</b> — Dunbar St</td><td class="r">—</td><td class="n">Street food i piwo w hali — weekendowy klimat obok Cathedral Quarter.</td></tr>
+<tr><td><b>Sceny i koncerty:</b> Waterfront Hall, Ulster Hall, Lyric Theatre, Oh Yeah Music Centre, Black Box, An Culturlann, Lavery's (komedia), Limelight</td><td class="r">wg programu</td><td class="n">Sprawdźcie repertuar na 31.07–3.08 przed wyjazdem — wszystkie na mapie.</td></tr>
+</table>
+
+<h3>📖 Z artykułu Hand Luggage Only</h3>
+<table>
+<tr><th>Miejsce</th><th>Notatka</th></tr>
+<tr><td><b>City Hall</b></td><td class="n">Darmowe zwiedzanie z przewodnikiem, ogrody i Titanic Memorial.</td></tr>
+<tr><td><b>Botanic Gardens</b> + Palm House</td><td class="n">Szklarnie z 1830s — jak Wasze edynburskie Botanics.</td></tr>
+<tr><td><b>Ulster Museum</b></td><td class="n">Darmowe; od mumii po sztukę współczesną i Troubles.</td></tr>
+<tr><td><b>Queen's University</b></td><td class="n">Neogotycki Lanyon Building — klimat New College.</td></tr>
+<tr><td><b>St Anne's Cathedral</b></td><td class="n">Katedra z „Iglicą Nadziei”.</td></tr>
+<tr><td><b>Stormont</b></td><td class="n">Gmach parlamentu NI na wzgórzu, kilometrowa aleja.</td></tr>
+</table>
+
+
+
+</div>
+<div id="tab2" style="display:none">
+<h2>🌄 Okolica (macie auto — wszystko w zasięgu 1–1,5 h)</h2>
+<div class="fbar" id="fbar2"></div>
+<div id="map-oko" class="map"></div>
+<p class="legend"><span class="dot" style="background:#e67f7f"></span>jedzenie/nocleg &nbsp; <span class="dot" style="background:#7fb4e6"></span>atrakcje/natura &nbsp; <span class="dot" style="background:#7fe6a5"></span>zamki/historia &nbsp; <span class="dot" style="background:#111;border:1px solid #777"></span>trasy piesze (AllTrails) &nbsp; <span class="dot" style="background:#ff9440"></span>rowery/e-bike</p>
+
+<h3>🥾 Trasy piesze z Twojej listy AllTrails (+2 moje propozycje)</h3>
+<p class="n">Czarne kropki na mapach. Pod Wasze priorytety (Causeway + Dark Hedges, 2.08): najlepszy widokowo wariant Causeway to <b>pętla Giant's Gate</b> (kolumny z klifu i z dołu), a <b>Carrick-a-Rede</b> i <b>Glenariff</b> już macie w planie dnia — trasa AllTrails to dokładnie ten spacer. Cavehill i Divis są na mapie Belfastu.</p>
+<table>
+<tr><th>Trasa</th><th>Dystans</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/giant-s-gate-and-causeway-coast-circular" target="_blank"><b>Giant's Gate — pętla Causeway Coast</b></a></td><td class="r">4.5 km ↑212 m</td><td class="r">4.8 ★</td><td class="n">Klifem + zejście Shepherd's Steps do kolumn — rób tę zamiast samego zejścia z centrum NT.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/giant-s-causeway-blue-trail" target="_blank"><b>Giant's Causeway — Blue Trail</b></a></td><td class="r">4.3 km ↑140 m</td><td class="r">4.8 ★</td><td class="n">Najprostszy wariant z centrum NT.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/portballintrae-and-giants-causeway-circular" target="_blank"><b>Portballintrae — pętla Causeway</b></a></td><td class="r">9.5 km ↑342 m</td><td class="r">4.8 ★</td><td class="n">Darmowy parking w Portballintrae, dojście zatoką — omija kolejki NT.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/causeway-coast-way-dunseverick-castle-to-the-giant-s-causew" target="_blank"><b>Causeway Coast Way: Dunseverick → Causeway</b></a></td><td class="r">7.4 km (1 str.)</td><td class="r">4.8 ★</td><td class="n">Najpiękniejszy odcinek klifowy NI; wymaga podrzucenia autem/busem 402.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/carrick-a-rede-to-rope-bridge" target="_blank"><b>Carrick-a-Rede — szlak do mostu</b></a></td><td class="r">2.7 km</td><td class="r">4.7 ★</td><td class="n">Z parkingu Larrybane (kamieniołom z GoT); most tylko ze slotem.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/mid-and-east-antrim/glenariff-gorge-walk-and-waterfall-trail" target="_blank"><b>Glenariff — Gorge Walk i wodospady</b></a></td><td class="r">3.1 km</td><td class="r">4.8 ★</td><td class="n">Kładki nad wodospadami — finał pętli 2.08.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/mid-and-east-antrim/hidden-village-of-galboly-and-the-pinnacles" target="_blank"><b>Galboly i Pinnacles — szlak</b></a></td><td class="r">5.5 km ↑285 m</td><td class="r">4.6 ★</td><td class="n">Dłuższy wariant wejścia do „Runestone” z GoT.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/lurigethan" target="_blank"><b>Lurigethan (nad Cushendall)</b></a></td><td class="r">5.8 km ↑342 m</td><td class="r">4.7 ★</td><td class="n">Stołowa góra nad Glens of Antrim.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/mid-and-east-antrim/trostan-peak" target="_blank"><b>Trostan — najwyższy szczyt Antrim</b></a></td><td class="r">7.9 km ↑324 m</td><td class="r">3.7 ★</td><td class="n">Bywa grząsko — najsłabiej oceniana z listy; raczej do odpuszczenia.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim/cavehill-circular" target="_blank"><b>Cavehill Circular</b></a> (mapa Belfastu)</td><td class="r">5.5 km ↑264 m</td><td class="r">4.7 ★</td><td class="n">Nos Napoleona ze startem przy Belfast Castle.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/ireland/county-donegal/lough-veagh-glenveagh-castle" target="_blank"><b>Lough Veagh — Lakeside Walk</b></a> (Donegal)</td><td class="r">7.2 km</td><td class="r">4.6 ★</td><td class="n">Piękne, ale ~2,5 h jazdy — nie zmieści się w 4 dniach.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/ballintoy-harbour-and-whitepark-bay" target="_blank"><b>White Park Bay</b></a> ✦ propozycja</td><td class="r">7.2 km z Ballintoy</td><td class="r">—</td><td class="n">Biała zatoka między Ballintoy a Causeway — krowy na plaży! Idealny cichy przystanek 2.08.</td></tr>
+<tr><td><a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/divis-and-black-mountain-circular" target="_blank"><b>Divis i Black Mountain — Ridge Trail</b></a> ✦ propozycja (mapa Belfastu)</td><td class="r">6.8 km</td><td class="r">—</td><td class="n">Kładki ponad Belfastem, najszerszy widok na miasto; blisko Colin Glen (1.08).</td></tr>
+</table>
+<p class="n">🚲 <b>E-bike:</b> <a href="https://aliveadventures.co.uk/ebike-hire/" target="_blank">Alive Adventures (Portrush)</a> — całodniowy e-bike na pętlę Dunluce → Bushmills → Giant's Causeway (pomarańczowa kropka na mapie); 16+, dokument i depozyt, rezerwuj wcześniej.</p>
+
+<h3>🌊 Causeway Coast (klasyczna pętla na 1 dzień)</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Giant's Causeway</b></td><td class="r">UNESCO</td><td class="n">40 tys. bazaltowych kolumn. Wejście na teren darmowe — płaci się za parking/centrum (NT). Najlepiej przed 10:00 lub po 17:00.</td></tr>
+<tr><td><b>Dark Hedges</b></td><td class="r">ikona GoT</td><td class="n">Aleja buków = Kingsroad z Gry o Tron. Rano pusto; parking przy Hedges Estate, nie na drodze.</td></tr>
+<tr><td><b>Carrick-a-Rede</b></td><td class="r">b. popularne — rezerwuj slot</td><td class="n">Linowy most rybacki 30 m nad morzem (NT).</td></tr>
+<tr><td><b>Ballintoy Harbour</b> i <b>Kinbane Castle</b></td><td class="r">—</td><td class="n">Port Pyke z GoT + ukryte ruiny na białym cyplu (schody, brak tłumów) — „hidden gem” w Waszym stylu.</td></tr>
+<tr><td><b>Dunluce Castle</b></td><td class="r">—</td><td class="n">Ruiny na klifie jak z bajki (i z okładki Led Zeppelin) — wibracje Eilean Donan.</td></tr>
+<tr><td><b>Old Bushmills Distillery</b></td><td class="r">najstarsza licencjonowana destylarnia świata (1608)</td><td class="n">Tour + degustacja — Wasz wątek whisky.</td></tr>
+<tr><td><b>Mussenden Temple</b> + Downhill Demesne, <b>Whiterocks Beach</b>, <b>Portstewart Strand</b></td><td class="r">—</td><td class="n">Rotunda na krawędzi klifu, białe klify i wydmowe plaże — na powrót „dłuższą drogą”.</td></tr>
+<tr><td><b>Rathlin Island</b> — RSPB West Light</td><td class="r">—</td><td class="n">Prom z Ballycastle (25–40 min), maskonury (IV–VII) i latarnia „do góry nogami” — Wasz odpowiednik Staffy.</td></tr>
+</table>
+
+<h3>🍃 Glens of Antrim i wybrzeże wschodnie</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>The Gobbins Cliff Path</b></td><td class="r">TA: entuzjastyczne</td><td class="n">Spektakularna ścieżka po mostkach na klifach (2,5 h z przewodnikiem, <a href="https://www.thegobbinscliffpath.com/">rezerwacja obowiązkowa</a>, wymagana kondycja). 40 min od Belfastu.</td></tr>
+<tr><td><b>Glenariff Forest Park</b></td><td class="r">b. wysokie</td><td class="n">„Królowa Glens” — drewniane kładki nad wodospadami w wąwozie. Wasz odpowiednik Puck's Glen!</td></tr>
+<tr><td><b>Cushendun</b> + jaskinie</td><td class="r">—</td><td class="n">Kornwalijska wioska NT + jaskinie z GoT (narodziny cienia Melisandre).</td></tr>
+<tr><td><b>Torr Head Scenic Route</b> + <b>Fair Head</b></td><td class="r">—</td><td class="n">Wąska dramatyczna droga klifowa (mini Bealach na Bà); widok na Szkocję przy dobrej pogodzie.</td></tr>
+<tr><td><b>Carrickfergus Castle</b></td><td class="r">—</td><td class="n">Najlepiej zachowany zamek normański w Irlandii, nad samą wodą (po drodze na Gobbins).</td></tr>
+</table>
+
+<h3>🐺 Hrabstwo Down (Gra o Tron i nie tylko)</h3>
+<table>
+<tr><th>Miejsce</th><th>Ocena</th><th>Notatka</th></tr>
+<tr><td><b>Game of Thrones Studio Tour</b> — Banbridge</td><td class="r">fani: „wow”; nie-fani: muzeum</td><td class="n">Oryginalne sety (Winterfell, Sala Tronowa), kostiumy i rekwizyty — 40 min od Belfastu.</td></tr>
+<tr><td><b>Castle Ward</b> — „Winterfell”</td><td class="r">b. pozytywne</td><td class="n">Farma-plan Winterfell: łucznictwo w strojach na dziedzińcu — jak Wasz szkocki zamek z przebierankami (Outlander), tylko w wersji GoT.</td></tr>
+<tr><td><b>Tollymore Forest Park</b></td><td class="r">4.7 AllTrails</td><td class="n">Gotyckie bramy, kamienne mostki nad rzeką Shimna (las Białych Wędrowców z GoT), u stóp gór Mourne.</td></tr>
+<tr><td><b>Mount Stewart</b> i <b>Scrabo Tower</b></td><td class="r">—</td><td class="n">Jeden z najlepszych ogrodów NT na świecie + wieża widokowa nad Strangford Lough.</td></tr>
+<tr><td><b>Ulster Folk &amp; Transport Museum</b> — Cultra (k. Holywood)</td><td class="r">#1 TA Holywood</td><td class="n">Skansen (wioska sprzed 100 lat z rzemieślnikami) + muzeum transportu z kolekcją Titanica. Cały dzień; 20 min autem/pociągiem.</td></tr>
+<tr><td><b>Hillsborough Castle &amp; Gardens</b></td><td class="r">„excellent"</td><td class="n">Rezydencja królewska w NI, 20 min od miasta; georgiańskie ogrody.</td></tr>
+<tr><td><b>Dunseverick Castle</b></td><td class="r">—</td><td class="n">Ruiny przy drodze między Causeway a Ballintoy — krótki przystanek z klifowym spacerem.</td></tr>
+<tr><td><b>Bangor</b> i <b>Holywood</b></td><td class="r">—</td><td class="n">Nadmorskie miasteczka na pół dnia (marina, plaże) — po drodze do/z Cultra.</td></tr>
+</table>
+
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="engine.js"></script>
+<script>
+// zdjęcia AllTrails: URL = base64 z parametrami resizera (dowolna szerokość jest OK)
+function atImg(id, hash, w, h) {
+  return 'https://images.alltrails.com/' + btoa(JSON.stringify({bucket:'assets.alltrails.com', key:'uploads/photo/image/'+id+'/'+hash+'.jpg', edits:{toFormat:'jpeg', resize:{width:w||960, height:h||(Math.round((w||960)*2/3)), fit:'cover'}, rotate:null, jpeg:{trellisQuantisation:true, overshootDeringing:true, optimiseScans:true, quality:75}}}));
+}
+// artykuły Wikipedii (EN) -> zdjęcie + link w dymku
+const WIKI = {
+"Grand Opera House":"Grand_Opera_House,_Belfast",
+"Kelly's Cellars":"Kelly's_Cellars",
+"The Duke of York":"Cathedral_Quarter,_Belfast",
+"St George's Market":"St_George's_Market",
+"Crumlin Road Gaol":"Crumlin_Road_Gaol",
+"Crown Liquor Saloon":"Crown_Liquor_Saloon",
+"White's Tavern":"White's_Tavern",
+"The Merchant Hotel — afternoon tea":"Merchant_Hotel",
+"Cave Hill — Nos Napoleona":"Cavehill",
+"Belfast Castle":"Belfast_Castle",
+"Peace Wall (Cupar Way)":"Peace_lines",
+"Titanic Belfast + SS Nomadic":"Titanic_Belfast",
+"City Hall":"Belfast_City_Hall",
+"Botanic Gardens + Palm House":"Belfast_Botanic_Gardens",
+"Ulster Museum":"Ulster_Museum",
+"Queen's University":"Queen's_University_Belfast",
+"St Anne's Cathedral":"St_Anne's_Cathedral,_Belfast",
+"Stormont":"Parliament_Buildings_(Northern_Ireland)",
+"Big Fish + Albert Clock":"Bigfish",
+"Giant's Causeway":"Giant's_Causeway",
+"Dark Hedges":"Dark_Hedges",
+"Carrick-a-Rede":"Carrick-a-Rede_Rope_Bridge",
+"Ballintoy Harbour":"Ballintoy",
+"Kinbane Castle":"Kinbane_Castle",
+"Dunluce Castle":"Dunluce_Castle",
+"Old Bushmills Distillery":"Old_Bushmills_Distillery",
+"Mussenden Temple + Downhill":"Mussenden_Temple",
+"Whiterocks Beach":"Portrush",
+"Portstewart Strand":"Portstewart_Strand",
+"Rathlin Island (prom z Ballycastle)":"Rathlin_Island",
+"The Gobbins Cliff Path":"The_Gobbins",
+"Glenariff Forest Park":"Glenariff",
+"Cushendun + jaskinie":"Cushendun",
+"Torr Head":"Torr_Head",
+"Fair Head":"Fair_Head",
+"Carrickfergus Castle":"Carrickfergus_Castle",
+"Game of Thrones Studio Tour (Banbridge)":"Banbridge",
+"Castle Ward — „Winterfell”":"Castle_Ward",
+"Tollymore Forest Park":"Tollymore_Forest_Park",
+"Mount Stewart":"Mount_Stewart",
+"Scrabo Tower":"Scrabo_Tower",
+"Waterfront Hall":"Waterfront_Hall",
+"Ulster Hall":"Ulster_Hall",
+"Lyric Theatre":"Lyric_Theatre,_Belfast",
+"Ulster Folk & Transport Museum (Cultra)":"Ulster_Folk_Museum",
+"Hillsborough Castle & Gardens":"Hillsborough_Castle",
+"Dunseverick Castle":"Dunseverick_Castle",
+"Bangor":"Bangor,_County_Down",
+"Colin Glen — Alpine Coaster":"Colin_Glen",
+"Bert's Jazz Bar":"Cathedral_Quarter,_Belfast",
+"Bakari (Cathedral Quarter)":"Cathedral_Quarter,_Belfast",
+"Bittles Bar":"Bittles_Bar",
+"An Culturlann":"Cultúrlann_McAdam_Ó_Fiaich",
+"Galboly — opuszczona wioska":"Garron_Plateau"
+};
+// posty IG (Twoja kolekcja "Belfast"): nazwa -> kod
+const IGB = {
+"Bakari (Cathedral Quarter)":"DYktzYvI-Z1",
+"Meat & Mo Smokehouse":"DLmNU84Iv4Y",
+"Colin Glen — Alpine Coaster":"DGNp42Os3LP",
+"St George's Market":"DBygKaNsccy",
+"Trademarket + Fat Sal's":"CxNfbjTous6",
+"Flout Pizza (Portview)":"CxNfbjTous6",
+"Banana Block":"CqpwU0ature",
+"Ox":"CqpwU0ature",
+"Yügo":"CqpwU0ature",
+"The Pocket":"CqpwU0ature",
+"Bert's Jazz Bar":"CqpwU0ature",
+"Margot":"CqpwU0ature",
+"Dandylion Vintage":"CqpwU0ature",
+"Galboly — opuszczona wioska":"DN2f8jQ0g93",
+"Torr Head":"DN2f8jQ0g93",
+"Carrickfergus Castle":"DN2f8jQ0g93",
+"Giant's Causeway":"DN2f8jQ0g93",
+"Dark Hedges":"DN2f8jQ0g93"
+};
+window.SITE = { defreg:'Northern Ireland', wiki: (typeof WIKI!=='undefined'?WIKI:{}), ig: (typeof IGB!=='undefined'?IGB:{}), modes:[{id:'got', label:'🐉 tylko Gra o Tron', re:'got|thrones|winterfell|pyke|melisandre|runestone|kingsroad'}] };
+// ===== MAPA BELFAST =====
+const m1 = regMap(L.map('map-bel').setView([54.599,-5.930], 14));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m1);
+[
+ ['The MAC',54.6035,-5.9275,'sztuka współczesna, teatr eksperymentalny','attr','2021/02/HandLuggageOnly-34.jpg'],
+ ['Grand Opera House',54.5952,-5.9345,'wiktoriański teatr, duże produkcje','attr'],
+ ["Tumble Circus — Winter Circus (Writers' Square)",54.6030,-5.9290,'namiot cyrkowy XII–I; reszta roku wg harmonogramu','attr'],
+ ["Kelly's Cellars",54.5993,-5.9330,'najstarszy pub (1720), trad sessions','food'],
+ ['The Dirty Onion',54.6017,-5.9270,'muzyka na żywo codziennie','food'],
+ ['The Duke of York',54.6019,-5.9282,'klasyk Commercial Court + zaułek parasolek','food','2021/02/HandLuggageOnly-32.jpg'],
+ ["St George's Market",54.5942,-5.9245,'pt–nd: rzemiosło, jedzenie, muzyka; z Twojej rolki: Chowder Up, Belfast Bap Co, Tapitas','shop','2021/02/HandLuggageOnly-4-9.jpg'],
+ ['No Alibis',54.5852,-5.9320,'księgarnia kryminałów, spotkania autorskie','shop'],
+ ['Winetavern St / Smithfield',54.6012,-5.9368,'antykwariaty i winyle','shop'],
+ ['Crumlin Road Gaol',54.6096,-5.9410,'#24 TA; wieczorne tury paranormalne','attr','2021/02/HandLuggageOnly-5-9.jpg'],
+ ['Ghost Walk Belfast',54.5998,-5.9264,'start okolice Cathedral Quarter — spacer po nawiedzonym Belfaście','attr'],
+ ['Crown Liquor Saloon',54.5950,-5.9337,'4.4 ★ najpiękniejszy wiktoriański pub (NT)','food'],
+ ["White's Tavern",54.6000,-5.9295,'najstarsza tawerna (1630)','food'],
+ ['Bittles Bar',54.5993,-5.9260,'trójkątny pub z malarstwem literacko-sądowym','food'],
+ ['The Spaniard',54.6015,-5.9265,'ciasny, rumowy, winylowy','food'],
+ ['Sunflower Bar',54.6047,-5.9345,'lokalny pub z muzyką i pizzą','food'],
+ ["Muriel's Café Bar",54.5990,-5.9270,'kapelusze na suficie, wielka karta ginów','food'],
+ ['The Merchant Hotel — afternoon tea',54.6013,-5.9270,'przepych dawnego banku; rezerwuj','food'],
+ ['Mourne Seafood Bar',54.5995,-5.9315,'4.5 ★ ostrygi z własnych łowisk','food'],
+ ['Established Coffee',54.6021,-5.9264,'speciality coffee, Cathedral Quarter','food'],
+ ['C.S. Lewis Square',54.6000,-5.8880,'rzeźby z Narnii','attr'],
+ ["Cave Hill — Nos Napoleona",54.6470,-5.9450,'4.7 ★ miejski szczyt-widok, belfastański Arthur’s Seat','attr','2021/02/HandLuggageOnly-2-9.jpg'],
+ ['Belfast Castle',54.6420,-5.9430,'zamek na zboczu Cave Hill','attr','2021/02/HandLuggageOnly-3-9.jpg'],
+ ['Peace Wall (Cupar Way)',54.6030,-5.9560,'black cab tour: murale i historia Troubles','attr'],
+ ['Titanic Belfast + SS Nomadic',54.6082,-5.9098,'9 galerii w miejscu budowy Titanica','attr','2021/02/HandLuggageOnly-39.jpg'],
+ ['City Hall',54.5964,-5.9301,'darmowe toury, Titanic Memorial','attr','2021/02/HandLuggageOnly-26.jpg'],
+ ['Botanic Gardens + Palm House',54.5830,-5.9330,'szklarnie z lat 1830.','attr','2021/02/HandLuggageOnly-7-9.jpg'],
+ ['Ulster Museum',54.5822,-5.9350,'darmowe; mumie, sztuka, Troubles','attr','2021/02/HandLuggageOnly-12-7.jpg'],
+ ["Queen's University",54.5845,-5.9340,'neogotycki Lanyon Building','attr','2021/02/HandLuggageOnly-15-4.jpg'],
+ ["St Anne's Cathedral",54.6031,-5.9290,'katedra z Iglicą Nadziei','attr','2021/02/HandLuggageOnly-8-9.jpg'],
+ ['Stormont',54.6050,-5.8330,'parlament NI na wzgórzu','attr','2021/02/HandLuggageOnly-6-9.jpg'],
+ ['Big Fish + Albert Clock',54.6021,-5.9235,'ceramiczna ryba nad Lagan i krzywa wieża zegarowa','attr'],
+ ['Colin Glen — Alpine Coaster',54.57271,-6.02875,'jedyny alpine coaster w Irlandii! 3 zjazdy od £15; rezerwuj online (często tylko weekendy); Glider G1 do Dairy Farm','attr'],
+ ['Bakari (Cathedral Quarter)',54.6035,-5.9295,'„najlepsza piekarnia w Belfaście” — migdałowe croissanty, cynamonki','food'],
+ ['Meat & Mo Smokehouse',54.5985,-5.9560,'„top 3 BBQ na wyspie”; obok Peace Wall — połącz z black cab tour','food'],
+ ["Trademarket + Fat Sal's",54.59027,-5.93369,'kontenerowy street food + viralowe włoskie kanapki (i Smash Bros)','food'],
+ ['Banana Block',54.59864,-5.89528,'dawna przędzalnia lnu: rośliny, market, eventy — 10 min od noclegu','attr'],
+ ['Flout Pizza (Portview)',54.59862,-5.89511,'jedna z najlepszych pizz w mieście — w Banana Block','food'],
+ ['Ox',54.59936,-5.92202,'★ Michelin nad rzeką Lagan — rezerwuj z wyprzedzeniem','food'],
+ ['Yügo',54.59646,-5.93265,'azjatycki fusion — lokalny pewniak','food'],
+ ['The Pocket',54.59879,-5.92436,'kawiarnia przy Queen’s — śniadania i brunch','food'],
+ ["Bert's Jazz Bar",54.60059,-5.92556,'jazz na żywo co wieczór, art deco (The Merchant)','food'],
+ ['Margot',54.5962,-5.9310,'wine bar z Twojej listy','food'],
+ ['Dandylion Vintage',54.60179,-5.93167,'vintage — odpowiednik Armstrongs','shop'],
+ ['Prison Island',54.5720,-5.9600,'4.9 ★ pokoje wyzwań (Balmoral Rd)','attr'],
+ ['Glass of Thrones (start szlaku)',54.6040,-5.9200,'6 witraży GoT wzdłuż nabrzeża do Titanica','attr'],
+ ["Maggie May's",54.5850,-5.9330,'4.8 ★ irlandzkie śniadania','food'],
+ ['Madame Pho',54.5840,-5.9320,'pierwszy wietnamski w Belfaście','food'],
+ ['Zen',54.5930,-5.9290,'japońska instytucja, Adelaide St','food'],
+ ['Yardbird (nad Dirty Onion)',54.6017,-5.9268,'kurczak z rożna + muzyka na dole','food'],
+ ['The Garrick',54.5980,-5.9270,'lokalny pub','food'],
+ ['Errigal Inn',54.5750,-5.9210,'lokalny pub, Ormeau Rd','food'],
+ ['Common Market',54.6030,-5.9240,'street food i piwo w hali','food'],
+ ['Waterfront Hall',54.5960,-5.9210,'sala koncertowa — sprawdź program','attr'],
+ ['Ulster Hall',54.5940,-5.9310,'zabytkowa sala koncertowa','attr'],
+ ['Lyric Theatre',54.5790,-5.9270,'teatr nad rzeką','attr'],
+ ['Oh Yeah Music Centre',54.6030,-5.9250,'centrum muzyki NI, Cathedral Quarter','attr'],
+ ['Black Box',54.6020,-5.9270,'kameralna scena arts/kabaret','attr'],
+ ['An Culturlann',54.5900,-5.9600,'irlandzkie centrum kultury, Falls Rd','attr'],
+ ["Lavery's",54.5900,-5.9330,'komedia i bilard','food'],
+ ['Limelight',54.5930,-5.9300,'koncerty/kluby','attr']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], null, 'Belfast'));
+// — trasy piesze: lista AllTrails + propozycja (czarne kropki) —
+[
+ ['Cavehill Circular',54.64151,-5.94339,'5.5 km, ↑264 m, 4.7 ★ — pętla przez Nos Napoleona: start przy Belfast Castle, panorama miasta i zatoki · <a href="https://www.alltrails.com/trail/northern-ireland/antrim/cavehill-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(117456112,'764cc178db63745558ff0332aa803e10')],
+ ['Divis i Black Mountain — Ridge Trail',54.61128,-6.01847,'6.8 km pętla — moja propozycja: kładki i grobla ponad miastem, 180° widoku na Belfast, Mourne i Szkocję (NT, start: parking przy Divis Road); blisko Colin Glen · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/divis-and-black-mountain-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike']
+].forEach(p => mk(m1, p[1], p[2], p[0], p[3], p[4], p[5], null, 'Belfast'));
+
+// ===== MAPA OKOLICE =====
+const m2 = regMap(L.map('map-oko').setView([54.85,-6.05], 8));
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m2);
+[
+ ["Giant's Causeway",55.2408,-6.5116,'UNESCO; wejście darmowe, płatny parking NT; idź przed 10:00','attr'],
+ ['Dark Hedges',55.13491,-6.38117,'Kingsroad z GoT; parking przy Hedges Estate','attr'],
+ ['Carrick-a-Rede',55.23954,-6.33242,'most linowy 30 m nad morzem; rezerwuj slot','attr'],
+ ['Ballintoy Harbour',55.24434,-6.36893,'port Pyke z GoT','attr'],
+ ['Kinbane Castle',55.22940,-6.29128,'ukryte ruiny na białym cyplu, bez tłumów','hist'],
+ ['Dunluce Castle',55.2110,-6.5790,'ruiny na klifie (okładka Led Zeppelin)','hist'],
+ ['Old Bushmills Distillery',55.2020,-6.5170,'najstarsza licencjonowana destylarnia świata (1608)','food'],
+ ['Mussenden Temple + Downhill',55.16775,-6.81096,'rotunda na krawędzi klifu','hist'],
+ ['Whiterocks Beach',55.20561,-6.61029,'białe klify i plaża, Portrush','attr'],
+ ['Portstewart Strand',55.16957,-6.74540,'wydmowa plaża NT','attr'],
+ ['Rathlin Island (prom z Ballycastle)',55.20791,-6.24167,'maskonury IV–VII w RSPB West Light','attr'],
+ ['The Gobbins Cliff Path',54.78106,-5.70782,'mostki na klifach; tylko z przewodnikiem, rezerwacja (Visitor Centre)','attr'],
+ ['Glenariff Forest Park',55.01945,-6.12407,'kładki nad wodospadami — odpowiednik Puck’s Glen','attr'],
+ ['Cushendun + jaskinie',55.12525,-6.04235,'wioska NT + jaskinia z GoT','attr'],
+ ['Torr Head',55.19596,-6.06325,'dramatyczna droga klifowa, widok na Szkocję','attr'],
+ ['Fair Head',55.2230,-6.1430,'potężne klify (Dragonstone z GoT)','attr'],
+ ['Carrickfergus Castle',54.71341,-5.80651,'zamek normański nad wodą','hist'],
+ ['Game of Thrones Studio Tour (Banbridge)',54.33161,-6.27223,'oryginalne sety i kostiumy','attr'],
+ ['Castle Ward — „Winterfell”',54.37297,-5.57877,'łucznictwo w strojach na dziedzińcu Winterfell','hist'],
+ ['Tollymore Forest Park',54.21888,-5.94899,'4.7 ★ gotyckie bramy, las z GoT, góry Mourne','attr'],
+ ['Mount Stewart',54.5533,-5.6100,'czołowe ogrody National Trust','attr'],
+ ['Scrabo Tower',54.58028,-5.71546,'wieża widokowa nad Strangford Lough','attr'],
+ ['Ulster Folk & Transport Museum (Cultra)',54.64684,-5.79361,'#1 TA Holywood; skansen + transport','attr'],
+ ['Hillsborough Castle & Gardens',54.46141,-6.08608,'rezydencja królewska, 20 min od miasta','hist'],
+ ['Dunseverick Castle',55.23838,-6.44816,'ruiny przy drodze Causeway→Ballintoy','hist'],
+ ['Bangor',54.6650,-5.6690,'marina i nadmorski spacer','attr'],
+ ['Galboly — opuszczona wioska',55.05176,-5.98848,'wyludniona wioska pod Garron („Runestone” z GoT); krótki spacer z A2','hist']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], null, 'Northern Ireland'));
+// — trasy piesze z listy AllTrails (zdjęcia z AllTrails); współrzędne = punkt startowy —
+[
+ ["Giant's Causeway — Blue Trail",55.23342,-6.51611,'4.3 km, ↑140 m, 4.8 ★ — z centrum NT do kolumn bazaltowych i z powrotem górą; najprostszy wariant na 2.08 · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/giant-s-causeway-blue-trail" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(23496672,'7913e795d8fc2aa117b7f2ff8b7c6979')],
+ ["Giant's Gate — pętla Causeway Coast",55.2326,-6.51638,'4.5 km, ↑212 m, 4.8 ★ — pętla klifowa z zejściem Shepherd&#39;s Steps: kolumny Z GÓRY i z dołu — najlepszy widokowo wariant Causeway · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/giant-s-gate-and-causeway-coast-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(112077745,'01c90b7257d59d5a8cf4b0a7402c6c4e')],
+ ['Portballintrae — pętla Causeway',55.21973,-6.54042,'9.5 km, ↑342 m, 4.8 ★ — dojście do Causeway z wioski Portballintrae (parking za darmo) wzdłuż zatoki i torów kolejki z Bushmills · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/portballintrae-and-giants-causeway-circular" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(111018567,'22ac9b538b4ce1b9a675a5676a83f1f3')],
+ ['Causeway Coast Way: Dunseverick → Causeway',55.23792,-6.44926,'7.4 km w jedną stronę, ↑373 m, 4.8 ★ — najpiękniejszy odcinek klifowy w NI, start przy ruinach Dunseverick (macie je na trasie 2.08) · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/causeway-coast-way-dunseverick-castle-to-the-giant-s-causew" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(59465032,'8b9ae1776ec032e24b419b7c265c294b')],
+ ['Carrick-a-Rede — szlak do mostu',55.23914,-6.34774,'2.7 km, ↑119 m, 4.7 ★ — klifowa ścieżka z parkingu Larrybane (kamieniołom = obóz Renly&#39;ego z GoT) do mostu linowego; slot na most z rezerwacją! · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/carrick-a-rede-to-rope-bridge" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(125200943,'b3f159807db8c219d60f081f55832a32')],
+ ['Glenariff — Gorge Walk i wodospady',55.01537,-6.10723,'3.1 km, ↑132 m, 4.8 ★ — kładki w wąwozie nad wodospadami („Królowa Glens”); finał pętli 2.08 · <a href="https://www.alltrails.com/trail/northern-ireland/mid-and-east-antrim/glenariff-gorge-walk-and-waterfall-trail" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(58610854,'b58b4d36bab5fcebe68d38930dcacba3')],
+ ['Galboly i Pinnacles — szlak',55.05859,-5.99057,'5.5 km, ↑285 m, 4.6 ★ — dłuższe wejście do opuszczonej wioski („Runestone” z GoT) + skalne iglice płaskowyżu Garron · <a href="https://www.alltrails.com/trail/northern-ireland/mid-and-east-antrim/hidden-village-of-galboly-and-the-pinnacles" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(97818436,'ad45210c1314bc1e725f16869bec7618')],
+ ['Lurigethan (nad Cushendall)',55.06127,-6.05811,'5.8 km, ↑342 m, 4.7 ★ — stołowa góra nad Cushendall, widok na całe Glens of Antrim · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/lurigethan" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(37505009,'7b5d5df51a1bf5ef362598b2d2663124')],
+ ['Trostan — najwyższy szczyt Antrim',55.01902,-6.15569,'7.9 km, ↑324 m, 3.7 ★ — najwyższy punkt hrabstwa (550 m); bywa grząsko — najniżej oceniana trasa z Twojej listy · <a href="https://www.alltrails.com/trail/northern-ireland/mid-and-east-antrim/trostan-peak" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(121867421,'4216328fe46d6cfd6797b58e1505738e')],
+ ['Lough Veagh — Lakeside Walk (Glenveagh, Donegal)',55.05731,-7.93785,'7.2 km, ↑120 m, 4.6 ★ — zamek Glenveagh nad jeziorem w parku narodowym; uwaga: ~2,5 h jazdy z Belfastu — raczej nie zmieści się w tym wyjeździe · <a href="https://www.alltrails.com/trail/ireland/county-donegal/lough-veagh-glenveagh-castle" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike',atImg(101885087,'abf495e3d675396ca28ec8360c09f5b6')],
+ ['White Park Bay',55.23511,-6.38995,'7.2 km tam i z powrotem z Ballintoy (albo po prostu zejdź na plażę) — moja propozycja: biała zatoka, skamieliny i… krowy wylegujące się na piasku; zero tłumów · <a href="https://www.alltrails.com/trail/northern-ireland/antrim-and-newtownabbey/ballintoy-harbour-and-whitepark-bay" target="_blank" style="color:#8a6d1f;font-weight:600">AllTrails ↗</a>','hike']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], null, 'Northern Ireland'));
+// — rowery na trasie —
+[
+ ['Alive Adventures (Portrush) — e-bike',55.20421,-6.65187,'e-bike (Riese &amp; Müller) na dzień — pętla Dunluce Castle → Bushmills → Giant&#39;s Causeway nadmorskimi dróżkami; 16+, dokument + depozyt; rezerwuj wcześniej','bike']
+].forEach(p => mk(m2, p[1], p[2], p[0], p[3], p[4], p[5], null, 'Northern Ireland'));
+
+// ===== TRASY DZIENNE (numerki ze zdjęciami i linkami) =====
+const dzien1 = stops(m1, [
+ [54.5942,-5.9245,"St George's Market",'sobota = pełny market! śniadanie: Belfast Bap Co / Chowder Up z Twojej rolki',"St_George's_Market",'DBygKaNsccy'],
+ [54.5964,-5.9301,'City Hall','darmowy tour, ogrody, Titanic Memorial','Belfast_City_Hall'],
+ [54.6035,-5.9295,'Cathedral Quarter + Bakari','croissant z „najlepszej piekarni”; zaułek parasolek przy Commercial Court','Cathedral_Quarter,_Belfast','DYktzYvI-Z1'],
+ [54.57271,-6.02875,'Colin Glen — Alpine Coaster','sobota to najpewniejszy dzień! Glider G1 do Dairy Farm; rezerwuj slot','Colin_Glen','DGNp42Os3LP'],
+ [54.5985,-5.9560,'Meat & Mo Smokehouse','BBQ w drodze powrotnej (opcjonalnie + Peace Wall obok)',null,'DLmNU84Iv4Y'],
+ [54.6019,-5.9282,'Wieczór: Duke of York + Dirty Onion/Yardbird','muzyka na żywo; nightcap w Bert’s Jazz Bar','Cathedral_Quarter,_Belfast']
+], 'd1', 'Belfast').addTo(m1);
+const dzien3 = stops(m1, [
+ [54.6082,-5.9098,'Titanic Belfast + SS Nomadic','rezerwuj slot na rano','Titanic_Belfast'],
+ [54.6040,-5.9200,'Glass of Thrones','szlak witraży nabrzeżem w drodze powrotnej'],
+ [54.6096,-5.9410,'Crumlin Road Gaol','tour po południu (albo paranormalny wieczorem)','Crumlin_Road_Gaol'],
+ [54.6030,-5.9560,'Black cab tour / Peace Wall','jeśli nie zrobione 1.08','Peace_lines'],
+ [54.5850,-5.9330,"Kolacja: Maggie May's / Yügo / Ox",'wg apetytu i rezerwacji']
+], 'd3', 'Belfast');
+const dzien2 = stops(m2, [
+ [55.13491,-6.38117,'Dark Hedges','8:00–9:00 rano = pusto! parking przy Hedges Estate','Dark_Hedges','DN2f8jQ0g93'],
+ [55.24075,-6.51155,"Giant's Causeway",'przed 11:00; wejście darmowe, płatny parking NT',"Giant's_Causeway",'DN2f8jQ0g93'],
+ [55.20178,-6.52073,'Bushmills','lunch / destylarnia (szybki tour)','Old_Bushmills_Distillery'],
+ [55.23838,-6.44816,'Dunseverick Castle','przystanek przy drodze + klifowy spacer','Dunseverick_Castle'],
+ [55.24434,-6.36893,'Ballintoy Harbour','port Pyke z GoT','Ballintoy'],
+ [55.23954,-6.33242,'Carrick-a-Rede','slot z rezerwacją! ~1,5 h z parkingiem','Carrick-a-Rede_Rope_Bridge'],
+ [55.2040,-6.2420,'Ballycastle','przerwa na kawę/lody nad morzem','Ballycastle,_County_Antrim'],
+ [55.19596,-6.06325,'Torr Head','dramatyczna dróżka klifowa (odważnym; wolno!)','Torr_Head','DN2f8jQ0g93'],
+ [55.12525,-6.04235,'Cushendun + jaskinie','wioska NT + jaskinia Melisandre','Cushendun'],
+ [55.05176,-5.98848,'Galboly','opuszczona wioska — krótki spacer z A2','Garron_Plateau','DN2f8jQ0g93'],
+ [55.01945,-6.12407,'Glenariff Forest Park','kładki nad wodospadami — jeśli zostanie siła; powrót A2/M2 do Belfastu','Glenariff']
+], 'd2', 'Northern Ireland').addTo(m2);
+L.control.layers(null, {
+ '<span style="color:#ffb400">&#11044;</span> 1.08 (sb) — miasto + coaster': dzien1,
+ '<span style="color:#00c46a">&#11044;</span> 3.08 (pn) — Titanic i mroczna historia': dzien3
+}, {collapsed:false, position:'topright'}).addTo(m1);
+L.control.layers(null, {
+ '<span style="color:#4da6ff">&#11044;</span> 2.08 (nd) — pętla Causeway': dzien2
+}, {collapsed:false, position:'topright'}).addTo(m2);
+
+SITE_INIT();
+</script>
+</div>
+</body>
+</html>

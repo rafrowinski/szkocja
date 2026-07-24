@@ -1,8 +1,13 @@
-const CACHE = 'trip-shell-v1';
+const CACHE = 'trip-shell-v2';
 const RUNTIME = 'trip-runtime-v1';
 const CORE = [
   './',
   './index.html',
+  './szkocja.html',
+  './belfast.html',
+  './liverpool.html',
+  './engine.js',
+  './style.css',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js'
 ];

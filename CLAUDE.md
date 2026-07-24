@@ -1,8 +1,15 @@
 # Kontekst projektu
 
-Planer wycieczki po UK/Irlandii (25.07–08.08.2026): Edynburg+Highlands → Belfast → Liverpool.
-Trzy siostrzane repo hostowane na GitHub Pages: `szkocja`, `irlandia`, `anglia` (rafrowinski/*).
-Każde repo = jeden samowystarczalny `index.html` (inline CSS+JS, po polsku, dark theme, Leaflet 1.9.4 z cdnjs, kafelki OSM).
+Planer wycieczki po UK/Irlandii (25.07–08.08.2026). **To repo (`szkocja`) zawiera teraz CAŁĄ scaloną stronę** — repo `irlandia` i `anglia` są przestarzałe (zostały jako archiwum).
+
+## Struktura (po scaleniu)
+
+- `index.html` — hub: nawigacja, plan dzień po dniu, lista rezerwacji, kafelki miast.
+- `szkocja.html` / `belfast.html` / `liverpool.html` — strony miast: tylko dane (lookupy WIKI/IG, mapy, tablice markerów, trasy `stops`, `L.control.layers`, legendy) + `window.SITE` (defreg, wiki, ig, modes) + `SITE_INIT()` na końcu.
+- `engine.js` — wspólny silnik (opis niżej). **Każdą poprawkę silnika robi się RAZ, tutaj.**
+- `style.css` — wspólne style (dark theme, tabele→karty na mobile, zakładki, numerki tras, kafelki huba).
+- `sw.js` + `manifest.webmanifest` + `icon-*.png` — PWA: cache offline strony, Leafleta, kafelków OSM i zdjęć (cache tego, co obejrzane).
+- Sygnatury silnika: `mk(map, lat, lng, name, info, cat, img, wikiInline, region)` (wiki: inline albo `SITE.wiki[name]`; IG z `SITE.ig[name]`), `stops(map, list, cls, region)` (wpisy `[lat,lng,name,info,wiki,ig,cimg]`), `showTab(n)` generyczne (mapy przez `regMap()`), filtry generowane z kategorii obecnych w `REG` + `SITE.modes`.
 
 ## Architektura wspólnego "silnika" (identyczna we wszystkich trzech plikach)
 
@@ -33,3 +40,10 @@ Każde repo = jeden samowystarczalny `index.html` (inline CSS+JS, po polsku, dar
 - Plan: 25–28.07 Edynburg (nocleg 18 Holyrood Park Rd), 29–30.07 auto: Ballachulish (Aos Si Lodges) → Glen Coe/Glenfinnan → nocleg Broughty Ferry (Dundee), 31.07 powrót, oddanie auta, lot do Belfastu.
 - Osobny plik pomocniczy w sesji Cowork: `edynburg-dzien1-spacer.html` (mapka spaceru; scalona też do index).
 - IG kolekcja źródłowa: instagram.com/straszniedluganazwa/saved/scotland/… (67 postów, kody w lookupie `IG`).
+
+## Specyfika stron
+
+- **szkocja.html**: zakładki Edynburg/Highlands; filtr 🥘 haggis; trasy 26.07 (d1), 27.07 Royal Mile (d2), 28.07 A/B (d3a/d3b); trasy AllTrails + rowery (kategorie hike/bike).
+- **belfast.html**: Belfast/Okolice; filtr 🐉 GoT; trasy 1.08 (d1), 2.08 Causeway (d2), 3.08 (d3); priorytet: Dark Hedges + Causeway.
+- **liverpool.html**: Liverpool/Wypady/Londyn (3 zakładki); filtr 🎸 Beatlesi; dni 5–7.08 bez tras — do ułożenia.
+- Plan pobytu i noclegi: patrz tabela w `index.html`.
